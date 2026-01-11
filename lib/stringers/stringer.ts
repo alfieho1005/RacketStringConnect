@@ -1,7 +1,12 @@
 import { slugify } from "./utils";
+import type { SportId } from "@/config/sports";
 import type { Stringer } from "./types";
 
-const baseStringers = [
+type SeedStringer = Omit<Stringer, "slug" | "sports"> & {
+  sports: readonly SportId[];
+};
+
+const baseStringers: ReadonlyArray<SeedStringer> = [
   {
     id: "central-western",
     name: "Peak Sports",
@@ -84,7 +89,7 @@ const baseStringers = [
     },
     visibility: "active" as const,
   },
-] as const;
+];
 
 export const seedStringers: Stringer[] = baseStringers.map((entry) => ({
   id: entry.id,

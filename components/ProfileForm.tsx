@@ -44,7 +44,7 @@ export default function ProfileForm({ initialValues }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [isWorking, setIsWorking] = useState(false);
   const [selectedSports, setSelectedSports] = useState<SportId[]>(
-    initialValues?.sports ?? []
+    () => (initialValues?.sports ? [...initialValues.sports] : [])
   );
   const [contactFields, setContactFields] = useState<Record<keyof ContactInfo, string>>({
     whatsapp: initialValues?.contact.whatsapp ?? "",
@@ -61,7 +61,7 @@ export default function ProfileForm({ initialValues }: Props) {
       setPricing(initialValues.pricing ?? "");
       setArea(initialValues.area);
       setVisibility(initialValues.visibility);
-      setSelectedSports(initialValues.sports);
+      setSelectedSports(initialValues.sports ? [...initialValues.sports] : []);
       setContactFields({
         whatsapp: initialValues.contact.whatsapp ?? "",
         instagram: initialValues.contact.instagram ?? "",

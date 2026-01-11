@@ -10,9 +10,10 @@ import { getStringerBySlug } from "@/features/stringers/service";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const profile = await getStringerBySlug(params.slug);
+  const { slug } = await params;
+  const profile = await getStringerBySlug(slug);
 
   if (!profile) {
     return { title: "StringConnect" };
@@ -27,9 +28,10 @@ export async function generateMetadata({
 export default async function StringerProfilePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const stringer = await getStringerBySlug(params.slug);
+  const { slug } = await params;
+  const stringer = await getStringerBySlug(slug);
 
   if (!stringer) {
     notFound();
@@ -58,7 +60,11 @@ export default async function StringerProfilePage({
           <h1 className="text-3xl font-semibold text-slate-900">
             {stringer.name}
           </h1>
-          <p className="text-sm text-slate-500">{stringer.visibility === "active" ? "Currently active" : "Temporarily offline"}</p>
+          <p className="text-sm text-slate-500">
+            {stringer.visibility === "active"
+              ? "Currently active"
+              : "Temporarily offline"}
+          </p>
         </div>
 
         <div className="flex flex-wrap gap-3">
@@ -67,9 +73,7 @@ export default async function StringerProfilePage({
               key={sport?.id}
               className="flex items-center gap-1 rounded-2xl border border-slate-200/80 bg-slate-50/80 px-4 py-2 text-xs font-semibold text-slate-600"
             >
-              {sport?.icon && (
-                <sport.icon className="h-4 w-4" aria-hidden />
-              )}
+              {sport?.icon ? <sport.icon className="h-4 w-4" aria-hidden /> : null}
               {sport?.label}
             </span>
           ))}
@@ -80,9 +84,9 @@ export default async function StringerProfilePage({
             <h2 className="text-sm font-semibold uppercase tracking-[0.4em] text-slate-400">
               Description
             </h2>
-          <p className="text-lg text-slate-700 whitespace-pre-line">
-            {stringer.description}
-          </p>
+            <p className="whitespace-pre-line text-lg text-slate-700">
+              {stringer.description}
+            </p>
           </article>
 
           <article className="space-y-3">
@@ -104,7 +108,6 @@ export default async function StringerProfilePage({
           </h2>
           <ContactButtons contact={stringer.contact} />
         </div>
-
       </section>
     </main>
   );

@@ -16,7 +16,7 @@ export interface Stringer {
   slug: string;
   name: string;
   description: string;
-  sports: SportId[];
+  sports: readonly SportId[];
   area: AreaId;
   pricing?: string;
   contact: ContactInfo;

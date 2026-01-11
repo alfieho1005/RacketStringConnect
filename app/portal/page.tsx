@@ -12,9 +12,11 @@ export const metadata: Metadata = {
 export default async function PortalPage({
   searchParams,
 }: {
-  searchParams?: { slug?: string };
+  searchParams?: Promise<{ slug?: string }>;
 }) {
-  const slug = searchParams?.slug;
+  const sp = (await searchParams) ?? {};
+  const slug = sp.slug;
+
   const stringer = slug ? await getStringerBySlug(slug) : undefined;
 
   return (
