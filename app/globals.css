@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f5fb;
+  --foreground: #0f172a;
+}
+
+body {
+  background: radial-gradient(circle at top left, #e0f2fe, transparent 45%),
+    radial-gradient(circle at bottom right, #fef9c3, transparent 40%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: #facc15;
+  color: #0f172a;
+}
