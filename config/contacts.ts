@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Hash, Instagram, Mail, MessageSquare, Phone } from "lucide-react";
+import { Globe, Hash, Instagram, Mail, MessageSquare, Phone } from "lucide-react";
 
 const sanitizeNumber = (value: string) => value.replace(/[^0-9]/g, "");
 
@@ -17,7 +17,8 @@ export type ContactChannel =
   | "instagram"
   | "thread"
   | "email"
-  | "phone";
+  | "phone"
+  | "website";
 
 export type ContactDefinition = {
   label: string;
@@ -43,6 +44,12 @@ export const contactDefinitions: Record<ContactChannel, ContactDefinition> = {
     label: "Threads",
     icon: Hash,
     buildLink: (value) => ensureProtocol(value, "www.threads.net"),
+  },
+  website: {
+    label: "Website",
+    icon: Globe,
+    buildLink: (value) =>
+      value.startsWith("http") ? value : `https://${value.replace(/^https?:\/\//, "")}`,
   },
   email: {
     label: "Email",

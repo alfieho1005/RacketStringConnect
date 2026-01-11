@@ -9,6 +9,7 @@ export type ContactInfo = Partial<{
   thread: string;
   email: string;
   phone: string;
+  website: string;
 }>;
 
 export interface Stringer {

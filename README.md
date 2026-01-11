@@ -21,6 +21,12 @@
 
 > Node 18.x works with this setup (the project targets Next.js 15 to stay compatible with the sandboxed runtime). If you see Node warnings, upgrade to the latest Node 18 release.
 
+## Deployment 
+npm run lint
+npm run build
+npx @cloudflare/next-on-pages
+npx wrangler pages deploy .vercel/output/static --project-name racketstringconnect
+
 ## Project structure
 - `app/` – App router pages: explore landing, dynamic stringer profile, stringer portal, and the optional `/api/stringers` route.
 - `components/` – Reusable UI pieces like `StringerCard`, `ContactButtons`, `Filters`, `ExploreSection`, and the portal form.
@@ -33,6 +39,24 @@
 - `lib/stringers/memoryRepository.ts` exposes `list`, `getBySlug`, and `upsert` to mutate the in-memory store.
 - `app/api/stringers/route.ts` demonstrates how to persist new or edited profiles through a JSON POST and reuses the repository.
 - To swap in a real database, replace `lib/stringers/memoryRepository.ts` (and any dependent data layer) with implementations that call your preferred storage (SQL, Prisma, Firebase, etc.), keep `features/stringers/service.ts` as the single source of truth, and ensure the API route and portal form continue to talk to the new repository.
+
+## Managing stringers
+- To **edit the seeded list**, open `lib/stringers/stringer.ts`, keep every `Stringer` entry aligned with the `lib/stringers/types.ts` shape, and be intentional about `id`/`slug` so every stringer stays unique.
+- The `seedStringers` array is what populates `memoryRepository`. Updating that file (or adding a new object) automatically updates everything that calls `fetchActiveStringers()` because the repository clones `seedStringers` into its in-memory store when the app boots.
+- For live updates without touching the seed data, browse to `/portal` and submit the form backed by `app/api/stringers/route.ts`; the portal hits `stringerRepository.upsert` so you can adjust visibility, sports, or area and the UI refreshes on the next request.
+- After changing data, run `npm run dev` and visit http://localhost:3000 so you can verify filters, cards, and counts reflect your edits before deploying.
+
+## Stringer fields
+- `id` – unique identifier for the stringer profile (used by `memoryRepository` and to keep internal data stable).
+- `slug` – URL-friendly identifier (generated from `name` with `slugify` unless you supply one). It is the value used under `/stringers/{slug}` and as the React key in the explore list.
+- `name` – display title used on cards and profile pages.
+- `description` – multi-line copy describing the stringer’s services or storefront.
+- `sports` – array of `SportId` values (see `config/sports/*`) that determines the sport badges and filter matches.
+- `area` – `AreaId` from `config/areas` that decides which district/area the stringer belongs to.
+- `pricing` – optional pricing text shown in the card’s pricing block, defaults to “Contact for price” when empty.
+- `contact` – partial `ContactInfo` object (`lib/stringers/types.ts:6-10`) containing WhatsApp, Instagram, Thread, email, phone, or website info for the CTA buttons.
+- `visibility` – `"active"` or `"inactive"`, and `features/stringers/service.ts` only surfaces active entries for the explore view.
+- `sortId` – optional numeric sort order used by `fetchActiveStringers()` so lower numbers appear earlier in the UI.
 
 ## What StringConnect does NOT do
 - ❌ No bookings, scheduling, or calendar flows.

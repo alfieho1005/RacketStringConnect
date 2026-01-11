@@ -7,6 +7,8 @@ import { getSportDefinition } from "@/config/sports";
 import ContactButtons from "@/components/ContactButtons";
 import { getStringerBySlug } from "@/features/stringers/service";
 
+export const runtime = "edge";
+
 export async function generateMetadata({
   params,
 }: {
@@ -16,11 +18,11 @@ export async function generateMetadata({
   const profile = await getStringerBySlug(slug);
 
   if (!profile) {
-    return { title: "StringConnect" };
+    return { title: "RacketStringConnect" };
   }
 
   return {
-    title: `${profile.name} · StringConnect`,
+    title: `${profile.name} · RacketStringConnect`,
     description: profile.description,
   };
 }

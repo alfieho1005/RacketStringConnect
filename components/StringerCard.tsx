@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import type { Stringer } from "@/lib/stringers/types";
 import { getAreaLabel } from "@/config/areas";
 import { getSportDefinition } from "@/config/sports";
@@ -19,24 +18,15 @@ export default function StringerCard({ stringer }: Props) {
 
   return (
     <article className="flex h-full flex-col rounded-[32px] border border-white/60 bg-white/70 p-6 shadow-xl shadow-slate-900/5 backdrop-blur">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
-            {areaLabel}
-          </p>
-          <Link
-            className="text-2xl font-semibold leading-snug text-slate-900 transition hover:text-slate-700"
-            href={`/stringers/${stringer.slug}`}
-          >
-            {stringer.name}
-          </Link>
-        </div>
+      <div className="space-y-2">
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
+          {areaLabel}
+        </p>
         <Link
+          className="text-2xl font-semibold leading-snug text-slate-900 transition hover:text-slate-700"
           href={`/stringers/${stringer.slug}`}
-          aria-label={`View ${stringer.name} profile`}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-900/10 bg-slate-50 text-slate-600 transition hover:bg-slate-900/5"
         >
-          <ArrowUpRight className="h-5 w-5" />
+          {stringer.name}
         </Link>
       </div>
 
@@ -70,7 +60,7 @@ export default function StringerCard({ stringer }: Props) {
         </div>
       </div>
 
-      <div className="mt-6"> 
+      <div className="mt-6">
         <ContactButtons contact={stringer.contact} />
       </div>
     </article>

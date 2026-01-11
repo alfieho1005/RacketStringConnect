@@ -1,9 +1,16 @@
-import { randomUUID } from "crypto";
 import { seedStringers } from "./stringer";
 import { slugify } from "./utils";
 import type { Stringer, StringerPayload } from "./types";
 
 const stringerStore: Stringer[] = [...seedStringers];
+
+const generateId = () => {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+
+  return Math.random().toString(36).slice(2, 11);
+};
 
 export const stringerRepository = {
   async list(): Promise<Stringer[]> {
@@ -21,7 +28,7 @@ export const stringerRepository = {
     );
 
     const baseEntry: Stringer = {
-      id: existingIndex >= 0 ? stringerStore[existingIndex].id : randomUUID(),
+      id: existingIndex >= 0 ? stringerStore[existingIndex].id : generateId(),
       slug,
       name: payload.name,
       description: payload.description,

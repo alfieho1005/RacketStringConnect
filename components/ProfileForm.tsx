@@ -28,6 +28,7 @@ const contactFieldDefinitions: Array<{ id: keyof ContactInfo; label: string }> =
   { id: "thread", label: "Threads" },
   { id: "email", label: "Email" },
   { id: "phone", label: "Phone" },
+  { id: "website", label: "Website" },
 ];
 
 export default function ProfileForm({ initialValues }: Props) {
@@ -52,6 +53,7 @@ export default function ProfileForm({ initialValues }: Props) {
     thread: initialValues?.contact.thread ?? "",
     email: initialValues?.contact.email ?? "",
     phone: initialValues?.contact.phone ?? "",
+    website: initialValues?.contact.website ?? "",
   });
 
   useEffect(() => {
@@ -68,6 +70,7 @@ export default function ProfileForm({ initialValues }: Props) {
         thread: initialValues.contact.thread ?? "",
         email: initialValues.contact.email ?? "",
         phone: initialValues.contact.phone ?? "",
+        website: initialValues.contact.website ?? "",
       });
     }
   }, [initialValues]);

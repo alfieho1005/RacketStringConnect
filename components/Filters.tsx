@@ -51,7 +51,7 @@ export default function Filters({
               type="button"
               aria-pressed={isActive}
               onClick={() => onSportChange(isActive ? undefined : sport.id)}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+            className={`rounded-full border px-4 py-2 text-sm font-semibold transition min-w-[110px] text-center flex-shrink-0 ${
                 isActive
                   ? "border-slate-900 bg-slate-900/5 text-slate-900"
                   : "border-slate-200 bg-white text-slate-500"
@@ -77,7 +77,7 @@ export default function Filters({
               onClick={() =>
                 onDistrictChange(isActive ? undefined : district.id)
               }
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+              className={`rounded-full border px-4 py-2 text-sm font-semibold transition min-w-[110px] text-center flex-shrink-0 ${
                 isActive
                   ? "border-slate-900 bg-slate-900/5 text-slate-900"
                   : "border-slate-200 bg-white text-slate-500"
@@ -104,7 +104,7 @@ export default function Filters({
                   onAreaChange(isActive ? undefined : area.id)
                 }
                 key={area.id}
-                className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                className={`rounded-full border px-4 py-2 text-sm font-semibold transition min-w-[110px] text-center flex-shrink-0 ${
                   isActive
                     ? "border-slate-900 bg-slate-900/5 text-slate-900"
                     : "border-slate-200 bg-white text-slate-500"
@@ -118,11 +118,11 @@ export default function Filters({
       )}
 
       <div className="flex justify-end">
-        <button
-          type="button"
-          onClick={onReset}
-          className="rounded-full border px-4 py-2 text-sm font-semibold transition border-slate-200 bg-white text-slate-500 hover:border-slate-900 hover:text-slate-900"
-        >
+          <button
+            type="button"
+            onClick={onReset}
+            className="rounded-full border px-4 py-2 text-sm font-semibold transition border-slate-200 bg-white text-slate-500 hover:border-slate-900 hover:text-slate-900 min-w-[110px] flex-shrink-0"
+          >
           Reset
         </button>
       </div>

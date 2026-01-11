@@ -73,7 +73,7 @@ export default function ExploreSection({ stringers }: Props) {
 
       <div className="grid gap-6 md:grid-cols-2">
         {filteredStringers.map((stringer) => (
-          <StringerCard key={stringer.id} stringer={stringer} />
+          <StringerCard key={stringer.slug} stringer={stringer} />
         ))}
       </div>
     </section>

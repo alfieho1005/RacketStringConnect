@@ -3,10 +3,12 @@ import Link from "next/link";
 import ProfileForm from "@/components/ProfileForm";
 import { getStringerBySlug } from "@/features/stringers/service";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
-  title: "Stringer Portal | StringConnect",
+  title: "Stringer Portal | RacketStringConnect",
   description:
-    "Create or update your stringing profile, then direct players to your preferred contact methods.",
+    "Create or update your stringing profile, then direct players to your preferred contact methods while keeping discovery simple.",
 };
 
 export default async function PortalPage({

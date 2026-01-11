@@ -37,14 +37,14 @@ export default function RootLayout({
       >
         <div className="flex min-h-screen flex-col">
           <header className="sticky top-0 z-30 border-b border-white/60 bg-slate-50/90 backdrop-blur">
-            <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5">
+            <div className="mx-auto flex max-w-6xl flex-col items-start gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between">
               <Link
                 href="/"
                 className="text-2xl font-semibold tracking-tight text-slate-900"
               >
                 RacketStringConnect
               </Link>
-              <nav className="flex items-center gap-4 text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">
+              <nav className="flex w-full flex-wrap justify-start gap-3 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-500 sm:w-auto sm:justify-end">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
