@@ -42,6 +42,9 @@ export default function ProfileForm({ initialValues }: Props) {
   const [visibility, setVisibility] = useState<Stringer["visibility"]>(
     initialValues?.visibility ?? "active"
   );
+  const [hasCertifiedStringers, setHasCertifiedStringers] = useState(
+    initialValues?.hasCertifiedStringers ?? false
+  );
   const [error, setError] = useState<string | null>(null);
   const [isWorking, setIsWorking] = useState(false);
   const [selectedSports, setSelectedSports] = useState<SportId[]>(
@@ -72,6 +75,7 @@ export default function ProfileForm({ initialValues }: Props) {
         phone: initialValues.contact.phone ?? "",
         website: initialValues.contact.website ?? "",
       });
+      setHasCertifiedStringers(initialValues.hasCertifiedStringers ?? false);
     }
   }, [initialValues]);
 
@@ -112,6 +116,7 @@ export default function ProfileForm({ initialValues }: Props) {
       pricing: pricing.trim() || undefined,
       visibility,
       contact: contactPayload,
+      hasCertifiedStringers,
       slug: initialValues?.slug,
     };
 
@@ -221,6 +226,35 @@ export default function ProfileForm({ initialValues }: Props) {
           placeholder="e.g. From RM 30 or contact for custom quotes"
           className="mt-2 w-full rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 outline-none focus:border-slate-900"
         />
+      </div>
+
+      <div>
+        <p className="text-sm font-semibold text-slate-600">
+          Certified Stringers (穿線師認證)
+        </p>
+        <div className="mt-2 flex gap-3">
+          {[
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ].map((option) => (
+            <button
+              key={option.label}
+              type="button"
+              aria-pressed={hasCertifiedStringers === option.value}
+              onClick={() => setHasCertifiedStringers(option.value)}
+              className={`rounded-2xl border px-4 py-2 text-sm font-semibold transition ${
+                hasCertifiedStringers === option.value
+                  ? "border-slate-900 bg-slate-900/5 text-slate-900"
+                  : "border-slate-200 bg-white text-slate-500"
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+        <p className="mt-2 text-xs text-slate-400">
+          Mark “Yes” if your shop employs certified stringers.
+        </p>
       </div>
 
       <fieldset className="space-y-2">

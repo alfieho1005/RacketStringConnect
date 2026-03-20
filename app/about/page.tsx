@@ -54,6 +54,37 @@ export default function AboutPage() {
               details below to be featured.
             </p>
           </div>
+          <div className="space-y-3 text-base leading-relaxed text-slate-700">
+            <p className="text-lg font-semibold text-slate-900">
+              歡迎查詢｜加入 RacketStringConnect
+            </p>
+            <p>
+              準備好加入 RacketStringConnect，只要提供以下基本資料，球友就可以即刻聯絡到你。
+            </p>
+            <p className="text-base font-semibold text-slate-700 leading-relaxed">
+              🎾 免費加入<br />
+              目前新增穿線師／穿線店完全不收費，只需提交以下資料即可刊登。
+            </p>
+            <p className="font-semibold text-slate-900">請提供以下內容：</p>
+            <ul className="space-y-2 text-base text-slate-700 list-inside list-disc">
+              <li>你對外使用嘅名稱（個人／品牌）</li>
+              <li>你嘅服務簡介（穿線技術、使用器材、專長等）</li>
+              <li>你平時最常用、會即時回覆嘅聯絡方式（Instagram／WhatsApp／電郵／電話）</li>
+              <li>收費簡介（幫助球友 DM 前有基本期望） - Optional</li>
+            </ul>
+            <p className="text-base leading-relaxed text-slate-700">
+              📩 請將以上資料 DM 到{" "}
+              <Link
+                className="font-semibold text-slate-900 underline-offset-4 hover:underline"
+                href={`https://instagram.com/${stringlabInstagram}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                @{stringlabInstagram}
+              </Link>{" "}
+              ，我哋會一步步協助你，確保你嘅頁面喺 RacketStringConnect 上呈現得專業又清晰。
+            </p>
+          </div>
           <ul className="space-y-2 text-base text-slate-700 list-inside list-disc">
             <li>
               <strong>Name</strong> you go by professionally or the brand you represent.

@@ -22,10 +22,16 @@
 > Node 18.x works with this setup (the project targets Next.js 15 to stay compatible with the sandboxed runtime). If you see Node warnings, upgrade to the latest Node 18 release.
 
 ## Deployment 
-npm run lint
-npm run build
-npx @cloudflare/next-on-pages
-npx wrangler pages deploy .vercel/output/static --project-name racketstringconnect
+- Run the lint/build/export steps before deploying:
+  npm run lint
+  npm run build
+  npx @cloudflare/next-on-pages
+  npx wrangler pages deploy .vercel/output/static --project-name racketstringconnect
+
+### Cloudflare login / environment prep
+- Edit your shell profile (e.g. `nano ~/.bashrc`) to add any required PATH or node version tweaks for Wrangler.
+- Source your profile so the changes take effect: `source ~/.bashrc`.
+- Confirm Cloudflare login before deploying with `npx wrangler whoami`; if it opens an OAuth link, complete it in the browser so the deploy step can succeed.
 
 ## Project structure
 - `app/` – App router pages: explore landing, dynamic stringer profile, stringer portal, and the optional `/api/stringers` route.
@@ -57,6 +63,17 @@ npx wrangler pages deploy .vercel/output/static --project-name racketstringconne
 - `contact` – partial `ContactInfo` object (`lib/stringers/types.ts:6-10`) containing WhatsApp, Instagram, Thread, email, phone, or website info for the CTA buttons.
 - `visibility` – `"active"` or `"inactive"`, and `features/stringers/service.ts` only surfaces active entries for the explore view.
 - `sortId` – optional numeric sort order used by `fetchActiveStringers()` so lower numbers appear earlier in the UI.
+
+## Seeded stringer highlight
+
+- `id`: `Fstrss-hang-hau` (slug `Fstrss-hang-hau`) – the Hang Hau-based creative shop named **Fstrss** that covers “一切相關Tennis事項” including restringing, restring/Grip/Grommet repairs, and coaching.
+- `sports`: `tennis`; `area`: `hang-hau`; `pricing`: “Pricing available upon enquiry”.
+- `hasCertifiedStringers`: `false` – this profile is currently marked as not offering certified stringers, so it only shows up when you either filter for “All” or “No” on the new certified filter.
+- `contact`: WhatsApp `+85296320729`, Instagram `FS_TENNIS_LESSON_STRINGING`.
+
+## Certified stringer UI note
+
+- The certified stringers badge and filter controls were temporarily hidden (phase 1) while the data layer keeps capturing `hasCertifiedStringers`. Bring the UI back in phase 2 by reintroducing the filter controls and badges in `components/Filters.tsx` and `components/StringerCard.tsx`.
 
 ## What StringConnect does NOT do
 - ❌ No bookings, scheduling, or calendar flows.

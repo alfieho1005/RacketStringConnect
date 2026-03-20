@@ -4,45 +4,93 @@ import { sportDefinitions } from "@/config/sports";
 import { areaOptions } from "@/config/areas";
 import { districtOptions } from "@/config/district";
 import { districtToSubdistrictIds } from "@/config/district_to_areas_mapping";
+import { countryOptions } from "@/config/countries";
+import { countryToDistrictIds } from "@/config/country_to_districts";
 import type { AreaId } from "@/config/areas";
 import type { DistrictId } from "@/config/district";
 import type { SportId } from "@/config/sports";
+import type { CountryId } from "@/config/countries";
 
 const areaOptionMap = new Map(areaOptions.map((option) => [option.id, option] as const));
+const districtOptionMap = new Map(districtOptions.map((option) => [option.id, option] as const));
 
 type Props = {
   selectedSport?: SportId;
   selectedDistrict?: DistrictId;
   selectedArea?: AreaId;
+  selectedCountry?: CountryId;
   onSportChange: (value?: SportId) => void;
   onDistrictChange: (value?: DistrictId) => void;
   onAreaChange: (value?: AreaId) => void;
+  onCountryChange: (value?: CountryId) => void;
   onReset: () => void;
 };
+
+function FilterRow({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="space-y-2">
+      <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
+        {label}
+      </p>
+      {/* Horizontal scroll on mobile, wrap on md+ */}
+      <div className="flex gap-2 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] md:flex-wrap md:overflow-visible md:pb-0">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+const activeClass = "border-yellow-400 bg-yellow-400 text-slate-900 font-bold shadow-sm";
+const inactiveClass = "border-gray-200 bg-white text-slate-600 hover:border-gray-300 hover:text-slate-900";
 
 export default function Filters({
   onSportChange,
   onDistrictChange,
   onAreaChange,
+  onCountryChange,
   onReset,
   selectedSport,
   selectedDistrict,
   selectedArea,
+  selectedCountry,
 }: Props) {
   const availableAreaOptions = selectedDistrict
     ? districtToSubdistrictIds[selectedDistrict]
         .map((areaId) => areaOptionMap.get(areaId))
-        .filter(
-          (area): area is (typeof areaOptions)[number] => Boolean(area)
-        )
+        .filter((area): area is (typeof areaOptions)[number] => Boolean(area))
     : [];
 
+  const availableDistrictOptions = selectedCountry
+    ? (countryToDistrictIds[selectedCountry] ?? [])
+        .map((districtId) => districtOptionMap.get(districtId))
+        .filter(
+          (district): district is (typeof districtOptions)[number] =>
+            Boolean(district)
+        )
+    : districtOptions;
+
   return (
-    <section className="space-y-4 rounded-3xl border border-white/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5">
-      <div className="flex items-center gap-3 overflow-x-auto pb-1 md:flex-wrap">
-        <p className="text-sm font-semibold uppercase tracking-[0.5em] text-slate-500">
-          Sport
-        </p>
+    <section className="space-y-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+      <FilterRow label="Country">
+        {countryOptions.map((country) => {
+          const isActive = selectedCountry === country.id;
+          return (
+            <button
+              key={country.id}
+              type="button"
+              aria-pressed={isActive}
+              onClick={() => onCountryChange(isActive ? undefined : country.id)}
+              className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+                isActive ? activeClass : inactiveClass
+              }`}
+            >
+              {country.label}
+            </button>
+          );
+        })}
+      </FilterRow>
+
+      <FilterRow label="Sport">
         {sportDefinitions.map((sport) => {
           const isActive = selectedSport === sport.id;
           return (
@@ -51,79 +99,68 @@ export default function Filters({
               type="button"
               aria-pressed={isActive}
               onClick={() => onSportChange(isActive ? undefined : sport.id)}
-            className={`rounded-full border px-4 py-2 text-sm font-semibold transition min-w-[110px] text-center flex-shrink-0 ${
-                isActive
-                  ? "border-slate-900 bg-slate-900/5 text-slate-900"
-                  : "border-slate-200 bg-white text-slate-500"
+              className={`flex shrink-0 items-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+                isActive ? activeClass : inactiveClass
               }`}
             >
+              <sport.icon className="h-3.5 w-3.5 flex-shrink-0" aria-hidden />
               {sport.label}
             </button>
           );
         })}
-      </div>
+      </FilterRow>
 
-      <div className="flex items-center gap-3 overflow-x-auto pb-1 md:flex-wrap">
-        <p className="text-sm font-semibold uppercase tracking-[0.4em] text-slate-500">
-          District
-        </p>
-        {districtOptions.map((district) => {
-          const isActive = selectedDistrict === district.id;
-          return (
-            <button
-              key={district.id}
-              type="button"
-              aria-pressed={isActive}
-              onClick={() =>
-                onDistrictChange(isActive ? undefined : district.id)
-              }
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition min-w-[110px] text-center flex-shrink-0 ${
-                isActive
-                  ? "border-slate-900 bg-slate-900/5 text-slate-900"
-                  : "border-slate-200 bg-white text-slate-500"
-              }`}
-            >
-              {district.label}
-            </button>
-          );
-        })}
-      </div>
+      {selectedCountry && availableDistrictOptions.length > 0 && (
+        <FilterRow label="District">
+          {availableDistrictOptions.map((district) => {
+            const isActive = selectedDistrict === district.id;
+            return (
+              <button
+                key={district.id}
+                type="button"
+                aria-pressed={isActive}
+                onClick={() =>
+                  onDistrictChange(isActive ? undefined : district.id)
+                }
+                className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+                  isActive ? activeClass : inactiveClass
+                }`}
+              >
+                {district.label}
+              </button>
+            );
+          })}
+        </FilterRow>
+      )}
 
       {selectedDistrict && availableAreaOptions.length > 0 && (
-        <div className="flex items-center gap-3 overflow-x-auto pb-1 md:flex-wrap">
-          <p className="text-sm font-semibold uppercase tracking-[0.4em] text-slate-500">
-            Area
-          </p>
+        <FilterRow label="Area">
           {availableAreaOptions.map((area) => {
             const isActive = selectedArea === area.id;
             return (
               <button
                 type="button"
                 aria-pressed={isActive}
-                onClick={() =>
-                  onAreaChange(isActive ? undefined : area.id)
-                }
+                onClick={() => onAreaChange(isActive ? undefined : area.id)}
                 key={area.id}
-                className={`rounded-full border px-4 py-2 text-sm font-semibold transition min-w-[110px] text-center flex-shrink-0 ${
-                  isActive
-                    ? "border-slate-900 bg-slate-900/5 text-slate-900"
-                    : "border-slate-200 bg-white text-slate-500"
+                className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+                  isActive ? activeClass : inactiveClass
                 }`}
               >
                 {area.label}
               </button>
             );
           })}
-        </div>
+        </FilterRow>
       )}
 
-      <div className="flex justify-end">
-          <button
-            type="button"
-            onClick={onReset}
-            className="rounded-full border px-4 py-2 text-sm font-semibold transition border-slate-200 bg-white text-slate-500 hover:border-slate-900 hover:text-slate-900 min-w-[110px] flex-shrink-0"
-          >
-          Reset
+      <div className="flex justify-end pt-1">
+        <button
+          type="button"
+          onClick={onReset}
+          className="rounded-lg border border-gray-200 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-gray-400 hover:text-slate-700"
+        >
+          Reset all
         </button>
       </div>
     </section>

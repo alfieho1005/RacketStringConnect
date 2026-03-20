@@ -37,6 +37,10 @@ export const stringerRepository = {
       pricing: payload.pricing,
       contact: payload.contact,
       visibility: payload.visibility,
+      hasCertifiedStringers:
+        payload.hasCertifiedStringers ??
+        stringerStore[existingIndex]?.hasCertifiedStringers ??
+        false,
       sortId: payload.sortId ?? stringerStore[existingIndex]?.sortId,
     };
 

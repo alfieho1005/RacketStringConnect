@@ -22,6 +22,7 @@ export interface Stringer {
   pricing?: string;
   contact: ContactInfo;
   visibility: Visibility;
+  hasCertifiedStringers?: boolean;
   sortId?: number;
 }
 
@@ -34,5 +35,6 @@ export interface StringerPayload {
   pricing?: string;
   contact: ContactInfo;
   visibility: Visibility;
+  hasCertifiedStringers?: boolean;
   sortId?: number;
 }

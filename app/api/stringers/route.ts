@@ -11,6 +11,9 @@ type Visibility = (typeof visibilities)[number];
 const isValidVisibility = (value: unknown): value is Visibility =>
   typeof value === "string" && visibilities.includes(value as Visibility);
 
+const isBoolean = (value: unknown): value is boolean =>
+  typeof value === "boolean";
+
 export async function GET() {
   const stringers = await stringerRepository.list();
   return NextResponse.json({ stringers });
@@ -55,6 +58,9 @@ export async function POST(request: Request) {
     pricing: body.pricing,
     contact: body.contact ?? {},
     visibility: body.visibility,
+    hasCertifiedStringers: isBoolean(body.hasCertifiedStringers)
+      ? body.hasCertifiedStringers
+      : undefined,
     slug: body.slug,
   };
 

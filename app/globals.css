@@ -1,16 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f5fb;
+  --brand-yellow: #facc15;
+  --brand-yellow-hover: #eab308;
+  --brand-dark: #0f172a;
+  --background: #f8fafc;
   --foreground: #0f172a;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: radial-gradient(circle at top left, #e0f2fe, transparent 45%),
-    radial-gradient(circle at bottom right, #fef9c3, transparent 40%),
-    var(--background);
+  background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Bigger tap targets on mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+  }
 }
 
 ::selection {

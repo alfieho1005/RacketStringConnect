@@ -16,9 +16,7 @@ export default function ContactButtons({ contact }: Props) {
   return (
     <div className="flex flex-wrap gap-2">
       {channels.map(([channel, value]) => {
-        if (!value) {
-          return null;
-        }
+        if (!value) return null;
 
         const definition = contactDefinitions[channel];
         const href = definition.buildLink(value);
@@ -26,13 +24,13 @@ export default function ContactButtons({ contact }: Props) {
         return (
           <a
             aria-label={`Contact via ${definition.label}`}
-            className="flex items-center gap-2 rounded-2xl border border-white/40 bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600 shadow-sm shadow-slate-900/10 transition hover:border-slate-900/40 hover:text-slate-900"
+            className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 shadow-sm transition hover:border-yellow-400 hover:text-slate-900 active:bg-yellow-50"
             href={href}
             key={channel}
-            rel="noreferrer"
+            rel="noopener"
             target="_blank"
           >
-            <definition.icon className="h-4 w-4" aria-hidden />
+            <definition.icon className="h-4 w-4 shrink-0" aria-hidden />
             {definition.label}
           </a>
         );
