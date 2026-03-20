@@ -113,18 +113,18 @@ export default function ExploreSection({ stringers }: Props) {
           </div>
 
           {/* Sport stats */}
-          <div className="grid grid-cols-3 gap-3 lg:flex lg:flex-col lg:min-w-[200px]">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:flex lg:flex-col lg:min-w-[200px]">
             {sportCounts.map((sport) => (
               <div
                 key={sport.id}
-                className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-800/60 px-3 py-3 sm:px-4"
+                className="flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-800/60 px-3 py-3"
               >
-                <sport.icon className="h-5 w-5 text-yellow-400 flex-shrink-0" aria-hidden />
+                <sport.icon className="h-4 w-4 shrink-0 text-yellow-400" aria-hidden />
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-white truncate">
+                  <p className="text-xs font-semibold text-white leading-tight">
                     {sport.label}
                   </p>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-[10px] text-slate-500">
                     {sport.count} stringer{sport.count !== 1 ? "s" : ""}
                   </p>
                 </div>
