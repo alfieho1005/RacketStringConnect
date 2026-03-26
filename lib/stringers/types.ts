@@ -1,4 +1,5 @@
 import type { AreaId } from "@/config/areas";
+import type { CountryId } from "@/config/countries";
 import type { SportId } from "@/config/sports";
 
 export type Visibility = "active" | "inactive";
@@ -19,6 +20,7 @@ export interface Stringer {
   description: string;
   sports: readonly SportId[];
   area: AreaId;
+  country?: CountryId;
   pricing?: string;
   contact: ContactInfo;
   visibility: Visibility;
@@ -32,6 +34,7 @@ export interface StringerPayload {
   description: string;
   sports: SportId[];
   area: AreaId;
+  country?: CountryId;
   pricing?: string;
   contact: ContactInfo;
   visibility: Visibility;
