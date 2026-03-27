@@ -6,12 +6,6 @@ import { areaOptions } from "@/config/areas";
 import type { AreaId } from "@/config/areas";
 import { districtOptions } from "@/config/district";
 import { districtToSubdistrictIds } from "@/config/district_to_areas_mapping";
-import { getDistrictsByCountry } from "@/config/country_to_districts";
-import {
-  countryOptions,
-  DEFAULT_COUNTRY,
-  type CountryId,
-} from "@/config/countries";
 import { sportDefinitions } from "@/config/sports";
 import type { SportId } from "@/config/sports";
 import { stringerJoinConfig, type StringerJoinLabels } from "@/config/stringerJoin";
@@ -28,7 +22,6 @@ interface FormState {
   facebook: string;
   website: string;
   area: AreaId | "";
-  country: CountryId;
   district: DistrictId | "";
   pricing: string;
   description: string;
@@ -46,7 +39,6 @@ const initialFormState: FormState = {
   facebook: "",
   website: "",
   area: "",
-  country: DEFAULT_COUNTRY,
   district: "",
   pricing: "",
   description: "",
@@ -82,22 +74,7 @@ export default function StringerJoinForm({
     [formState.sports],
   );
 
-  const districtIdOptions = useMemo<
-    readonly (typeof districtOptions)[number][]
-  >(() => {
-    const ids = getDistrictsByCountry(formState.country);
-    if (ids.length === 0) {
-      return [];
-    }
-    return ids
-      .map((districtId) =>
-        districtOptions.find((district) => district.id === districtId)
-      )
-      .filter(
-        (district): district is (typeof districtOptions)[number] =>
-          Boolean(district)
-      );
-  }, [formState.country]);
+  const districtIdOptions = districtOptions;
 
   const availableAreaOptions = useMemo<
     readonly (typeof areaOptions)[number][]
@@ -182,7 +159,6 @@ export default function StringerJoinForm({
         name: formState.name.trim(),
         description: formState.description.trim(),
         sports: formState.sports,
-        country: formState.country,
         area: formState.area,
         pricing: formState.pricing.trim() || undefined,
         contact,

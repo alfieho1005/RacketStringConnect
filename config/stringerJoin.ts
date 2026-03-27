@@ -8,7 +8,6 @@ export type StringerJoinLabels = {
   phone: string;
   whatsapp: string;
   area: string;
-  country: string;
   district: string;
   pricing: string;
   description: string;
@@ -46,7 +45,6 @@ export const stringerJoinConfig: StringerJoinConfig = {
     phone: "Phone 電話",
     whatsapp: "WhatsApp 聯絡",
     area: "分區 Neighbourhood",
-    country: "地區 Region",
     district: "所在地區 District",
     pricing: "收費參考（選填）",
     description: "服務簡介 About your service",

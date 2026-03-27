@@ -8,14 +8,8 @@ import type { AreaId } from "@/config/areas";
 import { districtOptions } from "@/config/district";
 import type { DistrictId } from "@/config/district";
 import { districtToSubdistrictIds } from "@/config/district_to_areas_mapping";
-import { getDistrictsByCountry } from "@/config/country_to_districts";
 import { sportDefinitions } from "@/config/sports";
 import type { SportId } from "@/config/sports";
-import {
-  countryOptions,
-  DEFAULT_COUNTRY,
-  type CountryId,
-} from "@/config/countries";
 
 type Props = {
   initialValues?: Stringer;
@@ -61,9 +55,6 @@ export default function ProfileForm({ initialValues }: Props) {
   const [area, setArea] = useState<AreaId>(
     initialValues?.area ?? areaOptions[0].id
   );
-  const [country, setCountry] = useState<CountryId>(
-    initialValues?.country ?? DEFAULT_COUNTRY
-  );
   const [visibility, setVisibility] = useState<Stringer["visibility"]>(
     initialValues?.visibility ?? "active"
   );
@@ -104,7 +95,6 @@ export default function ProfileForm({ initialValues }: Props) {
         facebook: initialValues.contact.facebook ?? "",
       });
       setHasCertifiedStringers(initialValues.hasCertifiedStringers ?? false);
-      setCountry(initialValues.country ?? DEFAULT_COUNTRY);
       setAdditionalNotes("");
     }
   }, [initialValues]);
@@ -120,22 +110,7 @@ export default function ProfileForm({ initialValues }: Props) {
     [contactFields]
   );
 
-  const districtIdOptions = useMemo<
-    readonly (typeof districtOptions)[number][]
-  >(() => {
-    const ids = getDistrictsByCountry(country);
-    if (ids.length === 0) {
-      return districtOptions;
-    }
-    return ids
-      .map((districtId) =>
-        districtOptions.find((district) => district.id === districtId)
-      )
-      .filter(
-        (district): district is (typeof districtOptions)[number] =>
-          Boolean(district)
-      );
-  }, [country]);
+  const districtIdOptions = districtOptions;
 
   const availableAreaOptions = useMemo<
     readonly (typeof areaOptions)[number][]
@@ -210,7 +185,6 @@ export default function ProfileForm({ initialValues }: Props) {
       description: trimmedDescription,
       sports: selectedSports,
       area,
-      country,
       pricing: pricing.trim() || undefined,
       contact: contactPayload,
       visibility,

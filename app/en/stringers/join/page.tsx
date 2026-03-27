@@ -17,7 +17,6 @@ const englishLabels = {
   phone: "Phone or WhatsApp",
   whatsapp: "WhatsApp",
   area: "Area",
-  country: "Country / Region",
   district: "District",
   pricing: "Pricing (optional)",
   description: "Description",
