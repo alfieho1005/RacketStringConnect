@@ -1,5 +1,13 @@
 import type { LucideIcon } from "lucide-react";
-import { Globe, Hash, Instagram, Mail, MessageSquare, Phone } from "lucide-react";
+import {
+  Globe,
+  Hash,
+  Instagram,
+  Mail,
+  MessageCircle,
+  MessageSquare,
+  Phone,
+} from "lucide-react";
 
 const sanitizeNumber = (value: string) => value.replace(/[^0-9]/g, "");
 
@@ -18,7 +26,8 @@ export type ContactChannel =
   | "thread"
   | "email"
   | "phone"
-  | "website";
+  | "website"
+  | "facebook";
 
 export type ContactDefinition = {
   label: string;
@@ -60,6 +69,11 @@ export const contactDefinitions: Record<ContactChannel, ContactDefinition> = {
     label: "Phone",
     icon: Phone,
     buildLink: (value) => `tel:${value}`,
+  },
+  facebook: {
+    label: "Messenger",
+    icon: MessageCircle,
+    buildLink: (value) => ensureProtocol(value, "m.me"),
   },
 };
 

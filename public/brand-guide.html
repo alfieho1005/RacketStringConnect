@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RacketStringConnect — Brand Guide</title>
+
+  <!-- Fonts: Inter (body) + Caveat (handwriting accent) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- RoughNotation: hand-drawn DOM annotations -->
+  <script src="https://unpkg.com/rough-notation/lib/rough-notation.iife.js"></script>
+  <!-- Rough.js: sketchy SVG shapes -->
+  <script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:      #facc15;
+      --yellow-pale: #fef9c3;
+      --dark:        #0f172a;
+      --slate-700:   #334155;
+      --slate-500:   #64748b;
+      --slate-300:   #cbd5e1;
+      --slate-200:   #e2e8f0;
+      --paper:       #faf9f4;
+      --paper-warm:  #f5f2eb;
+      --ink:         #1e1b14;
+      --white:       #ffffff;
+      --tape:        rgba(250, 204, 21, 0.45);
+    }
+
+    /* Paper grain via SVG noise — baked in, no external request */
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.65;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ── Page ── */
+    .page { max-width: 820px; margin: 0 auto; padding: 52px 28px 100px; }
+
+    /* ── Handwriting label style ── */
+    .hand {
+      font-family: 'Caveat', cursive;
+      font-weight: 600;
+    }
+
+    /* ── Cover ── */
+    .cover {
+      background: var(--dark);
+      border-radius: 18px;
+      padding: 56px 48px 48px;
+      margin-bottom: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* scuffed corner mark */
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 0; height: 0;
+      border-style: solid;
+      border-width: 0 0 36px 36px;
+      border-color: transparent transparent var(--paper) transparent;
+    }
+    .cover-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .logo-mark {
+      width: 48px; height: 48px;
+      background: var(--yellow);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-size: 20px; font-weight: 800; color: #fff;
+    }
+    .logo-text span { color: var(--yellow); }
+    .cover h1 {
+      font-size: 40px; font-weight: 900; color: #fff;
+      line-height: 1.15; margin-bottom: 16px;
+    }
+    .cover h1 em { color: var(--yellow); font-style: normal; }
+    .cover-sub  { font-size: 15px; color: #94a3b8; max-width: 480px; line-height: 1.7; }
+    .cover-hand {
+      font-family: 'Caveat', cursive;
+      font-size: 17px;
+      color: var(--yellow);
+      margin-top: 36px;
+      opacity: 0.85;
+    }
+
+    /* ── Rough canvas dividers ── */
+    .rough-divider { display: block; width: 100%; height: 32px; margin: 52px 0; }
+
+    /* ── Section ── */
+    .section { margin-bottom: 60px; }
+    .section-num {
+      font-family: 'Caveat', cursive;
+      font-size: 15px; font-weight: 700;
+      color: var(--slate-500);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-size: 26px; font-weight: 800;
+      color: var(--dark); margin-bottom: 28px;
+    }
+
+    /* ── Sticky note ── */
+    .sticky {
+      background: #fef08a;
+      border-radius: 2px 12px 12px 2px;
+      padding: 18px 22px;
+      font-family: 'Caveat', cursive;
+      font-size: 17px;
+      line-height: 1.55;
+      color: #713f12;
+      box-shadow: 2px 3px 10px rgba(0,0,0,0.12);
+      position: relative;
+      max-width: 320px;
+    }
+    .sticky::before {
+      content: '';
+      position: absolute;
+      top: -10px; left: 24px;
+      width: 52px; height: 22px;
+      background: var(--tape);
+      border-radius: 3px;
+      transform: rotate(-1.5deg);
+    }
+
+    /* ── Brand story ── */
+    .story-wrap {
+      display: flex; gap: 28px; align-items: flex-start; flex-wrap: wrap;
+    }
+    .story-main { flex: 1; min-width: 260px; }
+    .story-quote {
+      font-size: 18px; font-weight: 600; color: var(--dark);
+      line-height: 1.6; margin-bottom: 16px;
+      padding-left: 20px; border-left: 3px solid var(--yellow);
+    }
+    .story-body { font-size: 14px; color: var(--slate-700); line-height: 1.8; }
+
+    .pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 28px; }
+    .pillar {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 12px; padding: 18px;
+      transform: rotate(-0.4deg);
+      transition: transform 0.2s;
+    }
+    .pillar:nth-child(2) { transform: rotate(0.5deg); }
+    .pillar:nth-child(3) { transform: rotate(-0.3deg); }
+    .pillar-icon { font-size: 22px; margin-bottom: 10px; }
+    .pillar h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 17px; font-weight: 700;
+      color: var(--dark); margin-bottom: 6px;
+    }
+    .pillar p { font-size: 12px; color: var(--slate-500); line-height: 1.6; }
+
+    /* ── Color swatches ── */
+    .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 18px; }
+    .swatch { border-radius: 10px; overflow: hidden; background: var(--white); border: 1px solid var(--slate-200); }
+    .swatch-block { height: 72px; }
+    .swatch-info { padding: 11px 13px; }
+    .swatch-name { font-size: 13px; font-weight: 700; color: var(--dark); }
+    .swatch-hex  { font-size: 11px; color: var(--slate-500); font-family: monospace; margin-top: 2px; }
+    .swatch-use  { font-size: 11px; color: var(--slate-500); margin-top: 4px; line-height: 1.4; }
+
+    /* annotation beside a swatch */
+    .swatch-note {
+      font-family: 'Caveat', cursive;
+      font-size: 14px; color: var(--slate-500);
+      margin-top: 6px;
+      transform: rotate(-1deg);
+      display: inline-block;
+    }
+
+    /* ── Sport cards ── */
+    .sport-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .sport-card {
+      border-radius: 14px; padding: 24px;
+      color: #fff; position: relative; overflow: hidden;
+      transform: rotate(0deg);
+    }
+    .sport-card:nth-child(odd) { transform: rotate(-0.3deg); }
+    .sport-card:nth-child(even) { transform: rotate(0.4deg); }
+    .sport-card h3 { font-size: 17px; font-weight: 800; margin-bottom: 4px; }
+    .sport-card p  { font-size: 12px; opacity: 0.8; }
+    .sport-tokens  { font-family: 'Caveat', cursive; font-size: 14px; opacity: 0.75; margin-top: 10px; }
+
+    /* ── Typography ── */
+    .type-rows { display: flex; flex-direction: column; gap: 10px; }
+    .type-row {
+      display: flex; align-items: baseline; gap: 20px;
+      padding: 14px 18px;
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+    }
+    .type-meta {
+      min-width: 130px;
+      font-family: 'Caveat', cursive;
+      font-size: 13px; color: var(--slate-500);
+    }
+    .type-sample { color: var(--dark); }
+
+    /* ── Components ── */
+    .comp-group { margin-bottom: 24px; }
+    .comp-label {
+      font-family: 'Caveat', cursive;
+      font-size: 15px; color: var(--slate-500);
+      margin-bottom: 10px; display: block;
+    }
+    .comp-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center;
+      background: var(--yellow); color: var(--dark);
+      font-weight: 700; font-size: 14px;
+      padding: 10px 20px; border-radius: 10px; border: none; cursor: default;
+    }
+    .btn-ghost {
+      display: inline-flex; align-items: center;
+      background: transparent; color: var(--slate-700);
+      font-weight: 500; font-size: 14px;
+      padding: 10px 20px; border-radius: 10px;
+      border: 1px solid var(--slate-200); cursor: default;
+    }
+    .pill-active {
+      display: inline-flex; align-items: center;
+      background: var(--yellow); color: var(--dark);
+      font-weight: 600; font-size: 13px;
+      padding: 6px 14px; border-radius: 999px;
+    }
+    .pill-inactive {
+      display: inline-flex; align-items: center;
+      background: var(--white); color: var(--slate-700);
+      font-weight: 500; font-size: 13px;
+      padding: 6px 14px; border-radius: 999px;
+      border: 1px solid var(--slate-200);
+    }
+    .mini-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 14px; overflow: hidden; width: 210px;
+    }
+    .mini-card-accent { height: 5px; background: var(--yellow); }
+    .mini-card-body { padding: 14px; }
+    .mini-card-name { font-size: 15px; font-weight: 700; color: var(--dark); }
+    .mini-card-sub  { font-size: 12px; color: var(--slate-500); margin-top: 2px; }
+    .badge-available {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: #dcfce7; color: #166534;
+      font-size: 11px; font-weight: 600;
+      padding: 2px 8px; border-radius: 999px; margin-top: 10px;
+    }
+    .badge-dot { width: 6px; height: 6px; background: #16a34a; border-radius: 50%; }
+
+    .header-preview {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 14px; padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .header-logo { display: flex; align-items: center; gap: 8px; }
+    .header-mark {
+      width: 32px; height: 32px;
+      background: var(--yellow); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .header-name { font-size: 14px; font-weight: 800; color: var(--dark); }
+    .header-name span { color: #eab308; }
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+    .header-link { font-size: 12px; color: var(--slate-500); font-weight: 500; }
+
+    /* ── Tone ── */
+    .tone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .tone-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 12px; padding: 20px;
+    }
+    .tone-label {
+      font-family: 'Caveat', cursive;
+      font-size: 18px; font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .tone-label.green { color: #16a34a; }
+    .tone-label.red   { color: #dc2626; }
+    .tone-item {
+      font-size: 13px; color: var(--slate-700);
+      padding: 4px 0;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .tone-item.yes::before { content: '✓'; color: #16a34a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .tone-item.no::before  { content: '✕'; color: #dc2626; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Principles ── */
+    .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .principle {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 12px; padding: 22px;
+    }
+    .principle-icon { font-size: 22px; margin-bottom: 10px; }
+    .principle h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 18px; font-weight: 700;
+      color: var(--dark); margin-bottom: 8px;
+    }
+    .principle p { font-size: 13px; color: var(--slate-700); line-height: 1.7; }
+
+    /* ── Footer ── */
+    .footer-note {
+      text-align: center; padding-top: 36px;
+      font-family: 'Caveat', cursive;
+      font-size: 16px; color: var(--slate-500);
+    }
+
+    @media (max-width: 600px) {
+      .cover { padding: 32px 24px; }
+      .cover h1 { font-size: 28px; }
+      .pillars { grid-template-columns: 1fr; }
+      .sport-grid { grid-template-columns: 1fr; }
+      .tone-grid, .principles { grid-template-columns: 1fr; }
+      .color-grid { grid-template-columns: repeat(2,1fr); }
+      .story-wrap { flex-direction: column; }
+    }
+
+    @media print {
+      body::before { display: none; }
+      .cover, .swatch-block, .sport-card {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Cover ── -->
+  <div class="cover">
+    <div class="cover-logo">
+      <div class="logo-mark">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 2a10 10 0 0 1 10 10"/>
+          <path d="m4.93 4.93 14.14 14.14"/>
+          <path d="M2 12h4"/><path d="M18 12h4"/>
+        </svg>
+      </div>
+      <div class="logo-text">RacketString<span>Connect</span></div>
+    </div>
+    <h1>Brand &amp; Design<br /><em id="guide-word">Reference Guide</em></h1>
+    <p class="cover-sub">Visual identity, color system, typography, and tone of voice — the full picture of who we are and how we look.</p>
+    <p class="cover-hand">v2.0 · Yellow/Slate rebrand · March 2026 ✏</p>
+  </div>
+
+  <!-- ── 01 Brand Story ── -->
+  <div class="section">
+    <div class="section-num">01 — Brand Story</div>
+    <div class="section-title">Why we exist</div>
+
+    <div class="story-wrap">
+      <div class="story-main">
+        <p class="story-quote" id="story-quote">
+          StringConnect exists solely to help players discover local stringing services and click through to the providers they trust.
+        </p>
+        <p class="story-body">
+          Every page keeps contact external — WhatsApp, Instagram, email, or phone links immediately leave the platform so follow-up, pricing, and scheduling happen <strong id="story-direct">directly with the stringer</strong>. The experience is clean, friendly, and mobile-first.<br /><br />
+          No marketplace frictions. No internal messaging. No data capture beyond discovery. We celebrate the craft of stringing, surface trusted professionals — then get out of the way.
+        </p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🔗</div>
+            <h3 id="pillar1">Pure Connection</h3>
+            <p>Discovery-only. We connect, never intermediate.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">↗</div>
+            <h3 id="pillar2">Contact External</h3>
+            <p>All follow-up happens off-platform. No bookings or chat.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🎾</div>
+            <h3 id="pillar3">Craft First</h3>
+            <p>Stringers are skilled professionals, not vendors.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sticky" style="transform: rotate(1.8deg);">
+        "We surface trusted stringers and then get out of the way so you can connect directly."<br /><br />
+        — About page tagline
+      </div>
+    </div>
+  </div>
+
+  <!-- rough divider -->
+  <canvas class="rough-divider" id="div1"></canvas>
+
+  <!-- ── 02 Color System ── -->
+  <div class="section">
+    <div class="section-num">02 — Color System</div>
+    <div class="section-title">Core palette</div>
+    <div class="color-grid">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#facc15;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Brand Yellow</div>
+          <div class="swatch-hex">#facc15 · yellow-400</div>
+          <div class="swatch-use">Primary CTA, logo mark, active states</div>
+          <div class="swatch-note">← the hero colour</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#eab308;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Yellow Hover</div>
+          <div class="swatch-hex">#eab308 · yellow-500</div>
+          <div class="swatch-use">Hover / pressed states</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#0f172a;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Brand Dark</div>
+          <div class="swatch-hex">#0f172a · slate-900</div>
+          <div class="swatch-use">Hero bg, text on yellow, footer</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#f8fafc; border-bottom:1px solid #e2e8f0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Background</div>
+          <div class="swatch-hex">#f8fafc · slate-50</div>
+          <div class="swatch-use">Page background, card surrounds</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#fff; border-bottom:1px solid #e2e8f0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#ffffff</div>
+          <div class="swatch-use">Cards, header, footer surfaces</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#64748b;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Slate 500</div>
+          <div class="swatch-hex">#64748b</div>
+          <div class="swatch-use">Secondary text, nav, metadata</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#e2e8f0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Slate 200</div>
+          <div class="swatch-hex">#e2e8f0</div>
+          <div class="swatch-use">Borders, dividers</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#dcfce7;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Available Green</div>
+          <div class="swatch-hex">#dcfce7 · green-100</div>
+          <div class="swatch-use">Stringer availability badge</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- rough divider -->
+  <canvas class="rough-divider" id="div2"></canvas>
+
+  <!-- ── 03 Sport Accents ── -->
+  <div class="section">
+    <div class="section-num">03 — Sport Accent Gradients</div>
+    <div class="section-title">Per-sport identity</div>
+    <div class="sport-grid">
+      <div class="sport-card" style="background:linear-gradient(135deg,#a3e635,#10b981,#059669);">
+        <h3>Badminton</h3>
+        <p>Feather — precision &amp; speed</p>
+        <div class="sport-tokens">from-lime-400 via-emerald-500 to-emerald-600</div>
+      </div>
+      <div class="sport-card" style="background:linear-gradient(135deg,#facc15,#fb923c,#f59e0b);">
+        <h3>Tennis</h3>
+        <p>Sparkle — energy &amp; tradition</p>
+        <div class="sport-tokens">from-yellow-400 via-orange-400 to-amber-500</div>
+      </div>
+      <div class="sport-card" style="background:linear-gradient(135deg,#38bdf8,#3b82f6,#6366f1);">
+        <h3>Squash</h3>
+        <p>Activity — power &amp; control</p>
+        <div class="sport-tokens">from-sky-400 via-blue-500 to-indigo-600</div>
+      </div>
+      <div class="sport-card" style="background:linear-gradient(135deg,#c084fc,#a855f7,#e879f9);">
+        <h3>Pickleball</h3>
+        <p>Disc — fun &amp; community</p>
+        <div class="sport-tokens">from-violet-400 via-purple-500 to-fuchsia-500</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- rough divider -->
+  <canvas class="rough-divider" id="div3"></canvas>
+
+  <!-- ── 04 Typography ── -->
+  <div class="section">
+    <div class="section-num">04 — Typography</div>
+    <div class="section-title">Inter — the sole typeface</div>
+    <div class="type-rows">
+      <div class="type-row">
+        <div class="type-meta">900 · 42px<br />Hero heading</div>
+        <div class="type-sample" style="font-size:38px;font-weight:900;line-height:1.1;">Find Your Stringer</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">800 · 28px<br />Section title</div>
+        <div class="type-sample" style="font-size:28px;font-weight:800;">Trusted Professionals</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">700 · 17px<br />Card heading</div>
+        <div class="type-sample" style="font-size:17px;font-weight:700;">Alex Tan · KL Badminton</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">500 · 15px<br />Body copy</div>
+        <div class="type-sample" style="font-size:15px;font-weight:500;color:#334155;">We surface trusted stringers and then get out of the way so you can connect directly.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">400 · 12px<br />Meta / label</div>
+        <div class="type-sample" style="font-size:12px;color:#64748b;letter-spacing:0.06em;">KUALA LUMPUR · 3 SPORTS</div>
+      </div>
+    </div>
+    <p style="font-family:'Caveat',cursive;font-size:16px;color:var(--slate-500);margin-top:16px;padding-left:4px;">
+      Caveat is used for handwritten accents, labels, and annotations only — not body text.
+    </p>
+  </div>
+
+  <!-- rough divider -->
+  <canvas class="rough-divider" id="div4"></canvas>
+
+  <!-- ── 05 UI Components ── -->
+  <div class="section">
+    <div class="section-num">05 — UI Components</div>
+    <div class="section-title">Component reference</div>
+
+    <div class="comp-group">
+      <span class="comp-label">↳ sticky header</span>
+      <div class="header-preview">
+        <div class="header-logo">
+          <div class="header-mark">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a10 10 0 0 1 10 10"/>
+              <path d="m4.93 4.93 14.14 14.14"/>
+              <path d="M2 12h4"/><path d="M18 12h4"/>
+            </svg>
+          </div>
+          <div class="header-name">RacketString<span>Connect</span></div>
+        </div>
+        <div class="header-actions">
+          <span class="header-link">Explore</span>
+          <span class="header-link">About</span>
+          <span class="btn-primary" style="padding:7px 14px;font-size:13px;">Join Free</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-group">
+      <span class="comp-label">↳ buttons</span>
+      <div class="comp-row">
+        <span class="btn-primary" id="join-label">Join Free</span>
+        <span class="btn-ghost">Learn More</span>
+      </div>
+    </div>
+
+    <div class="comp-group">
+      <span class="comp-label">↳ filter pills (horizontal scroll on mobile)</span>
+      <div class="comp-row">
+        <span class="pill-active">All Sports</span>
+        <span class="pill-inactive">Badminton</span>
+        <span class="pill-inactive">Tennis</span>
+        <span class="pill-inactive">Squash</span>
+        <span class="pill-inactive">Pickleball</span>
+      </div>
+    </div>
+
+    <div class="comp-group">
+      <span class="comp-label">↳ stringer card</span>
+      <div class="comp-row">
+        <div class="mini-card">
+          <div class="mini-card-accent"></div>
+          <div class="mini-card-body">
+            <div class="mini-card-name">Alex Tan</div>
+            <div class="mini-card-sub">Kuala Lumpur · Badminton, Tennis</div>
+            <div class="badge-available"><div class="badge-dot"></div> Available</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- rough divider -->
+  <canvas class="rough-divider" id="div5"></canvas>
+
+  <!-- ── 06 Tone ── -->
+  <div class="section">
+    <div class="section-num">06 — Tone of Voice</div>
+    <div class="section-title">How we sound</div>
+    <div class="tone-grid">
+      <div class="tone-card">
+        <div class="tone-label green">We do this ✓</div>
+        <div class="tone-item yes">Warm and direct — respect the player's time</div>
+        <div class="tone-item yes">Celebrate the craft of stringing</div>
+        <div class="tone-item yes">Short sentences. No jargon.</div>
+        <div class="tone-item yes">Bilingual where the market needs it (EN + 中文)</div>
+        <div class="tone-item yes">Honest about what we are: a directory</div>
+      </div>
+      <div class="tone-card">
+        <div class="tone-label red">We avoid this ✕</div>
+        <div class="tone-item no">Marketplace language ("book now", "best price")</div>
+        <div class="tone-item no">Reviews, ratings, or ranking claims</div>
+        <div class="tone-item no">Gradient blobs and decorative clutter</div>
+        <div class="tone-item no">Capturing data beyond discovery needs</div>
+        <div class="tone-item no">Internal messaging or transaction handling</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- rough divider -->
+  <canvas class="rough-divider" id="div6"></canvas>
+
+  <!-- ── 07 Design Principles ── -->
+  <div class="section">
+    <div class="section-num">07 — Design Principles</div>
+    <div class="section-title">Rules we build by</div>
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-icon">📱</div>
+        <h3>Mobile-first, always</h3>
+        <p>44px minimum tap targets. Horizontal scroll pills. Stacked layouts. Most users are on phones, browsing between sets.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">⚡</div>
+        <h3>Flat and direct</h3>
+        <p>No glassmorphism, no gradient blobs. White cards, slate backgrounds, yellow accents. Every pixel earns its place.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">🟡</div>
+        <h3>Yellow as signal</h3>
+        <p>Yellow marks every action worth taking. Used sparingly on CTAs, active states, and the logo so it retains meaning.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">🚀</div>
+        <h3>Discovery, then exit</h3>
+        <p>Every contact button is an external link. The platform's job ends at introduction. Design for fast hand-off, not retention.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- rough divider -->
+  <canvas class="rough-divider" id="div7"></canvas>
+
+  <!-- ── 08 Photography ── -->
+  <div class="section">
+    <div class="section-num">08 — Photography</div>
+    <div class="section-title">How we shoot</div>
+
+    <!-- Hero image sample -->
+    <div style="position:relative;width:100%;height:260px;border-radius:16px;overflow:hidden;margin-bottom:28px;">
+      <img
+        src="/images/racketstringconnect.jpg"
+        alt="Stringer's hands restringing a tennis racket"
+        style="width:100%;height:100%;object-fit:cover;object-position:center;"
+      />
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(to top,rgba(15,23,42,0.75),transparent);">
+        <span style="font-family:'Caveat',cursive;font-size:16px;color:#facc15;">← hero image · racketstringconnect.jpg</span>
+      </div>
+    </div>
+
+    <div class="tone-grid">
+      <div class="tone-card">
+        <div class="tone-label green">What to shoot ✓</div>
+        <div class="tone-item yes">Hands-on craft — fingers on strings, tools in use</div>
+        <div class="tone-item yes">Warm workshop lighting, natural and golden</div>
+        <div class="tone-item yes">Shallow depth of field — focus on the skill</div>
+        <div class="tone-item yes">Real stringers, real spaces (not staged sets)</div>
+        <div class="tone-item yes">Wide landscape crops — subject on one side, space for text</div>
+        <div class="tone-item yes">Close-ups: string grid patterns, tension clamps, reels</div>
+      </div>
+      <div class="tone-card">
+        <div class="tone-label red">What to avoid ✕</div>
+        <div class="tone-item no">Generic stock sport photos (players mid-swing)</div>
+        <div class="tone-item no">Cold or clinical studio lighting</div>
+        <div class="tone-item no">Brand logos prominently visible on rackets</div>
+        <div class="tone-item no">Over-edited, hyper-saturated colours</div>
+        <div class="tone-item no">Portrait orientation — hero needs landscape</div>
+        <div class="tone-item no">Empty courts or stadiums — we're about the craft, not the game</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px;">
+      <div style="background:var(--white);border:1px solid var(--slate-200);border-radius:12px;padding:18px;">
+        <div style="font-size:22px;margin-bottom:8px;">🌡️</div>
+        <p style="font-family:'Caveat',cursive;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:6px;">Warm tones</p>
+        <p style="font-size:12px;color:var(--slate-500);line-height:1.6;">Ambers, browns, soft yellows. Photography is warm — UI stays flat and cool.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--slate-200);border-radius:12px;padding:18px;">
+        <div style="font-size:22px;margin-bottom:8px;">✂️</div>
+        <p style="font-family:'Caveat',cursive;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:6px;">Tight crop</p>
+        <p style="font-size:12px;color:var(--slate-500);line-height:1.6;">Crop in close. The string grid and hands are the story — not the full room.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--slate-200);border-radius:12px;padding:18px;">
+        <div style="font-size:22px;margin-bottom:8px;">📐</div>
+        <p style="font-family:'Caveat',cursive;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:6px;">16:9 ratio</p>
+        <p style="font-size:12px;color:var(--slate-500);line-height:1.6;">Hero images should be landscape 16:9 or wider. Minimum 1200px wide.</p>
+      </div>
+    </div>
+
+    <p style="font-family:'Caveat',cursive;font-size:15px;color:var(--slate-500);margin-top:18px;padding-left:4px;">
+      Note: photography can be cinematic and warm — the UI stays flat. They complement, not copy each other.
+    </p>
+  </div>
+
+  <div class="footer-note">
+    RacketStringConnect · Brand Guide v2.0 · Free forever ✏
+  </div>
+
+</div><!-- /page -->
+
+<script>
+// ─── Rough.js dividers ───────────────────────────────────────────────
+(function drawDividers() {
+  const ids = ['div1','div2','div3','div4','div5','div6','div7'];
+  const colors = ['#facc15','#94a3b8','#facc15','#94a3b8','#facc15','#94a3b8','#facc15'];
+  ids.forEach(function(id, i) {
+    const canvas = document.getElementById(id);
+    if (!canvas || typeof rough === 'undefined') return;
+    const w = canvas.offsetWidth || 760;
+    canvas.width  = w;
+    canvas.height = 32;
+    const rc = rough.canvas(canvas);
+    rc.line(16, 16, w - 16, 16, {
+      roughness: 1.6,
+      strokeWidth: 1.5,
+      stroke: colors[i],
+    });
+  });
+})();
+
+// ─── RoughNotation annotations — aligned to brand story ─────────────
+//
+// Annotation choices are intentional:
+//   highlight  → "discover" moments — the platform's core promise
+//   circle     → "Pure Connection" — the roundness echoes the racket ball/logo
+//   bracket    → "Contact External" — brackets point outward, away from platform
+//   underline  → "Craft First" — a craftsman's mark, quiet but deliberate
+//   box        → "directly with the stringer" — frames the key hand-off moment
+//
+window.addEventListener('load', function() {
+  if (typeof RoughNotation === 'undefined') return;
+  var annotate = RoughNotation.annotate;
+  var annotationGroup = RoughNotation.annotationGroup;
+
+  // 1. Highlight "Reference Guide" — yellow = the brand's primary signal colour
+  var guideWord = document.getElementById('guide-word');
+
+  // 2. Box "directly with the stringer" — the hand-off is the whole point
+  var directEl = document.getElementById('story-direct');
+
+  // 3. Circle "Pure Connection" — round like the logo mark and a racket head
+  var p1 = document.getElementById('pillar1');
+
+  // 4. Bracket "Contact External" — open brackets, pointing outward off-platform
+  var p2 = document.getElementById('pillar2');
+
+  // 5. Underline "Craft First" — a craftsman's quiet mark of authenticity
+  var p3 = document.getElementById('pillar3');
+
+  // 6. Highlight the "Join Free" CTA label in the component section
+  var joinLabel = document.getElementById('join-label');
+
+  var annotations = [];
+
+  if (guideWord) annotations.push(annotate(guideWord, {
+    type: 'highlight',
+    color: 'rgba(250,204,21,0.38)',
+    animationDuration: 700,
+    padding: 4,
+  }));
+
+  if (directEl) annotations.push(annotate(directEl, {
+    type: 'box',
+    color: '#facc15',
+    strokeWidth: 2,
+    animationDuration: 900,
+    padding: 4,
+  }));
+
+  if (p1) annotations.push(annotate(p1, {
+    type: 'circle',
+    color: '#facc15',
+    strokeWidth: 2,
+    animationDuration: 700,
+    padding: 6,
+  }));
+
+  if (p2) annotations.push(annotate(p2, {
+    type: 'bracket',
+    color: '#94a3b8',
+    strokeWidth: 2.5,
+    animationDuration: 500,
+    brackets: ['left', 'right'],
+  }));
+
+  if (p3) annotations.push(annotate(p3, {
+    type: 'underline',
+    color: '#10b981',
+    strokeWidth: 2,
+    animationDuration: 500,
+    padding: 2,
+  }));
+
+  if (joinLabel) annotations.push(annotate(joinLabel, {
+    type: 'highlight',
+    color: 'rgba(250,204,21,0.5)',
+    animationDuration: 600,
+  }));
+
+  setTimeout(function() {
+    annotationGroup(annotations).show();
+  }, 350);
+});
+</script>
+</body>
+</html>

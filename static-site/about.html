@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About · RacketStringConnect</title>
+    <link rel="stylesheet" href="assets/css/existing.css" />
+    <link rel="stylesheet" href="assets/css/patch.css" />
+  </head>
+  <body class="about-page">
+    <div class="page-inner">
+      <header class="site-header">
+        <div class="logo">RacketStringConnect</div>
+        <nav aria-label="Primary navigation">
+          <a href="index.html">EXPLORE</a>
+          <a href="about.html" aria-current="page">About Us</a>
+        </nav>
+      </header>
+
+      <section class="join-hero" aria-labelledby="join-title">
+        <div class="join-header">
+          <a class="back-link" href="index.html">← Back to explore</a>
+          <p class="submission-tag">Submission via email</p>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Become a stringer</p>
+          <h1 id="join-title">Share your profile in one quick step</h1>
+          <p>
+            RacketStringConnect keeps discovery simple: we surface trusted badminton and tennis stringers,
+            celebrate the craft, and point every follow-up directly to the pro.
+          </p>
+          <p>
+            No reviews, no bookings, just a tasteful directory that keeps you in control.
+          </p>
+          <p aria-hidden="true" class="extra-space"></p>
+          <p>
+            Tell us about your services, and we’ll drop the summary straight into your inbox via your default email client
+            so we can keep follow-up off-platform.
+          </p>
+          <p>
+            歡迎朋友送上穿線資訊；我們會把資料整理好再透過你預設的電郵工具將資料寄回。
+          </p>
+        </div>
+        <section class="join-card">
+          <p class="eyebrow">Submission details</p>
+            <p class="join-instructions">
+              We’ll assemble the essentials into an email draft for review before it goes out. All submissions stay personal and
+              ready to publish once you confirm.
+            </p>
+            <div class="preferred-contact">
+              <p class="preferred-title">Preferred contact</p>
+              <ul class="space-y-1 text-base text-slate-700 list-inside list-disc">
+                <li><strong>Email</strong> – the inbox we should use when we reply with your polished profile.</li>
+                <li><strong>Phone</strong> – a number you answer for quick questions or confirmations.</li>
+                <li><strong>WhatsApp</strong> – the WhatsApp handle or number where you receive fast updates.</li>
+                <li><strong>Thread</strong> – your Threads username if you prefer that channel for brief notes.</li>
+                <li><strong>Instagram</strong> – the Instagram handle we can tag or DM for everything else.</li>
+              </ul>
+            </div>
+          <form class="join-form" id="join-form">
+            <div class="form-row">
+              <label for="join-name">Name or brand</label>
+              <input id="join-name" name="name" type="text" required placeholder="Your name or team" />
+              </div>
+              <div class="form-row">
+              <label for="join-services">Services overview</label>
+              <textarea
+                id="join-services"
+                name="services"
+                rows="3"
+                placeholder="Badminton, tennis, squash, custom tension, etc."
+                required
+              ></textarea>
+            </div>
+            <div class="form-row">
+                <label for="join-email">Email</label>
+                <input id="join-email" name="email" type="email" placeholder="you@example.com" />
+              </div>
+              <div class="form-row">
+                <label for="join-phone">Phone</label>
+                <input id="join-phone" name="phone" type="text" placeholder="+852 1234 5678" />
+              </div>
+              <div class="form-row">
+                <label for="join-whatsapp">WhatsApp</label>
+                <input id="join-whatsapp" name="whatsapp" type="text" placeholder="+852 9123 4567" />
+              </div>
+              <div class="form-row">
+                <label for="join-thread">Thread</label>
+                <input id="join-thread" name="thread" type="text" placeholder="@yourhandle" />
+              </div>
+              <div class="form-row">
+                <label for="join-instagram">Instagram</label>
+                <input id="join-instagram" name="instagram" type="text" placeholder="@yourhandle" />
+              </div>
+            <button class="pill-btn" type="submit">Submit request</button>
+            <p class="form-note">
+              We will respond with a polished summary of your profile and the channels you prefer. You stay in control of every reply.
+            </p>
+          </form>
+        </section>
+      </section>
+
+    <p class="footer-note">
+      PURE CONNECTION · DISCOVERY ONLY · CONTACT EXTERNAL
+      <br />2026@RACKETSTRINGCONNECT
+    </p>
+  </div>
+  <script>
+    (() => {
+      const form = document.getElementById("join-form");
+      if (!form) {
+        return;
+      }
+
+      const recipient = "racketstringconnect@gmail.com";
+      const subject = "Stringer profile submission";
+
+      const sanitize = (value) => {
+        if (!value) {
+          return "N/A";
+        }
+        return value.toString().trim() || "N/A";
+      };
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const data = new FormData(form);
+        const lines = [
+          `Name: ${sanitize(data.get("name"))}`,
+          `Services: ${sanitize(data.get("services"))}`,
+          `Email: ${sanitize(data.get("email"))}`,
+          `Phone: ${sanitize(data.get("phone"))}`,
+          `WhatsApp: ${sanitize(data.get("whatsapp"))}`,
+          `Thread: ${sanitize(data.get("thread"))}`,
+          `Instagram: ${sanitize(data.get("instagram"))}`,
+        ];
+
+        const body = encodeURIComponent(lines.join("\n"));
+        const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;
+        window.location.assign(mailto);
+      });
+    })();
+  </script>
+</body>
+</html>

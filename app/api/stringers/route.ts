@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { stringerRepository } from "@/lib/stringers/memoryRepository";
 import type { StringerPayload } from "@/lib/stringers/types";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 const visibilities = ["active", "inactive"] as const;
 

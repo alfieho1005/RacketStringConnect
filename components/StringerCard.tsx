@@ -14,7 +14,7 @@ export default function StringerCard({ stringer }: Props) {
     .filter(Boolean);
 
   const areaLabel = getAreaLabel(stringer.area);
-  const priceLabel = stringer.pricing || "Contact for price";
+  const priceLabel = stringer.pricing || "詢價 · Ask for quote";
   const isActive = stringer.visibility === "active";
 
   return (
@@ -45,7 +45,7 @@ export default function StringerCard({ stringer }: Props) {
             }`}
           >
             <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${isActive ? "bg-green-500" : "bg-gray-300"}`} />
-            {isActive ? "Ready" : "Offline"}
+            {isActive ? "接受預約" : "暫時休息"}
           </span>
         </div>
 
@@ -73,7 +73,7 @@ export default function StringerCard({ stringer }: Props) {
         <div className="flex items-center justify-between rounded-lg border border-gray-100 bg-gray-50 px-4 py-3">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400">
-              Pricing
+              收費參考 Pricing
             </p>
             <p className="text-base font-bold text-slate-900">{priceLabel}</p>
           </div>

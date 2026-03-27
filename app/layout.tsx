@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "RacketStringConnect — Find Local Stringers Free",
+  title: "RacketStringConnect · 香港球拍穿線師目錄",
   description:
-    "Free platform to discover local badminton, tennis and squash stringing professionals. Filter by location and connect directly.",
+    "香港羽毛球、網球、壁球穿線師目錄。按地區篩選，直接聯絡穿線師，毋需中間人。Free directory of racket stringing professionals in Hong Kong — filter by district, contact directly.",
 };
 
 export const viewport = {
@@ -21,8 +21,8 @@ export const viewport = {
 };
 
 const navLinks = [
-  { href: "/", label: "Explore" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "Find a Stringer" },
+  { href: "/about", label: "How It Works" },
 ];
 
 export default function RootLayout({
@@ -84,7 +84,7 @@ export default function RootLayout({
                   href="/stringers/join"
                   className="ml-1 rounded-lg bg-yellow-400 px-4 py-2 text-sm font-bold text-slate-900 transition hover:bg-yellow-300 active:bg-yellow-500"
                 >
-                  Join Free
+                  免費登記 Join
                 </Link>
               </div>
             </div>
@@ -106,7 +106,7 @@ export default function RootLayout({
                   </span>
                   <span className="text-sm font-bold text-slate-900">RacketStringConnect</span>
                 </div>
-                <p className="text-xs text-gray-400">© 2026 RacketStringConnect · Free forever</p>
+                <p className="text-xs text-gray-400">© 2026 RacketStringConnect · 香港球拍穿線目錄</p>
               </div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400">
                 <Link
@@ -115,7 +115,7 @@ export default function RootLayout({
                 >
                   Terms &amp; Conditions
                 </Link>
-                <span>Discovery-only directory. Not responsible for transactions between users and stringers.</span>
+                <span>免費穿線師登記 · 直接聯絡 · 香港各區 · Discovery-only directory.</span>
               </div>
             </div>
           </footer>

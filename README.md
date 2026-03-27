@@ -8,7 +8,7 @@
 - The experience is clean, friendly, and Apple-inspired—no marketplace frictions, no internal messaging, no data capture beyond discovery.
 
 ## Tech & Stack
-- **Next.js App Router** with zero backend database requirements (mock repository + optional API route).
+- **Next.js App Router** with Edge runtime and zero backend database requirements; stringer data comes straight from the JSON-style seed file (`lib/stringers/stringer.ts`) and the in-memory repository so the experience is deployable to Cloudflare Pages/Workers without any credentials.
 - **TypeScript + TSX** for type-safe UI and domain logic.
 - **Tailwind CSS** (Tailwind 4) for the airy, rounded aesthetic.
 - **Component-driven architecture** and **config-driven options** powering sports, areas, and contact labels (no hardcoded enums).
@@ -19,6 +19,15 @@
 2. `npm run dev`
 3. Open http://localhost:3000 to explore stringers or visit `/portal` to create/edit a profile.
 
+> No environment variables are required—the seeded JSON file is the only data source.
+
+## Static MVP for Cloudflare Pages
+
+- A self-contained static version lives under `static-site/` and consists of `index.html`, `dashboard.html`, the compiled `css/styles.css`, `js/app.js`, and a lightweight `data/stringers.json`. Use it when you need to serve the experience without Node.js tooling.
+- Deploy by pointing Cloudflare Pages at `static-site/` (no build command, output directory `.`) and/or publish it with `npx wrangler pages publish static-site --project-name racketstringconnect-static`.
+- The static dashboard fetches `./data/stringers.json` client-side, renders the table, charts, and filters purely in vanilla JS, so it mirrors the Next.js experience but works via a single static build.
+- We also added an `about.html` and richer filter/summary elements so the static portal now mimics the previous marketing/explore pages more closely while remaining purely static.
+
 > Node 18.x works with this setup (the project targets Next.js 15 to stay compatible with the sandboxed runtime). If you see Node warnings, upgrade to the latest Node 18 release.
 
 ## Deployment 
@@ -26,7 +35,7 @@
   npm run lint
   npm run build
   npx @cloudflare/next-on-pages
-  npx wrangler pages deploy .vercel/output/static --project-name racketstringconnect
+  npx wrangler pages deploy .vercel --project-name racketstringconnect
 
 ### Cloudflare login / environment prep
 - Edit your shell profile (e.g. `nano ~/.bashrc`) to add any required PATH or node version tweaks for Wrangler.
@@ -41,10 +50,10 @@
 - `lib/stringers/` – Repository interface, helper utilities, mock data seeds, and the in-memory implementation.
 
 ## Mock data & future database replacement
-- `lib/stringers/stringer.ts` seeds five badminton/tennis stringers with real-looking contact info.
-- `lib/stringers/memoryRepository.ts` exposes `list`, `getBySlug`, and `upsert` to mutate the in-memory store.
-- `app/api/stringers/route.ts` demonstrates how to persist new or edited profiles through a JSON POST and reuses the repository.
-- To swap in a real database, replace `lib/stringers/memoryRepository.ts` (and any dependent data layer) with implementations that call your preferred storage (SQL, Prisma, Firebase, etc.), keep `features/stringers/service.ts` as the single source of truth, and ensure the API route and portal form continue to talk to the new repository.
+- `lib/stringers/stringer.ts` is the single source of truth for every stringer listed on the site—treat it as a JSON dataset that feeds the UI.
+- `lib/stringers/memoryRepository.ts` clones the seed array into an in-memory store and still exposes `list`, `getBySlug`, and `upsert`. Because it runs in memory it keeps state only per cold start, which is why editing the seed file or restarting the dev server resets the list.
+- `app/api/stringers/route.ts` posts back into the same repository so the `/portal` form appears to write directly to the JSON store and new or edited profiles show up on the Explore page immediately.
+- To swap in a real backend later, replace `lib/stringers/memoryRepository.ts` (and any dependent data layer) with your storage implementation, keep `features/stringers/service.ts` as the single source of truth, and continue pointing `/portal` and the API route at that repository.
 
 ## Managing stringers
 - To **edit the seeded list**, open `lib/stringers/stringer.ts`, keep every `Stringer` entry aligned with the `lib/stringers/types.ts` shape, and be intentional about `id`/`slug` so every stringer stays unique.

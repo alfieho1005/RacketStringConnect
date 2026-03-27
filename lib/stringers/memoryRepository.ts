@@ -1,5 +1,6 @@
 import { seedStringers } from "./stringer";
 import { slugify } from "./utils";
+import { DEFAULT_COUNTRY } from "@/config/countries";
 import type { Stringer, StringerPayload } from "./types";
 
 const stringerStore: Stringer[] = [...seedStringers];
@@ -27,6 +28,11 @@ export const stringerRepository = {
       (stringer) => stringer.slug === slug
     );
 
+    const country =
+      payload.country ??
+      stringerStore[existingIndex]?.country ??
+      DEFAULT_COUNTRY;
+
     const baseEntry: Stringer = {
       id: existingIndex >= 0 ? stringerStore[existingIndex].id : generateId(),
       slug,
@@ -34,6 +40,7 @@ export const stringerRepository = {
       description: payload.description,
       sports: payload.sports,
       area: payload.area,
+      country,
       pricing: payload.pricing,
       contact: payload.contact,
       visibility: payload.visibility,

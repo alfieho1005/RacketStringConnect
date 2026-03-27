@@ -3,7 +3,7 @@ import Link from "next/link";
 import ProfileForm from "@/components/ProfileForm";
 import { getStringerBySlug } from "@/features/stringers/service";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export const metadata: Metadata = {
   title: "Stringer Portal | RacketStringConnect",

@@ -8,9 +8,9 @@ import type { AreaId } from "@/config/areas";
 import { districtToSubdistrictIds } from "@/config/district_to_areas_mapping";
 import type { DistrictId } from "@/config/district";
 import type { SportId } from "@/config/sports";
-import type { CountryId } from "@/config/countries";
 import { sportDefinitions } from "@/config/sports";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Props {
   stringers: Stringer[];
@@ -18,164 +18,184 @@ interface Props {
 
 export default function ExploreSection({ stringers }: Props) {
   const [selectedSport, setSelectedSport] = useState<SportId>();
-  const [selectedCountry, setSelectedCountry] = useState<CountryId>();
   const [selectedDistrict, setSelectedDistrict] = useState<DistrictId>();
   const [selectedArea, setSelectedArea] = useState<AreaId>();
 
-  useEffect(() => {
-    setSelectedArea(undefined);
-  }, [selectedDistrict]);
-
-  useEffect(() => {
-    setSelectedDistrict(undefined);
-    setSelectedArea(undefined);
-  }, [selectedCountry]);
+  useEffect(() => { setSelectedArea(undefined); }, [selectedDistrict]);
 
   const handleResetFilters = () => {
     setSelectedSport(undefined);
     setSelectedDistrict(undefined);
     setSelectedArea(undefined);
-    setSelectedCountry(undefined);
   };
 
   const filteredStringers = useMemo(() => {
-    const districtAreas = selectedDistrict
-      ? districtToSubdistrictIds[selectedDistrict]
-      : [];
-    return stringers.filter((stringer) => {
-      const matchesSport = selectedSport
-        ? stringer.sports.includes(selectedSport)
-        : true;
-      const matchesDistrict = selectedDistrict
-        ? districtAreas.includes(stringer.area)
-        : true;
-      const matchesArea = selectedArea ? stringer.area === selectedArea : true;
-      const matchesCountry = selectedCountry
-        ? stringer.country === selectedCountry
-        : true;
-      return matchesSport && matchesDistrict && matchesArea && matchesCountry;
+    const districtAreas = selectedDistrict ? districtToSubdistrictIds[selectedDistrict] : [];
+    return stringers.filter((s) => {
+      const matchesSport = selectedSport ? s.sports.includes(selectedSport) : true;
+      const matchesDistrict = selectedDistrict ? districtAreas.includes(s.area) : true;
+      const matchesArea = selectedArea ? s.area === selectedArea : true;
+      return matchesSport && matchesDistrict && matchesArea;
     });
-  }, [stringers, selectedSport, selectedDistrict, selectedArea, selectedCountry]);
+  }, [stringers, selectedSport, selectedDistrict, selectedArea]);
 
   const sportCounts = useMemo(
-    () =>
-      sportDefinitions.map((sport) => ({
-        ...sport,
-        count: stringers.filter((s) => s.sports.includes(sport.id)).length,
-      })),
+    () => sportDefinitions.map((sport) => ({
+      ...sport,
+      count: stringers.filter((s) => s.sports.includes(sport.id)).length,
+    })),
     [stringers]
   );
 
-  const hasFilters =
-    selectedSport || selectedCountry || selectedDistrict || selectedArea;
+  const hasFilters = selectedSport || selectedDistrict || selectedArea;
 
   return (
-    <div className="space-y-6 px-4 py-6 mx-auto max-w-5xl">
-      {/* Hero */}
-      <section className="rounded-2xl bg-slate-900 px-5 py-10 sm:px-8 sm:py-14">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-          {/* Left: headline + CTAs */}
-          <div className="max-w-xl space-y-5">
-            {/* Free badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-yellow-400/15 px-3 py-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-yellow-400 flex-shrink-0" />
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-yellow-400">
-                100% Free Platform
-              </p>
-            </div>
+    <div className="mx-auto max-w-5xl px-4">
+      {/* Hero — full-bleed image with text overlay */}
+      <section className="pb-10 pt-8 sm:pt-12">
+        <div className="relative mb-8 overflow-hidden rounded-2xl" style={{ minHeight: "420px" }}>
 
-            <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-              Find Your<br />
-              <span className="text-yellow-400">Perfect Stringer</span>
-            </h1>
+          {/* Background image */}
+          <Image
+            src="/images/racketstringconnect.jpg"
+            alt="Stringer's hands restringing a tennis racket on a stringing machine"
+            fill
+            className="object-cover object-center"
+            priority
+          />
 
-            <p className="text-base leading-relaxed text-slate-400">
-              Discover local badminton, tennis and squash stringing
-              professionals. Filter by location and connect directly — no
-              middleman, no fees, no bookings.
-            </p>
+          {/* Dark gradient overlay — bottom-heavy so text on left reads clearly */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/60 to-slate-900/20" />
 
-            {/* CTAs — stacked on mobile, row on sm+ */}
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/stringers/join"
-                className="inline-flex items-center justify-center rounded-xl bg-yellow-400 px-6 py-3.5 text-sm font-bold text-slate-900 transition hover:bg-yellow-300 active:bg-yellow-500"
-              >
-                List Yourself — Free
-              </Link>
-              <a
-                href="#listings"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-700 px-6 py-3.5 text-sm font-semibold text-slate-300 transition hover:border-slate-500 hover:text-white"
-              >
-                Browse Stringers
-              </a>
-            </div>
-          </div>
+          {/* Content on top */}
+          <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-10" style={{ minHeight: "420px" }}>
 
-          {/* Sport stats */}
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:flex lg:flex-col lg:min-w-[200px]">
-            {sportCounts.map((sport) => (
-              <div
-                key={sport.id}
-                className="flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-800/60 px-3 py-3"
-              >
-                <sport.icon className="h-4 w-4 shrink-0 text-yellow-400" aria-hidden />
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold text-white leading-tight">
-                    {sport.label}
-                  </p>
-                  <p className="text-[10px] text-slate-500">
-                    {sport.count} stringer{sport.count !== 1 ? "s" : ""}
-                  </p>
-                </div>
+            {/* Sport count strip */}
+            {sportCounts.some((s) => s.count > 0) ? (
+              <div className="flex gap-5">
+                {sportCounts.map((sport) => {
+                  const chineseLabels: Record<string, string> = {
+                    badminton: "羽毛球",
+                    tennis: "網球",
+                    squash: "壁球",
+                    pickleball: "匹克球",
+                  };
+                  return (
+                    <button
+                      key={sport.id}
+                      onClick={() => setSelectedSport(selectedSport === sport.id ? undefined : sport.id)}
+                      className={`shrink-0 text-center transition ${
+                        selectedSport === sport.id ? "opacity-100" : "opacity-40 hover:opacity-70"
+                      }`}
+                    >
+                      <span className={`block text-2xl font-black leading-none sm:text-3xl ${
+                        selectedSport === sport.id ? "text-yellow-400" : "text-white"
+                      }`}>
+                        {sport.count}
+                      </span>
+                      <span className="block text-[10px] font-semibold uppercase tracking-widest text-white/60">
+                        {chineseLabels[sport.id] ?? sport.label}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
-            ))}
+            ) : (
+              <div className="space-y-0.5">
+                <p className="text-sm font-bold text-white/80">覆蓋全港 18 區</p>
+                <p className="text-[11px] text-white/50 uppercase tracking-widest">Growing across all districts</p>
+              </div>
+            )}
+
+            {/* Headline + CTA pinned to bottom */}
+            <div className="max-w-lg">
+              <h1 className="text-4xl font-black leading-[1.05] text-white sm:text-5xl md:text-6xl">
+                香港穿線師目錄<br /><span className="relative inline-block">
+                  <span className="relative z-10">Find your stringer.</span>
+                  <span
+                    aria-hidden
+                    className="absolute bottom-1 left-0 right-0 h-3 -skew-x-2 bg-yellow-400 sm:h-4"
+                    style={{ zIndex: 0 }}
+                  />
+                </span>
+              </h1>
+
+              <p className="mt-4 text-base text-white/75 sm:text-lg">
+                羽毛球 · 網球 · 壁球穿線師，覆蓋全港各區。直接聯絡，毋需中間人。
+              </p>
+
+              <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-semibold uppercase tracking-widest text-white/40">
+                <span>實名穿線師</span>
+                <span>·</span>
+                <span>直接聯絡</span>
+                <span>·</span>
+                <span>免費登記</span>
+                <span>·</span>
+                <span>香港專屬</span>
+              </div>
+
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/stringers/join"
+                  className="rounded-lg bg-yellow-400 px-5 py-3 text-sm font-bold text-slate-900 transition hover:bg-yellow-300 active:bg-yellow-500"
+                >
+                  免費登記穿線師
+                </Link>
+                <a
+                  href="#listings"
+                  className="text-sm font-semibold text-white/70 underline underline-offset-4 transition hover:text-white"
+                >
+                  瀏覽全部穿線師 ↓
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Filters */}
-      <Filters
-        selectedSport={selectedSport}
-        selectedDistrict={selectedDistrict}
-        selectedArea={selectedArea}
-        onSportChange={setSelectedSport}
-        onDistrictChange={setSelectedDistrict}
-        onAreaChange={setSelectedArea}
-        selectedCountry={selectedCountry}
-        onCountryChange={setSelectedCountry}
-        onReset={handleResetFilters}
-      />
+      {/* Filters — no box, just a ruled section */}
+      <div className="border-t border-gray-200">
+        <Filters
+          selectedSport={selectedSport}
+          selectedDistrict={selectedDistrict}
+          selectedArea={selectedArea}
+          onSportChange={setSelectedSport}
+          onDistrictChange={setSelectedDistrict}
+          onAreaChange={setSelectedArea}
+          onReset={handleResetFilters}
+        />
+      </div>
 
       {/* Results */}
-      <div id="listings" className="space-y-4">
-        <div className="flex items-center justify-between">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-400">
+      <div id="listings" className="pb-16 pt-6">
+        <div className="mb-4 flex items-baseline justify-between">
+          <p className="text-sm font-semibold text-slate-400">
             {hasFilters
-              ? `${filteredStringers.length} result${filteredStringers.length !== 1 ? "s" : ""}`
-              : `${filteredStringers.length} stringer${filteredStringers.length !== 1 ? "s" : ""} listed`}
+              ? `${filteredStringers.length} 位穿線師`
+              : `${filteredStringers.length} 位穿線師登記中`}
           </p>
           {hasFilters && (
             <button
               onClick={handleResetFilters}
-              className="text-xs font-semibold text-yellow-600 transition hover:text-yellow-800 underline-offset-2 hover:underline"
+              className="text-xs font-semibold text-slate-400 underline underline-offset-4 transition hover:text-slate-700"
             >
-              Clear filters
+              清除篩選
             </button>
           )}
         </div>
 
         {filteredStringers.length === 0 ? (
-          <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-200 py-16 text-center px-6">
-            <p className="text-lg font-bold text-slate-300">No stringers found</p>
-            <p className="mt-2 max-w-xs text-sm text-slate-400">
-              Try adjusting your filters, or be the first to list in this area.
+          <div className="py-16 text-center">
+            <p className="text-2xl font-black text-slate-200">此區暫時未有穿線師登記</p>
+            <p className="mt-2 text-sm text-slate-400">
+              成為首位登記的穿線師 — 球手已在搵人
             </p>
             <Link
               href="/stringers/join"
-              className="mt-6 inline-flex items-center justify-center rounded-xl bg-yellow-400 px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-yellow-300"
+              className="mt-6 inline-block rounded-lg bg-yellow-400 px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-yellow-300"
             >
-              List Yourself — Free
+              免費登記我的穿線服務
             </Link>
           </div>
         ) : (

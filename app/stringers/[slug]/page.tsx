@@ -7,7 +7,7 @@ import { getSportDefinition } from "@/config/sports";
 import ContactButtons from "@/components/ContactButtons";
 import { getStringerBySlug } from "@/features/stringers/service";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 const BASE_URL = "https://racketstringconnect.com";
 

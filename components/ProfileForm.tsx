@@ -2,12 +2,20 @@
 
 import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import type { Stringer } from "@/lib/stringers/types";
+import type { ContactInfo, Stringer, StringerPayload } from "@/lib/stringers/types";
 import { areaOptions } from "@/config/areas";
 import type { AreaId } from "@/config/areas";
+import { districtOptions } from "@/config/district";
+import type { DistrictId } from "@/config/district";
+import { districtToSubdistrictIds } from "@/config/district_to_areas_mapping";
+import { getDistrictsByCountry } from "@/config/country_to_districts";
 import { sportDefinitions } from "@/config/sports";
 import type { SportId } from "@/config/sports";
-import type { ContactInfo } from "@/lib/stringers/types";
+import {
+  countryOptions,
+  DEFAULT_COUNTRY,
+  type CountryId,
+} from "@/config/countries";
 
 type Props = {
   initialValues?: Stringer;
@@ -29,6 +37,7 @@ const contactFieldDefinitions: Array<{ id: keyof ContactInfo; label: string }> =
   { id: "email", label: "Email" },
   { id: "phone", label: "Phone" },
   { id: "website", label: "Website" },
+  { id: "facebook", label: "Facebook" },
 ];
 
 export default function ProfileForm({ initialValues }: Props) {
@@ -36,8 +45,24 @@ export default function ProfileForm({ initialValues }: Props) {
   const [name, setName] = useState(initialValues?.name ?? "");
   const [description, setDescription] = useState(initialValues?.description ?? "");
   const [pricing, setPricing] = useState(initialValues?.pricing ?? "");
+  const areaToDistrictMap = useMemo(() => {
+    const map = new Map<AreaId, DistrictId>();
+    Object.entries(districtToSubdistrictIds).forEach(([districtId, ids]) => {
+      ids.forEach((areaId) => map.set(areaId as AreaId, districtId as DistrictId));
+    });
+    return map;
+  }, []);
+
+  const initialDistrict = initialValues?.area
+    ? areaToDistrictMap.get(initialValues.area)
+    : undefined;
+
+  const [district, setDistrict] = useState<DistrictId | "">(initialDistrict ?? "");
   const [area, setArea] = useState<AreaId>(
     initialValues?.area ?? areaOptions[0].id
+  );
+  const [country, setCountry] = useState<CountryId>(
+    initialValues?.country ?? DEFAULT_COUNTRY
   );
   const [visibility, setVisibility] = useState<Stringer["visibility"]>(
     initialValues?.visibility ?? "active"
@@ -50,6 +75,7 @@ export default function ProfileForm({ initialValues }: Props) {
   const [selectedSports, setSelectedSports] = useState<SportId[]>(
     () => (initialValues?.sports ? [...initialValues.sports] : [])
   );
+  const [additionalNotes, setAdditionalNotes] = useState("");
   const [contactFields, setContactFields] = useState<Record<keyof ContactInfo, string>>({
     whatsapp: initialValues?.contact.whatsapp ?? "",
     instagram: initialValues?.contact.instagram ?? "",
@@ -57,6 +83,7 @@ export default function ProfileForm({ initialValues }: Props) {
     email: initialValues?.contact.email ?? "",
     phone: initialValues?.contact.phone ?? "",
     website: initialValues?.contact.website ?? "",
+    facebook: initialValues?.contact.facebook ?? "",
   });
 
   useEffect(() => {
@@ -74,15 +101,77 @@ export default function ProfileForm({ initialValues }: Props) {
         email: initialValues.contact.email ?? "",
         phone: initialValues.contact.phone ?? "",
         website: initialValues.contact.website ?? "",
+        facebook: initialValues.contact.facebook ?? "",
       });
       setHasCertifiedStringers(initialValues.hasCertifiedStringers ?? false);
+      setCountry(initialValues.country ?? DEFAULT_COUNTRY);
+      setAdditionalNotes("");
     }
   }, [initialValues]);
+  useEffect(() => {
+    // ensure district matches area when initial values change
+    if (initialValues?.area) {
+      setDistrict(areaToDistrictMap.get(initialValues.area) ?? "");
+    }
+  }, [initialValues?.area, areaToDistrictMap]);
 
   const contactPayload: ContactInfo = useMemo(
     () => buildContactPayload(contactFields) as ContactInfo,
     [contactFields]
   );
+
+  const districtIdOptions = useMemo<
+    readonly (typeof districtOptions)[number][]
+  >(() => {
+    const ids = getDistrictsByCountry(country);
+    if (ids.length === 0) {
+      return districtOptions;
+    }
+    return ids
+      .map((districtId) =>
+        districtOptions.find((district) => district.id === districtId)
+      )
+      .filter(
+        (district): district is (typeof districtOptions)[number] =>
+          Boolean(district)
+      );
+  }, [country]);
+
+  const availableAreaOptions = useMemo<
+    readonly (typeof areaOptions)[number][]
+  >(() => {
+    if (district) {
+      const areaIds = districtToSubdistrictIds[district] ?? [];
+      if (areaIds.length > 0) {
+        return areaOptions.filter((option) => areaIds.includes(option.id));
+      }
+    }
+    return areaOptions;
+  }, [district]);
+
+  useEffect(() => {
+    if (districtIdOptions.length > 0) {
+      if (!district) {
+        setDistrict(districtIdOptions[0].id);
+        return;
+      }
+
+      if (!districtIdOptions.some((item) => item.id === district)) {
+        setDistrict(districtIdOptions[0].id);
+      }
+    } else if (district) {
+      setDistrict("");
+    }
+  }, [districtIdOptions, district]);
+
+  useEffect(() => {
+    if (district) {
+      const areaIds = districtToSubdistrictIds[district] ?? [];
+      if (areaIds.length > 0 && !areaIds.includes(area)) {
+        setArea(areaIds[0] as AreaId);
+      }
+    }
+  }, [district, area]);
 
   const handleToggleSport = (sportId: SportId) => {
     setSelectedSports((previous) =>
@@ -96,26 +185,35 @@ export default function ProfileForm({ initialValues }: Props) {
     event.preventDefault();
     setError(null);
 
-    if (!name.trim() || !description.trim()) {
-      setError("Name and description are required.");
+    const trimmedName = name.trim();
+    const trimmedDescription = description.trim();
+
+    if (!trimmedName || !trimmedDescription) {
+      setError("請輸入穿線師姓名及服務簡介。");
       return;
     }
 
     if (selectedSports.length === 0) {
-      setError("Tell us which sports you support.");
+      setError("請選擇你提供穿線服務的運動。");
+      return;
+    }
+
+    if (!initialValues && Object.keys(contactPayload).length === 0) {
+      setError("請填寫至少一個聯絡方式，方便球手聯絡你。");
       return;
     }
 
     setIsWorking(true);
 
-    const payload = {
-      name: name.trim(),
-      description: description.trim(),
+    const payload: StringerPayload = {
+      name: trimmedName,
+      description: trimmedDescription,
       sports: selectedSports,
       area,
+      country,
       pricing: pricing.trim() || undefined,
-      visibility,
       contact: contactPayload,
+      visibility,
       hasCertifiedStringers,
       slug: initialValues?.slug,
     };
@@ -126,7 +224,12 @@ export default function ProfileForm({ initialValues }: Props) {
       body: JSON.stringify(payload),
     });
 
-    const data = await response.json();
+    let data: { error?: string } = {};
+    try {
+      data = await response.json();
+    } catch {
+      data = { error: "Unable to read server response." };
+    }
 
     if (!response.ok) {
       setError(data?.error || "Unable to save profile.");
@@ -141,7 +244,7 @@ export default function ProfileForm({ initialValues }: Props) {
     <form className="space-y-6" onSubmit={handleSubmit}>
       <div>
         <label className="text-sm font-semibold text-slate-600" htmlFor="name">
-          Stringer Name
+          穿線師姓名 / 店舖名稱
         </label>
         <input
           id="name"
@@ -154,7 +257,7 @@ export default function ProfileForm({ initialValues }: Props) {
       </div>
 
       <div>
-        <p className="text-sm font-semibold text-slate-600">Supported Sports</p>
+        <p className="text-sm font-semibold text-slate-600">穿線運動類別 Sports</p>
         <div className="mt-2 flex flex-wrap gap-3">
           {sportDefinitions.map((sport) => {
             const isSelected = selectedSports.includes(sport.id);
@@ -177,9 +280,33 @@ export default function ProfileForm({ initialValues }: Props) {
         </div>
       </div>
 
+      {districtIdOptions.length > 0 && (
+        <div>
+          <label className="text-sm font-semibold text-slate-600" htmlFor="district">
+            所在地區 District
+          </label>
+          <select
+            id="district"
+            name="district"
+            value={district}
+            onChange={(event) =>
+              setDistrict(event.target.value as DistrictId)
+            }
+            className="mt-2 w-full rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 outline-none focus:border-slate-900"
+          >
+            <option value="">Select district</option>
+            {districtIdOptions.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <div>
         <label className="text-sm font-semibold text-slate-600" htmlFor="area">
-          Area / District
+          分區 Neighbourhood
         </label>
         <select
           id="area"
@@ -188,7 +315,7 @@ export default function ProfileForm({ initialValues }: Props) {
           onChange={(event) => setArea(event.target.value as AreaId)}
           className="mt-2 w-full rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 outline-none focus:border-slate-900"
         >
-          {areaOptions.map((option) => (
+          {availableAreaOptions.map((option) => (
             <option key={option.id} value={option.id}>
               {option.label}
             </option>
@@ -198,7 +325,7 @@ export default function ProfileForm({ initialValues }: Props) {
 
       <div>
         <label className="text-sm font-semibold text-slate-600" htmlFor="description">
-          Short Description
+          服務簡介 About your service
         </label>
         <textarea
           id="description"
@@ -213,9 +340,9 @@ export default function ProfileForm({ initialValues }: Props) {
 
       <div>
         <label className="text-sm font-semibold text-slate-600" htmlFor="pricing">
-          Pricing Notes
+          收費參考 Pricing
           <span className="ml-2 text-xs font-normal text-slate-400">
-            Optional
+            選填 Optional
           </span>
         </label>
         <input
@@ -223,14 +350,14 @@ export default function ProfileForm({ initialValues }: Props) {
           name="pricing"
           value={pricing}
           onChange={(event) => setPricing(event.target.value)}
-          placeholder="e.g. From RM 30 or contact for custom quotes"
+          placeholder="例如：每支 HK$80 起，詳情可查詢"
           className="mt-2 w-full rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 outline-none focus:border-slate-900"
         />
       </div>
 
       <div>
         <p className="text-sm font-semibold text-slate-600">
-          Certified Stringers (穿線師認證)
+          持牌穿線師 Certified stringer on staff
         </p>
         <div className="mt-2 flex gap-3">
           {[
@@ -253,12 +380,12 @@ export default function ProfileForm({ initialValues }: Props) {
           ))}
         </div>
         <p className="mt-2 text-xs text-slate-400">
-          Mark “Yes” if your shop employs certified stringers.
+          如店舖有持牌穿線師，請選 &quot;Yes&quot;。
         </p>
       </div>
 
       <fieldset className="space-y-2">
-        <legend className="text-sm font-semibold text-slate-600">Contact Methods</legend>
+        <legend className="text-sm font-semibold text-slate-600">聯絡方式 How players can reach you</legend>
         <div className="grid gap-4 sm:grid-cols-2">
           {contactFieldDefinitions.map((field) => (
             <label key={field.id} className="text-sm font-semibold text-slate-600">
@@ -280,11 +407,27 @@ export default function ProfileForm({ initialValues }: Props) {
       </fieldset>
 
       <div>
-        <p className="text-sm font-semibold text-slate-600">Profile Visibility</p>
+        <label className="text-sm font-semibold text-slate-600" htmlFor="additionalNotes">
+          備註 Notes for our team
+          <span className="ml-2 text-xs font-normal text-slate-400">選填 Optional</span>
+        </label>
+        <textarea
+          id="additionalNotes"
+          name="additionalNotes"
+          value={additionalNotes}
+          onChange={(event) => setAdditionalNotes(event.target.value)}
+          rows={3}
+          placeholder="給審核團隊的備註（營業時間、特別專長、其他補充）"
+          className="mt-2 w-full rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-slate-900"
+        />
+      </div>
+
+      <div>
+        <p className="text-sm font-semibold text-slate-600">上架狀態 Listing status</p>
         <div className="mt-2 flex gap-3">
           {[
-            { value: "active", label: "Active" },
-            { value: "inactive", label: "Inactive" },
+            { value: "active", label: "顯示中 Visible" },
+            { value: "inactive", label: "暫時隱藏 Hidden" },
           ].map((option) => (
             <button
               key={option.value}
@@ -317,10 +460,10 @@ export default function ProfileForm({ initialValues }: Props) {
           disabled={isWorking}
           className="flex-1 rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold uppercase tracking-[0.4em] text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {initialValues ? "Save changes" : "Save profile"}
+          {initialValues ? "更新資料 Update" : "提交審核 Submit"}
         </button>
         <p className="text-xs text-slate-500">
-          You will be redirected to the Explore page once saved.
+          提交後將跳轉至目錄頁面。
         </p>
       </div>
     </form>

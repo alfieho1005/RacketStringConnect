@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ExploreSection from "@/components/ExploreSection";
 import { fetchActiveStringers } from "@/features/stringers/service";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 

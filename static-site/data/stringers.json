@@ -1,0 +1,1166 @@
+[
+   {
+    "id": "inspire-racket",
+    "name": "Inspire Racket",
+    "description": "專業網球穿線，位於 T3 Tennis 室內網球館內，除穿線之外亦有網球產品發售及四條室內發球機 lane 可供練習；穿線之後亦歡迎即場免費試拍。",
+    "country": "Hong Kong",
+    "district": "Wong Tai Sin",
+    "district_label": "WONG TAI SIN 黃大仙區",
+    "area": "Diamond Hill",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "inspire_racket",
+      "thread": "https://www.threads.com/@inspire_racket",
+      "email": "vitajamba5@gmail.com"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Diamond Hill 鑽石山",
+      "Wong Tai Sin"
+    ]
+  },
+  {
+    "id": "peak-sports",
+    "name": "Peak Sports",
+    "description": "🎾 代購網球服裝 運動鞋 球拍 穿線  🎾💰FPS | PAYME | ALIPAY 🎾平郵/ 順豐到付",
+    "country": "Hong Kong",
+    "district": "Kwun Tong",
+    "district_label": "KWUN TONG 觀塘區",
+    "area": "Kwun Tong",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Eqnuiry for details",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85265166162",
+      "instagram": "peak_tennis",
+      "thread": "https://www.threads.com/@peak__sports_",
+      "website": "https://topspintennis.pro/aboutstore"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Kwun Tong 觀塘",
+      "Kwun Tong"
+    ]
+  },
+  {
+    "id": "topspin-tennisports",
+    "name": "Topspin Tennisports Stringer House 決勝者網球穿線家",
+    "description": "Tennis Rackets, Stringing Services & Accessories Pro Shop  專業網球用品及網球拍穿線店  荃灣荃豐中心商場 2樓 C48室  C48, 2/F, Tsuen Fung Centre, Tsuen Wan",
+    "country": "Hong Kong",
+    "district": "Tsuen Wan",
+    "district_label": "TSUEN WAN 荃灣區",
+    "area": "Tsuen Wan",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Please check the website",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85296623373",
+      "email": "topspintennisports@gmail.com",
+      "website": "https://topspintennis.pro"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tsuen Wan 荃灣",
+      "Tsuen Wan"
+    ]
+  },
+  {
+    "id": "wingkee-tsuen-wan",
+    "name": "WingKeeTennis",
+    "description": "WingKeeTennis 用心為網球愛好者提供優質穿線服務  WingKeeTennis is dedicated to providing high-quality stringing services for tennis enthusiasts",
+    "country": "Hong Kong",
+    "district": "Tsuen Wan",
+    "district_label": "TSUEN WAN 荃灣區",
+    "area": "Tsuen Wan",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Contact for details",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85269266362",
+      "thread": "https://www.threads.com/@wingkeetennis"
+    },
+    "tags": [],
+    "address_lines": [
+      "Tsuen Wan 荃灣",
+      "Tsuen Wan"
+    ]
+  },
+  {
+    "id": "wingkee-central",
+    "name": "WingKeeTennis",
+    "description": "WingKeeTennis 用心為網球愛好者提供優質穿線服務  WingKeeTennis is dedicated to providing high-quality stringing services for tennis enthusiasts",
+    "country": "Hong Kong",
+    "district": "Central and Western",
+    "district_label": "CENTRAL AND WESTERN 中西區",
+    "area": "Central",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Contact for details",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85269266362",
+      "thread": "https://www.threads.com/@wingkeetennis"
+    },
+    "tags": [],
+    "address_lines": [
+      "Central 中環",
+      "Central and Western"
+    ]
+  },
+  {
+    "id": "a-plus-causeway-bay",
+    "name": "A-Plus Sports（銅鑼灣店）",
+    "description": "🎾🏸 專業網球／羽毛球用品及穿線服務 📍 銅鑼灣店 銅鑼灣金百利11樓1105室 Flat 1105, 11/F, Island Centre, No.1 Great George St., Causeway Bay, Hong Kong ⏰ 營業時間：11:00AM – 8:00PM 📞 TEL：3153 4073",
+    "country": "Hong Kong",
+    "district": "Wan Chai",
+    "district_label": "WAN CHAI 灣仔區",
+    "area": "Causeway Bay",
+    "sports": [
+      "Tennis",
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "email": "Aplus_sports@hotmail.com",
+      "website": "https://www.aplus-tennis.com"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Causeway Bay 銅鑼灣",
+      "Wan Chai"
+    ]
+  },
+  {
+    "id": "a-plus-kwun-tong",
+    "name": "A-Plus Sports（觀塘店）",
+    "description": "🎾🏸 專業網球／羽毛球用品及穿線服務 📍 觀塘店 觀塘開源道72號溢財中心4/F A室 Flat A, 4/F, LIADRO Centre, 72 Hoi Yuen Rd., Kwun Tong, Kowloon ⏰ 營業時間：12:00PM – 8:00PM 📞 TEL：2790 2236",
+    "country": "Hong Kong",
+    "district": "Kwun Tong",
+    "district_label": "KWUN TONG 觀塘區",
+    "area": "Kwun Tong",
+    "sports": [
+      "Tennis",
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "email": "Aplus_sports@hotmail.com",
+      "website": "https://www.aplus-tennis.com"
+    },
+    "tags": [],
+    "address_lines": [
+      "Kwun Tong 觀塘",
+      "Kwun Tong"
+    ]
+  },
+  {
+    "id": "Fstrss-hang-hau",
+    "name": "Fstrss",
+    "description": "一切相關Tennis事項  包括 穿線/改拍/換Grip/Grommet/教學",
+    "country": "Hong Kong",
+    "district": "Sai Kung",
+    "district_label": "SAI KUNG 西貢區",
+    "area": "Hang Hau",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85296320729",
+      "instagram": "FS_TENNIS_LESSON_STRINGING"
+    },
+    "tags": [],
+    "address_lines": [
+      "Hang Hau 坑口",
+      "Sai Kung"
+    ]
+  },
+  {
+    "id": "sportstationhk-causeway-bay",
+    "name": "Sport Station HK",
+    "description": "Since 2012 🎾 Professional Stringing & Tennis Goods",
+    "country": "Hong Kong",
+    "district": "Wan Chai",
+    "district_label": "WAN CHAI 灣仔區",
+    "area": "Causeway Bay",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "sportstationhk"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Causeway Bay 銅鑼灣",
+      "Wan Chai"
+    ]
+  },
+  {
+    "id": "ydc-tennis",
+    "name": "YDC Tennis 網球用品專門店",
+    "description": "位於大圍村的 YDC Tennis，專注網球用品與配件，提供專業穿線服務，營業時間親切照顧忙碌上班族。",
+    "country": "Hong Kong",
+    "district": "Sha Tin",
+    "district_label": "SHA TIN 沙田區",
+    "area": "Tai Wai",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85256356123",
+      "instagram": "ydc.tennis",
+      "website": "https://ydctennis.onepos.shop"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tai Wai 大圍",
+      "Sha Tin"
+    ]
+  },
+  {
+    "id": "sunshine-sports-tai-wai",
+    "name": "陽光體育用品公司 (大圍)",
+    "description": "老牌的陽光體育用品公司，位於美林商場一樓，提供羽毛球拍穿線和各式體育用品，營業至 21:00 適合下班後交拍。",
+    "country": "Hong Kong",
+    "district": "Sha Tin",
+    "district_label": "SHA TIN 沙田區",
+    "area": "Tai Wai",
+    "sports": [
+      "Badminton",
+      "Squash"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85222050918"
+    },
+    "tags": [],
+    "address_lines": [
+      "Tai Wai 大圍",
+      "Sha Tin"
+    ]
+  },
+  {
+    "id": "wanli-sports-shatin",
+    "name": "萬里體育用品專門店 (沙田)",
+    "description": "位於沙田瀝源廣場的萬里體育用品專門店，雖然不在大圍但鄰近車站，是區內知名的羽毛球與網球穿線點。",
+    "country": "Hong Kong",
+    "district": "Sha Tin",
+    "district_label": "SHA TIN 沙田區",
+    "area": "Sha Tin",
+    "sports": [
+      "Badminton",
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85226919646",
+      "instagram": "wanli.sports"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Sha Tin 沙田",
+      "Sha Tin"
+    ]
+  },
+  {
+    "id": "tko-sports",
+    "name": "將軍澳體育 TKO Sports",
+    "description": "將軍澳地區代表性的羽毛球專門店，提供穿線、球拍與運動用品，WhatsApp 經常用作報價與進度溝通。",
+    "country": "Hong Kong",
+    "district": "Sai Kung",
+    "district_label": "SAI KUNG 西貢區",
+    "area": "Tseung Kwan O",
+    "sports": [
+      "Badminton",
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85293812100",
+      "phone": "+85293812100",
+      "website": "https://tkosports.com/",
+      "facebook": "TKOSports"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tseung Kwan O 將軍澳",
+      "Sai Kung"
+    ]
+  },
+  {
+    "id": "badminton-stringing-tko",
+    "name": "Badminton Stringing TKO (將軍澳專業羽毛球穿線)",
+    "description": "專攻羽毛球穿線、更換手膠與球拍諮詢，交收地點主要沿將軍澳線沿線 MTR。（寶琳、坑口、將軍澳、調景嶺、康城）",
+    "country": "Hong Kong",
+    "district": "Sai Kung",
+    "district_label": "SAI KUNG 西貢區",
+    "area": "Tseung Kwan O",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "badminton_stringing_tko"
+    },
+    "tags": [],
+    "address_lines": [
+      "Tseung Kwan O 將軍澳",
+      "Sai Kung"
+    ]
+  },
+  {
+    "id": "xuan-yuan-sports-mong-kok",
+    "name": "軒轅體育 Click to open side panel for more information",
+    "description": "藏身旺角商廈內的專業羽毛球穿線工作室，師傅張人技術聞名，磅數精準又耐用，氣氛專注而安靜，好適合追求細緻手藝的球友。",
+    "country": "Hong Kong",
+    "district": "Yau Tsim Mong",
+    "district_label": "YAU TSIM MONG 油尖旺",
+    "area": "Mong Kok",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85254013514",
+      "phone": "+85254013514"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Mong Kok 旺角",
+      "Yau Tsim Mong"
+    ]
+  },
+  {
+    "id": "luxis-sport-mong-kok",
+    "name": "凌獅運動用品專門店 Luxis Sport Net",
+    "description": "凌獅運動用品專門店成立於 2000 年，與本地 Yonex 官方供應商緊密合作，專注販售授權的 Yonex 羽毛球用品並與業界交流以提升服務品質，亦與多個在地商戶合作推廣羽毛球運動。 LuxisSport Ltd has been established since 2000, cooperating closely with the local Yonex official supplier to offer authorized Yonex badminton gear while partnering with professionals and businesses to elevate service levels and grow the sport in Hong Kong.",
+    "country": "Hong Kong",
+    "district": "Yau Tsim Mong",
+    "district_label": "YAU TSIM MONG 油尖旺",
+    "area": "Mong Kok",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85253611232"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Mong Kok 旺角",
+      "Yau Tsim Mong"
+    ]
+  },
+  {
+    "id": "lung-tang-sports-mong-kok",
+    "name": "Lung Tang Sports 龍騰球拍",
+    "description": "老字號旺角體育用品店，提供網球/羽毛球/壁球穿線並支援球拍維修、配重調整，憑超過 20 年的大賽級技術聞名。",
+    "country": "Hong Kong",
+    "district": "Yau Tsim Mong",
+    "district_label": "YAU TSIM MONG 油尖旺",
+    "area": "Mong Kok",
+    "sports": [
+      "Tennis",
+      "Badminton",
+      "Squash"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85259600882",
+      "phone": "+85223980897 / +85251337688 / +85223097611",
+      "facebook": "longtenghk",
+      "website": "http://www.lt328.com/"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Mong Kok 旺角",
+      "Yau Tsim Mong"
+    ]
+  },
+  {
+    "id": "flyness-sports-jordan",
+    "name": "Flyness Sports Pro Shop",
+    "description": "佐敦官涌街地舖的專業穿線工作室，專注羽毛球與多樣裝備，技術口碑好，環境細緻，適合講求穩定感的球友。",
+    "country": "Hong Kong",
+    "district": "Yau Tsim Mong",
+    "district_label": "YAU TSIM MONG 油尖旺",
+    "area": "Tsim Sha Tsui",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85223771993",
+      "whatsapp": "+85223771993"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tsim Sha Tsui 尖沙咀",
+      "Yau Tsim Mong"
+    ]
+  },
+  {
+    "id": "jeff-tennis-jordan",
+    "name": "Jeff Tennis Shop",
+    "description": "佐敦德興街的網球專門店，對線材與球員打法有深入了解，穿線服務深受網球員信任並附帶專業諮詢。",
+    "country": "Hong Kong",
+    "district": "Yau Tsim Mong",
+    "district_label": "YAU TSIM MONG 油尖旺",
+    "area": "Tsim Sha Tsui",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85227368228"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tsim Sha Tsui 尖沙咀",
+      "Yau Tsim Mong"
+    ]
+  },
+  {
+    "id": "cyf-badminton-tsim-sha-tsui",
+    "name": "Cyf Badminton Company (長遠體育)",
+    "description": "尖沙咀知名老字號羽毛球店，提供多年經驗的穿線技術與豐富產品組合，是資深球友的指定地點。",
+    "country": "Hong Kong",
+    "district": "Yau Tsim Mong",
+    "district_label": "YAU TSIM MONG 油尖旺",
+    "area": "Tsim Sha Tsui",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85223682811"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tsim Sha Tsui 尖沙咀",
+      "Yau Tsim Mong"
+    ]
+  },
+  {
+    "id": "masters-racket-lai-chi-kok",
+    "name": "Masters Racket",
+    "description": "於長沙灣（深水埗鄰近區域）的 Masters Racket 是專精網球拍穿線與器材調整的專業網球用品店，所在樓層寬敞、環境安靜，適合討論細節。 地址：九龍荔枝角長沙灣道 682-684 號 Trendy Centre 29 樓 07 室 營業時間：星期一至五 12:30 – 19:30，星期六 12:30 – 18:30，星期日及公眾假期休息",
+    "country": "Hong Kong",
+    "district": "Sham Shui Po",
+    "district_label": "SHAM SHUI PO 深水埗區",
+    "area": "Lai Chi Kok",
+    "sports": [
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85236925368",
+      "whatsapp": "+85263652958",
+      "website": "https://masters-racket.com/"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Lai Chi Kok 荔枝角",
+      "Sham Shui Po"
+    ]
+  },
+  {
+    "id": "crescent-badminton-lai-chi-kok",
+    "name": "新月羽毛球專業穿線",
+    "description": "專注羽毛球穿線，多種球線選擇及換護線釘服務。 不定時會係IG介紹唔同球線。 設有自助收取球拍服務，不受營業時間限制，彈性大。 到店前請whatsapp 地址: 荔枝角青山道479號麗昌工廠大廈701樓16號工作室",
+    "country": "Hong Kong",
+    "district": "Sham Shui Po",
+    "district_label": "SHAM SHUI PO 深水埗區",
+    "area": "Lai Chi Kok",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "email": "crescentbm123@gmail.com",
+      "whatsapp": "+85255997489",
+      "phone": "+85255997489",
+      "instagram": "crescentbadmintonhk"
+    },
+    "tags": [],
+    "address_lines": [
+      "Lai Chi Kok 荔枝角",
+      "Sham Shui Po"
+    ]
+  },
+  {
+    "id": "jc-sport-lai-chi-kok",
+    "name": "Jc.Sport",
+    "description": "🎾🏸網羽穿線服務 ⚙️穿線機型號： Gosen GM25EX 📍交收地點: 四小龍或荔枝角站D出口。 最快三天內可交付。 歡迎查詢！:68758421",
+    "country": "Hong Kong",
+    "district": "Sham Shui Po",
+    "district_label": "SHAM SHUI PO 深水埗區",
+    "area": "Lai Chi Kok",
+    "sports": [
+      "Badminton",
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "email": "jazzcheng2025@gmail.com",
+      "phone": "+85268758421",
+      "whatsapp": "+85268758421"
+    },
+    "tags": [],
+    "address_lines": [
+      "Lai Chi Kok 荔枝角",
+      "Sham Shui Po"
+    ]
+  },
+  {
+    "id": "moon-stringing-lai-chi-kok",
+    "name": "上弦●荔枝角 羽毛球拍穿線工作室@（香港羽毛球發展公司）Moon Stringing @Hong Kong Badminton Development Co.",
+    "description": "位於九龍荔枝角區的羽毛球拍專門店提供特快即日穿線服務（加急不另收費，最快1小時可取）。主要球線品牌包括 Yonex、Victor、李寧 Li-Ning、Kizuna、Toalson、Mizuno，亦提供 Yonex 球拍網購、球拍維修補拍、線管更換連釘防塌墊片與手膠 Grip 服務，以及球拍出租。穿線機型號：Victor C-7032Ultra。",
+    "country": "Hong Kong",
+    "district": "Sham Shui Po",
+    "district_label": "SHAM SHUI PO 深水埗區",
+    "area": "Lai Chi Kok",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "From HK$50",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85252665746",
+      "instagram": "moonstringing",
+      "email": "hkbdc2017@gmail.com"
+    },
+    "tags": [],
+    "address_lines": [
+      "九龍荔枝角青山道688號嘉名工廠大廈1樓035室",
+      "Lai Chi Kok 荔枝角"
+    ]
+  },
+  {
+    "id": "leap-way-sports-kwun-tong",
+    "name": "飛騰羽毛球專門店 Leap Way Sports",
+    "description": "觀塘站 D4 出口步行 30 秒即可到達的飛騰羽毛球專門店 Leap Way Sports，提供完整球拍穿線與配件服務，營業時間也能配合上班族。 地址：觀塘工業中心三期 1 樓 E 室 營業時間：星期一至六 11:00 – 20:00（星期日休息）",
+    "country": "Hong Kong",
+    "district": "Kwun Tong",
+    "district_label": "KWUN TONG 觀塘區",
+    "area": "Kwun Tong",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85294146488",
+      "instagram": "leap.way"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Kwun Tong 觀塘",
+      "Kwun Tong"
+    ]
+  },
+  {
+    "id": "jacky-sports-kwun-tong",
+    "name": "官塘球拍穿線 JACKY SPORTS",
+    "description": "官塘球拍穿線 JACKY SPORTS 位於觀塘工業中心第 4 期 11 樓 E 室，專注羽毛球拍與網球拍的穿線與維修。 地址：香港九龍觀塘道 436-446 號官工業中心第 4 期 11 樓 E 室 營業時間：每日 10:00 – 18:30（星期日 11:00 開始）",
+    "country": "Hong Kong",
+    "district": "Kwun Tong",
+    "district_label": "KWUN TONG 觀塘區",
+    "area": "Kwun Tong",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85294945463",
+      "whatsapp": "+85294945463",
+      "website": "https://jackysports.com"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Kwun Tong 觀塘",
+      "Kwun Tong"
+    ]
+  },
+  {
+    "id": "olym-badminton-kwun-tong",
+    "name": "奧林羽毛球用品專門店 Olym Badminton",
+    "description": "位於觀塘裕民中心的傳統羽毛球用品店，社交頻道更新穩定，是尋求可靠穿線與裝備維護的所在。",
+    "country": "Hong Kong",
+    "district": "Kwun Tong",
+    "district_label": "KWUN TONG 觀塘區",
+    "area": "Kwun Tong",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85227727300",
+      "facebook": "OlymBadminton"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Kwun Tong 觀塘",
+      "Kwun Tong"
+    ]
+  },
+  {
+    "id": "hk-squash-gear",
+    "name": "HK Squash Gear",
+    "description": "Adrian Ng 創立的 Pro Shop 專為壁球愛好者打造，提供專業線材推薦與磅數調整，並透過預約/寄售形式服務客人。",
+    "country": "Hong Kong",
+    "district": "Central and Western",
+    "district_label": "CENTRAL AND WESTERN 中西區",
+    "area": "Admiralty",
+    "sports": [
+      "Squash"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "whatsapp": "+85291006488",
+      "website": "https://www.hksquashgear.com/",
+      "instagram": "hksquashgear",
+      "facebook": "HKSquashGear"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Admiralty 金鐘",
+      "Central and Western"
+    ]
+  },
+  {
+    "id": "e78shop-san-po-kong",
+    "name": "E78 Shop",
+    "description": "新蒲崗的 E78 Shop 結合實體與線上平台，穿線師傅經驗豐富並提供細緻線材介紹，專注網球與羽毛球拍的高規格處理。",
+    "country": "Hong Kong",
+    "district": "Wong Tai Sin",
+    "district_label": "WONG TAI SIN 黃大仙區",
+    "area": "San Po Kong",
+    "sports": [
+      "Tennis",
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85223294568",
+      "whatsapp": "+85294565158",
+      "website": "https://e78shop.com/",
+      "instagram": "e78shop"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "San Po Kong 新蒲崗",
+      "Wong Tai Sin"
+    ]
+  },
+  {
+    "id": "racket-sports-hk",
+    "name": "Racket Sports HK 香港球拍運動用品專門店",
+    "description": "東九龍藍田匯景廣場的球拍專門店，涵蓋壁球、羽毛球與網球的穿線與配件，價格透明、服務親切且支持線上/WhatsApp 詢問。",
+    "country": "Hong Kong",
+    "district": "Kwun Tong",
+    "district_label": "KWUN TONG 觀塘區",
+    "area": "Lam Tin",
+    "sports": [
+      "Squash",
+      "Badminton",
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85260127286",
+      "whatsapp": "+85260127286",
+      "website": "http://www.racketsports.hk/",
+      "facebook": "RacketSportsHK"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Lam Tin 藍田",
+      "Kwun Tong"
+    ]
+  },
+  {
+    "id": "winboton-tai-po",
+    "name": "溫布頓體育 Winboton",
+    "description": "大埔廣場地下的羽毛球專門店，Instagram 活動頻繁，提供快速穿線與相關裝備支援。",
+    "country": "Hong Kong",
+    "district": "Tai Po",
+    "district_label": "TAI PO 大埔區",
+    "area": "Tai Po",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "winboton_sports",
+      "phone": "+85265026125",
+      "whatsapp": "+85265026125"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tai Po 大埔",
+      "Tai Po"
+    ]
+  },
+  {
+    "id": "golden-river-tai-po",
+    "name": "金河體育 Golden River",
+    "description": "新達廣場一樓的金河體育，擁有多年穿線經驗，主打羽毛球拍裝備與細緻服務。",
+    "country": "Hong Kong",
+    "district": "Tai Po",
+    "district_label": "TAI PO 大埔區",
+    "area": "Tai Po",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "goldenriversports",
+      "phone": "+85226578998"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tai Po 大埔",
+      "Tai Po"
+    ]
+  },
+  {
+    "id": "dragon-garden-tai-po",
+    "name": "龍園體育 Dragon Garden",
+    "description": "大元邨 / 太和邨區域知名的龍園體育，提供多台穿線機與豐富產品，是資深球友指定的羽毛球維護站。",
+    "country": "Hong Kong",
+    "district": "Tai Po",
+    "district_label": "TAI PO 大埔區",
+    "area": "Tai Po",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85226643614"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tai Po 大埔",
+      "Tai Po"
+    ]
+  },
+  {
+    "id": "rose-sports-southern",
+    "name": "玫瑰體育 Rose Sports",
+    "description": "香港仔分店大規模的老牌體育用品店，主打羽球與網球穿線，師傅經驗老到，備有專業設備。",
+    "country": "Hong Kong",
+    "district": "Southern",
+    "district_label": "SOUTHERN 南區",
+    "area": "Aberdeen",
+    "sports": [
+      "Badminton",
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "rosesports",
+      "whatsapp": "+85228730318",
+      "phone": "+85228730318"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Aberdeen 香港仔",
+      "Southern"
+    ]
+  },
+  {
+    "id": "southern-district-sports",
+    "name": "南區體育 Southern District Sports",
+    "description": "香港仔大道的街坊店，價格親民且靠近巴士總站，專注服務南區居民與學生的羽毛球穿線需求。",
+    "country": "Hong Kong",
+    "district": "Southern",
+    "district_label": "SOUTHERN 南區",
+    "area": "Aberdeen",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85225522322"
+    },
+    "tags": [],
+    "address_lines": [
+      "Aberdeen 香港仔",
+      "Southern"
+    ]
+  },
+  {
+    "id": "gutsy-sports-quarry-bay",
+    "name": "Gutsy Sports (專業穿線工作室)",
+    "description": "鰂魚涌的 Gutsy Sports 係 GOSEN、ERSA 皆認可嘅張人工作室，專攻『張人』穿線法，備有頂級電子機確保磅數平均，WhatsApp 預約即可即穿。",
+    "country": "Hong Kong",
+    "district": "Eastern",
+    "district_label": "EASTERN 東區",
+    "area": "Quarry Bay",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "gutsysports",
+      "whatsapp": "+85296265122",
+      "phone": "+85296265122"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Quarry Bay 鰂魚涌",
+      "Eastern"
+    ]
+  },
+  {
+    "id": "mh-sports-chai-wan",
+    "name": "M&H Sports (羽家)",
+    "description": "柴灣的 M&H Sports 工作室手勢細緻、回覆迅速，可在 IG 查看新款羽毛球線，專注以客製化方式處理穿線。",
+    "country": "Hong Kong",
+    "district": "Eastern",
+    "district_label": "EASTERN 東區",
+    "area": "Chai Wan",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "mh_sports_hk",
+      "whatsapp": "+85263911993",
+      "phone": "+85263911993"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Chai Wan 柴灣",
+      "Eastern"
+    ]
+  },
+  {
+    "id": "wan-kee-quarry-bay",
+    "name": "允記 Wan Kee",
+    "description": "太古城允記是提供穿線與裝備的連鎖選項，位置方便且可累積會員積分，建議先以電話確認師傅在場時間。",
+    "country": "Hong Kong",
+    "district": "Eastern",
+    "district_label": "EASTERN 東區",
+    "area": "Quarry Bay",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "wankee.official",
+      "phone": "+85225602148"
+    },
+    "tags": [],
+    "address_lines": [
+      "Quarry Bay 鰂魚涌",
+      "Eastern"
+    ]
+  },
+  {
+    "id": "bat-stringing-tuen-mun",
+    "name": "B.A.T Stringing (專業穿線工作室)",
+    "description": "屯門震寰路的 B.A.T Stringing 工作室主打羽毛球與網球穿線，WhatsApp 預約，注重磅數與細節，IG 分享完成品，支援當日交收。",
+    "country": "Hong Kong",
+    "district": "Tuen Mun",
+    "district_label": "TUEN MUN 屯門區",
+    "area": "Tuen Mun",
+    "sports": [
+      "Badminton",
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "bat_stringing",
+      "whatsapp": "+85264355032",
+      "phone": "+85264355032"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tuen Mun 屯門",
+      "Tuen Mun"
+    ]
+  },
+  {
+    "id": "andy-sport-tuen-mun",
+    "name": "Andy Sport Shop 安迪體育用品",
+    "description": "屯門市廣場附近的老牌體育用品店，提供一站式羽毛球配件與穿線服務，是市中心逛街時順路寄放球拍的好選擇。",
+    "country": "Hong Kong",
+    "district": "Tuen Mun",
+    "district_label": "TUEN MUN 屯門區",
+    "area": "Tuen Mun",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "phone": "+85224416198"
+    },
+    "tags": [],
+    "address_lines": [
+      "Tuen Mun 屯門",
+      "Tuen Mun"
+    ]
+  },
+  {
+    "id": "never-fault-tuen-mun",
+    "name": "Never Fault (Brian)",
+    "description": "屯門好景工業大廈內的 Never Fault (Brian)，以 Carousell 作為聯絡方式，專為本地羽毛球與網球愛好者提供細緻穿線服務。",
+    "country": "Hong Kong",
+    "district": "Tuen Mun",
+    "district_label": "TUEN MUN 屯門區",
+    "area": "Tuen Mun",
+    "sports": [
+      "Badminton",
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "website": "https://www.carousell.com/never-fault"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tuen Mun 屯門",
+      "Tuen Mun"
+    ]
+  },
+  {
+    "id": "sis-racquet-tuen-mun",
+    "name": "SIS Racquet",
+    "description": "位於屯門壹號總站的 SIS Racquet，提供羽毛球與網球穿線與換線服務，適合近海運站與屯門站的球友。",
+    "country": "Hong Kong",
+    "district": "Tuen Mun",
+    "district_label": "TUEN MUN 屯門區",
+    "area": "Tuen Mun",
+    "sports": [
+      "Badminton",
+      "Tennis"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "sis_racquet",
+      "phone": "+85234603004",
+      "whatsapp": "+85234603004"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Tuen Mun 屯門",
+      "Tuen Mun"
+    ]
+  },
+  {
+    "id": "sis-racquet-yuen-long",
+    "name": "蘇迪曼球拍運動專門店 SIS Racquet Pro-Shop",
+    "description": "元朗的 SIS Racquet Pro-Shop 為 Li-Ning 及 Yonex 等品牌代理，提供羽毛球、網球與壁球穿線並熟悉各品牌磅數上限與手感。",
+    "country": "Hong Kong",
+    "district": "Yuen Long",
+    "district_label": "YUEN LONG 元朗區",
+    "area": "Yuen Long",
+    "sports": [
+      "Badminton",
+      "Tennis",
+      "Squash"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "sis_racquet",
+      "whatsapp": "+85268286893",
+      "phone": "+85268286893"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Yuen Long 元朗",
+      "Yuen Long"
+    ]
+  },
+  {
+    "id": "goal-badminton-yuen-long",
+    "name": "高標羽毛球專門店 Goal Badminton Pro Shop",
+    "description": "又新街邊嘅小店，陳生 Lai Sir 以穩定穿線手勢為名，店內器材齊全，係教練同球員間嘅交流基地，交收方便。",
+    "country": "Hong Kong",
+    "district": "Yuen Long",
+    "district_label": "YUEN LONG 元朗區",
+    "area": "Yuen Long",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "goalbadminton",
+      "phone": "+85224703328"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Yuen Long 元朗",
+      "Yuen Long"
+    ]
+  },
+  {
+    "id": "mister-keen-sports-yuen-long",
+    "name": "Mister Keen Sports 堅體育",
+    "description": "位於光華廣場的 Yonex 官方授權店，IG 活躍分享最新線材動態，穿線過程靠嚴謹流程，對追求最新技術的球友很有吸引力。",
+    "country": "Hong Kong",
+    "district": "Yuen Long",
+    "district_label": "YUEN LONG 元朗區",
+    "area": "Yuen Long",
+    "sports": [
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "misterkeensports",
+      "whatsapp": "+85292262983",
+      "phone": "+85292262983"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Yuen Long 元朗",
+      "Yuen Long"
+    ]
+  },
+  {
+    "id": "master-stringer-central",
+    "name": "Master Stringer (專業網球/羽毛球穿線 - 中環)",
+    "description": "坐落中環華威大廈的 Master Stringer 以職業級穿線設備聞名，雖然主打網球但羽毛球也同樣精準，WhatsApp 預約可做即日取拍。",
+    "country": "Hong Kong",
+    "district": "Central and Western",
+    "district_label": "CENTRAL AND WESTERN 中西區",
+    "area": "Central",
+    "sports": [
+      "Tennis",
+      "Badminton"
+    ],
+    "pricing_text": "Pricing available upon enquiry",
+    "status": "READY",
+    "contacts": {
+      "instagram": "master_stringer",
+      "whatsapp": "+85292203383",
+      "phone": "+85292203383"
+    },
+    "tags": [
+      "Certified"
+    ],
+    "address_lines": [
+      "Central 中環",
+      "Central and Western"
+    ]
+  }
+]

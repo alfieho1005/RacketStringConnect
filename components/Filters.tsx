@@ -4,25 +4,19 @@ import { sportDefinitions } from "@/config/sports";
 import { areaOptions } from "@/config/areas";
 import { districtOptions } from "@/config/district";
 import { districtToSubdistrictIds } from "@/config/district_to_areas_mapping";
-import { countryOptions } from "@/config/countries";
-import { countryToDistrictIds } from "@/config/country_to_districts";
 import type { AreaId } from "@/config/areas";
 import type { DistrictId } from "@/config/district";
 import type { SportId } from "@/config/sports";
-import type { CountryId } from "@/config/countries";
 
 const areaOptionMap = new Map(areaOptions.map((option) => [option.id, option] as const));
-const districtOptionMap = new Map(districtOptions.map((option) => [option.id, option] as const));
 
 type Props = {
   selectedSport?: SportId;
   selectedDistrict?: DistrictId;
   selectedArea?: AreaId;
-  selectedCountry?: CountryId;
   onSportChange: (value?: SportId) => void;
   onDistrictChange: (value?: DistrictId) => void;
   onAreaChange: (value?: AreaId) => void;
-  onCountryChange: (value?: CountryId) => void;
   onReset: () => void;
 };
 
@@ -32,8 +26,7 @@ function FilterRow({ label, children }: { label: string; children: React.ReactNo
       <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
         {label}
       </p>
-      {/* Horizontal scroll on mobile, wrap on md+ */}
-      <div className="flex gap-2 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] md:flex-wrap md:overflow-visible md:pb-0">
+      <div className="flex flex-wrap gap-2">
         {children}
       </div>
     </div>
@@ -47,12 +40,10 @@ export default function Filters({
   onSportChange,
   onDistrictChange,
   onAreaChange,
-  onCountryChange,
   onReset,
   selectedSport,
   selectedDistrict,
   selectedArea,
-  selectedCountry,
 }: Props) {
   const availableAreaOptions = selectedDistrict
     ? districtToSubdistrictIds[selectedDistrict]
@@ -60,37 +51,9 @@ export default function Filters({
         .filter((area): area is (typeof areaOptions)[number] => Boolean(area))
     : [];
 
-  const availableDistrictOptions = selectedCountry
-    ? (countryToDistrictIds[selectedCountry] ?? [])
-        .map((districtId) => districtOptionMap.get(districtId))
-        .filter(
-          (district): district is (typeof districtOptions)[number] =>
-            Boolean(district)
-        )
-    : districtOptions;
-
   return (
     <section className="space-y-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-      <FilterRow label="Country">
-        {countryOptions.map((country) => {
-          const isActive = selectedCountry === country.id;
-          return (
-            <button
-              key={country.id}
-              type="button"
-              aria-pressed={isActive}
-              onClick={() => onCountryChange(isActive ? undefined : country.id)}
-              className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
-                isActive ? activeClass : inactiveClass
-              }`}
-            >
-              {country.label}
-            </button>
-          );
-        })}
-      </FilterRow>
-
-      <FilterRow label="Sport">
+      <FilterRow label="運動類別 Sport">
         {sportDefinitions.map((sport) => {
           const isActive = selectedSport === sport.id;
           return (
@@ -103,38 +66,34 @@ export default function Filters({
                 isActive ? activeClass : inactiveClass
               }`}
             >
-              <sport.icon className="h-3.5 w-3.5 flex-shrink-0" aria-hidden />
+              <sport.icon className="h-3.5 w-3.5 shrink-0" aria-hidden />
               {sport.label}
             </button>
           );
         })}
       </FilterRow>
 
-      {selectedCountry && availableDistrictOptions.length > 0 && (
-        <FilterRow label="District">
-          {availableDistrictOptions.map((district) => {
-            const isActive = selectedDistrict === district.id;
-            return (
-              <button
-                key={district.id}
-                type="button"
-                aria-pressed={isActive}
-                onClick={() =>
-                  onDistrictChange(isActive ? undefined : district.id)
-                }
-                className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
-                  isActive ? activeClass : inactiveClass
-                }`}
-              >
-                {district.label}
-              </button>
-            );
-          })}
-        </FilterRow>
-      )}
+      <FilterRow label="所在地區 District">
+        {districtOptions.map((district) => {
+          const isActive = selectedDistrict === district.id;
+          return (
+            <button
+              key={district.id}
+              type="button"
+              aria-pressed={isActive}
+              onClick={() => onDistrictChange(isActive ? undefined : district.id)}
+              className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+                isActive ? activeClass : inactiveClass
+              }`}
+            >
+              {district.label}
+            </button>
+          );
+        })}
+      </FilterRow>
 
       {selectedDistrict && availableAreaOptions.length > 0 && (
-        <FilterRow label="Area">
+        <FilterRow label="分區 Area">
           {availableAreaOptions.map((area) => {
             const isActive = selectedArea === area.id;
             return (
@@ -160,7 +119,7 @@ export default function Filters({
           onClick={onReset}
           className="rounded-lg border border-gray-200 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-gray-400 hover:text-slate-700"
         >
-          Reset all
+          清除篩選 Clear
         </button>
       </div>
     </section>

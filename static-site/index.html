@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Explore · RacketStringConnect</title>
+    <link rel="stylesheet" href="assets/css/existing.css" />
+    <link rel="stylesheet" href="assets/css/patch.css" />
+  </head>
+  <body class="explore-page">
+    <div class="page-inner">
+      <header class="site-header">
+        <div class="logo">RacketStringConnect</div>
+        <nav aria-label="Primary navigation">
+          <a href="explore.html" aria-current="page">Explore</a>
+          <a href="about.html">About Us</a>
+        </nav>
+      </header>
+
+      <section class="hero-section" aria-labelledby="hero-title">
+        <p class="eyebrow">Explore stringers</p>
+        <h1 id="hero-title">Racket String Connect Map</h1>
+        <p>
+          Discover local badminton and tennis stringing pros with transparent contact info. Filters let you narrow by sport and district,
+          while every profile links directly to their contact channels.
+        </p>
+        <div class="hero-actions">
+          <a class="pill-btn" href="about.html">Submit a profile</a>
+          <span class="hero-count"><span id="active-count">0</span> active stringers</span>
+        </div>
+      </section>
+
+      <section class="filters-panel" aria-label="Stringer filters">
+        <div class="filter-row">
+          <span class="filter-label">Country</span>
+          <div class="filter-chips" id="country-chips"></div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Sport</span>
+          <div class="filter-chips" id="sport-chips"></div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">District</span>
+          <div class="filter-chips" id="district-chips"></div>
+        </div>
+        <button class="reset-button" id="resetFilters" type="button">Reset</button>
+      </section>
+
+      <section class="stringer-grid" id="stringer-grid" aria-live="polite" aria-label="Stringer listings"></section>
+
+      <p class="footer-note">
+        PURE CONNECTION · DISCOVERY ONLY · CONTACT EXTERNAL
+        <br />2026@RACKETSTRINGCONNECT
+      </p>
+    </div>
+
+    <script type="module" src="assets/js/explore.js"></script>
+  </body>
+</html>
