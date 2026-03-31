@@ -6,16 +6,16 @@ const BASE_URL = "https://racketstringconnect.com";
 // High-value district + sport pages that match real search queries
 const localizedPages = [
   // Tsuen Wan — top query in Search Console
-  { path: "/?country=hk&district=tsuen-wan-district&sport=badminton", priority: 0.9 },
-  { path: "/?country=hk&district=tsuen-wan-district&sport=tennis", priority: 0.9 },
+  { path: "/?country=hk&amp;district=tsuen-wan-district&amp;sport=badminton", priority: 0.9 },
+  { path: "/?country=hk&amp;district=tsuen-wan-district&amp;sport=tennis", priority: 0.9 },
   // Mong Kok (Yau Tsim Mong)
-  { path: "/?country=hk&district=yau-tsim-mong&sport=tennis", priority: 0.85 },
-  { path: "/?country=hk&district=yau-tsim-mong&sport=badminton", priority: 0.85 },
+  { path: "/?country=hk&amp;district=yau-tsim-mong&amp;sport=tennis", priority: 0.85 },
+  { path: "/?country=hk&amp;district=yau-tsim-mong&amp;sport=badminton", priority: 0.85 },
   // Yuen Long
-  { path: "/?country=hk&district=yuen-long-district&sport=tennis", priority: 0.8 },
-  { path: "/?country=hk&district=yuen-long-district&sport=badminton", priority: 0.8 },
+  { path: "/?country=hk&amp;district=yuen-long-district&amp;sport=tennis", priority: 0.8 },
+  { path: "/?country=hk&amp;district=yuen-long-district&amp;sport=badminton", priority: 0.8 },
   // Squash
-  { path: "/?country=hk&sport=squash", priority: 0.75 },
+  { path: "/?country=hk&amp;sport=squash", priority: 0.75 },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
