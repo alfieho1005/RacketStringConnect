@@ -885,6 +885,77 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     },
     visibility: "active" as const,
   },
+  {
+    id: "wan-kee-mong-kok",
+    slug: "wan-kee-mong-kok",
+    name: "允記 Wan Kee (旺角)",
+    description:
+      "G/F, 87 Fa Yuen St., Mong Kok, Kln. Business Hours: Monday to Sunday & Public Holidays 11:30-21:30. Tel: (852) 2787 5228",
+    sports: ["tennis" as const, "badminton" as const],
+    area: "mong-kok" as const,
+    country: "hong-kong" as const,
+    hasCertifiedStringers: false,
+    pricing: "Pricing available upon enquiry",
+    sortId: 932,
+    contact: {
+      instagram: "wankee.official",
+      phone: "+85227875228",
+    },
+    visibility: "active" as const,
+  },
+  {
+    id: "wan-kee-wong-tai-sin",
+    slug: "wan-kee-wong-tai-sin",
+    name: "允記 Wan Kee (黃大仙)",
+    description:
+      "Shop N136-N137, 1/F, Temple Mall North, 136 Lung Cheung Rd., Wong Tai Sin, Kln. Business Hours: Monday to Friday 11:30-20:30; Saturday, Sunday, Public Holidays and Public Holiday Eves 11:00-20:30. Tel: (852) 2759 7377",
+    sports: ["tennis" as const, "badminton" as const],
+    area: "wong-tai-sin" as const,
+    country: "hong-kong" as const,
+    hasCertifiedStringers: false,
+    pricing: "Pricing available upon enquiry",
+    sortId: 933,
+    contact: {
+      instagram: "wankee.official",
+      phone: "+85227597377",
+    },
+    visibility: "active" as const,
+  },
+  {
+    id: "wan-kee-sheung-shui",
+    slug: "wan-kee-sheung-shui",
+    name: "允記 Wan Kee (上水)",
+    description:
+      "Shop R46 & R49, 3/F, Choi Yuen Plaza, Choi Yuen Estate, Sheung Shui, N.T. Business Hours: Monday to Sunday & Public Holidays 10:30-20:30. Tel: (852) 2387 7188",
+    sports: ["tennis" as const, "badminton" as const],
+    area: "sheung-shui" as const,
+    country: "hong-kong" as const,
+    hasCertifiedStringers: false,
+    pricing: "Pricing available upon enquiry",
+    sortId: 934,
+    contact: {
+      instagram: "wankee.official",
+      phone: "+85223877188",
+    },
+    visibility: "active" as const,
+  },
+  {
+    id: "wan-kee-sports-wan-chai",
+    slug: "wan-kee-sports-wan-chai",
+    name: "允記體育 Wan Kee Sports (灣仔)",
+    description:
+      "B/F-1/F, Shiu Fung Commercial Bldg, No.51-53 Johnston Rd, Wan Chai, H.K. Business Hours: Monday to Friday 11:00-20:00; Saturday, Sunday and Public Holidays 10:30-20:00",
+    sports: ["tennis" as const, "badminton" as const],
+    area: "wan-chai" as const,
+    country: "hong-kong" as const,
+    hasCertifiedStringers: false,
+    pricing: "Pricing available upon enquiry",
+    sortId: 935,
+    contact: {
+      instagram: "wankee.official",
+    },
+    visibility: "active" as const,
+  },
 ];
 
 export const seedStringers: Stringer[] = baseStringers.map((entry) => ({
