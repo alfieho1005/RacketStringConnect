@@ -4,6 +4,7 @@ import {
   Hash,
   Instagram,
   Mail,
+  MapPin,
   MessageCircle,
   MessageSquare,
   Phone,
@@ -27,7 +28,8 @@ export type ContactChannel =
   | "email"
   | "phone"
   | "website"
-  | "facebook";
+  | "facebook"
+  | "googleMap";
 
 export type ContactDefinition = {
   label: string;
@@ -74,6 +76,14 @@ export const contactDefinitions: Record<ContactChannel, ContactDefinition> = {
     label: "Messenger",
     icon: MessageCircle,
     buildLink: (value) => ensureProtocol(value, "m.me"),
+  },
+  googleMap: {
+    label: "Google Map",
+    icon: MapPin,
+    buildLink: (value) =>
+      value.startsWith("http")
+        ? value
+        : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}`,
   },
 };
 

@@ -47,6 +47,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       whatsapp: "+85296623373",
       email: "topspintennisports@gmail.com",
       website: "https://topspintennis.pro",
+      googleMap: "Tsuen Fung Centre, Tsuen Wan, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -104,6 +105,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       email: "Aplus_sports@hotmail.com",
       website: "https://www.aplus-tennis.com",
+      googleMap: "Island Centre, 1 Great George Street, Causeway Bay, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -127,6 +129,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       email: "Aplus_sports@hotmail.com",
       website: "https://www.aplus-tennis.com",
+      googleMap: "LIADRO Centre, 72 Hoi Yuen Road, Kwun Tong, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -237,6 +240,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       phone: "+85293812100",
       website: "https://tkosports.com/",
       facebook: "TKOSports",
+      googleMap: "TKO Sports, Tseung Kwan O, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -383,6 +387,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       phone: "+85236925368",
       whatsapp: "+85263652958",
       website: "https://masters-racket.com/",
+      googleMap: "Trendy Centre, 682 Cheung Sha Wan Road, Lai Chi Kok, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -407,6 +412,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       whatsapp: "+85255997489",
       phone: "+85255997489",
       instagram: "crescentbadmintonhk",
+      googleMap: "Lai Cheong Factory Building, 479 Castle Peak Road, Lai Chi Kok, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -451,6 +457,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       instagram: "moonstringing",
       phone: "+85252665746",
       email: "hkbdc2017@gmail.com",
+      googleMap: "Ka Ming Factory Building, 688 Castle Peak Road, Lai Chi Kok, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -471,6 +478,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       phone: "+85294146488",
       instagram: "leap.way",
+      googleMap: "Kwun Tong Industrial Centre Phase 3, Kwun Tong, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -492,6 +500,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       phone: "+85294945463",
       whatsapp: "+85294945463",
       website: "https://jackysports.com",
+      googleMap: "Kwun Tong Industrial Centre Phase 4, 436 Kwun Tong Road, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -510,6 +519,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       phone: "+85227727300",
       facebook: "OlymBadminton",
+      googleMap: "Yue Man Centre, Kwun Tong, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -550,6 +560,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       whatsapp: "+85294565158",
       website: "https://e78shop.com/",
       instagram: "e78shop",
+      googleMap: "E78 Shop, San Po Kong, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -570,6 +581,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       whatsapp: "+85260127286",
       website: "http://www.racketsports.hk/",
       facebook: "RacketSportsHK",
+      googleMap: "Sceneway Plaza, Lam Tin, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -589,6 +601,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       instagram: "winboton_sports",
       phone: "+85265026125",
       whatsapp: "+85265026125",
+      googleMap: "Tai Po Plaza, Tai Po, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -607,6 +620,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "goldenriversports",
       phone: "+85226578998",
+      googleMap: "Sun Tat Plaza, Tai Po, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -643,6 +657,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       instagram: "rosesports",
       whatsapp: "+85228730318",
       phone: "+85228730318",
+      googleMap: "Rose Sports, Aberdeen, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -716,6 +731,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "wankee.official",
       phone: "+85225602148",
+      googleMap: "Wan Kee, Quarry Bay, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -900,6 +916,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "wankee.official",
       phone: "+85227875228",
+      googleMap: "87 Fa Yuen Street, Mong Kok, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -918,6 +935,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "wankee.official",
       phone: "+85227597377",
+      googleMap: "Temple Mall North, 136 Lung Cheung Road, Wong Tai Sin, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -936,6 +954,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "wankee.official",
       phone: "+85223877188",
+      googleMap: "Choi Yuen Plaza, Choi Yuen Estate, Sheung Shui, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -953,6 +972,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     sortId: 935,
     contact: {
       instagram: "wankee.official",
+      googleMap: "Shiu Fung Commercial Building, 51 Johnston Road, Wan Chai, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -971,6 +991,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "stackdpb",
       phone: "+85263681655",
+      googleMap: "Hopewell Mall, 183 Queen's Road East, Wan Chai, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -990,6 +1011,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
       instagram: "212hong_kong",
       email: "info@212hk.com",
       phone: "+85295009074",
+      googleMap: "S22, Heung Yip Road, Wong Chuk Hang, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -1008,6 +1030,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "asiaacespickleball",
       phone: "+85260826655",
+      googleMap: "S22, Heung Yip Road, Wong Chuk Hang, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -1026,6 +1049,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "asiaacespickleball",
       phone: "+85260826655",
+      googleMap: "Cyberport Shopping Arcade, 100 Cyberport Road, Pok Fu Lam, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -1115,6 +1139,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "baypickle",
       phone: "+85246083998",
+      googleMap: "The Consonance, 23 Jupiter Street, Tin Hau, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -1133,6 +1158,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "pickandmatch.hk",
       phone: "+85268083392",
+      googleMap: "MegaBox, 38 Wang Chiu Road, Kowloon Bay, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -1365,6 +1391,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "pickle.ready",
       phone: "+85298609827",
+      googleMap: "Tsuen Wan Plaza, Tsuen Wan, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -1437,6 +1464,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "baypickle",
       phone: "+85259348350",
+      googleMap: "D Park, 398 Castle Peak Road, Tsuen Wan, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -1454,6 +1482,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     sortId: 963,
     contact: {
       instagram: "project.polis",
+      googleMap: "The Mills, 45 Pak Tin Par Street, Tsuen Wan, Hong Kong",
     },
     visibility: "active" as const,
   },
@@ -1544,6 +1573,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     contact: {
       instagram: "pickleandclub",
       phone: "+85262988284",
+      googleMap: "The Westwood, 1 Belcher Street, Kennedy Town, Hong Kong",
     },
     visibility: "active" as const,
   },

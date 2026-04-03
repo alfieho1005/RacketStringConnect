@@ -12,6 +12,7 @@ export type ContactInfo = Partial<{
   phone: string;
   website: string;
   facebook: string;
+  googleMap: string;
 }>;
 
 export interface Stringer {

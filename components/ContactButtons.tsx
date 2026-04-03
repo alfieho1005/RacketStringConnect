@@ -1,17 +1,37 @@
+"use client";
+
 import type { ContactInfo } from "@/lib/stringers/types";
 import type { ContactChannel } from "@/config/contacts";
 import { contactDefinitions } from "@/config/contacts";
 
 type Props = {
   contact: ContactInfo;
+  stringerName?: string;
 };
 
-export default function ContactButtons({ contact }: Props) {
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+export default function ContactButtons({ contact, stringerName }: Props) {
   const channels = Object.entries(contact) as [ContactChannel, string][];
 
   if (channels.length === 0) {
     return null;
   }
+
+  const handleClick = (channel: ContactChannel) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "contact_click", {
+        event_category: "Contact",
+        event_label: `${channel}${stringerName ? ` — ${stringerName}` : ""}`,
+        contact_method: channel,
+        stringer_name: stringerName ?? "unknown",
+      });
+    }
+  };
 
   return (
     <div className="flex flex-wrap gap-2">
@@ -27,6 +47,7 @@ export default function ContactButtons({ contact }: Props) {
             className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 shadow-sm transition hover:border-yellow-400 hover:text-slate-900 active:bg-yellow-50"
             href={href}
             key={channel}
+            onClick={() => handleClick(channel)}
             rel="noopener"
             target="_blank"
           >

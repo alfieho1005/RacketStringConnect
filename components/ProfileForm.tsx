@@ -75,6 +75,7 @@ export default function ProfileForm({ initialValues }: Props) {
     phone: initialValues?.contact.phone ?? "",
     website: initialValues?.contact.website ?? "",
     facebook: initialValues?.contact.facebook ?? "",
+    googleMap: initialValues?.contact.googleMap ?? "",
   });
 
   useEffect(() => {
@@ -93,6 +94,7 @@ export default function ProfileForm({ initialValues }: Props) {
         phone: initialValues.contact.phone ?? "",
         website: initialValues.contact.website ?? "",
         facebook: initialValues.contact.facebook ?? "",
+        googleMap: initialValues.contact.googleMap ?? "",
       });
       setHasCertifiedStringers(initialValues.hasCertifiedStringers ?? false);
       setAdditionalNotes("");
