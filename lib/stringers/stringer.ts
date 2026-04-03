@@ -579,7 +579,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     name: "溫布頓體育 Winboton",
     description:
       "大埔廣場地下的羽毛球專門店，Instagram 活動頻繁，提供快速穿線與相關裝備支援。",
-    sports: ["badminton" as const],
+    sports: ["badminton" as const, "tennis" as const],
     area: "tai-po" as const,
     country: "hong-kong" as const,
     hasCertifiedStringers: true,
