@@ -53,7 +53,7 @@ export default function ContactButtons({ contact, stringerName }: Props) {
             aria-label={`Contact via ${definition.label}`}
             className={
               isWhatsApp
-                ? "flex items-center gap-2 rounded-lg bg-[#25D366] px-3 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-[#1ebe5d] active:bg-[#1aad54]"
+                ? "flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-[#1ebe5d] active:bg-[#1aad54]"
                 : "flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 shadow-sm transition hover:border-yellow-400 hover:text-slate-900 active:bg-yellow-50"
             }
             href={href}
