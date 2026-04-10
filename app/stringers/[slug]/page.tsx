@@ -175,7 +175,7 @@ export default async function StringerProfilePage({
           <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400">
             Contact
           </h2>
-          <ContactButtons contact={stringer.contact} stringerName={stringer.name} />
+          <ContactButtons contact={stringer.contact} />
         </div>
       </section>
     </main>

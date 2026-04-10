@@ -29,7 +29,6 @@ export default function ContactButtons({ contact, stringerName }: Props) {
         event_label: `${channel}${stringerName ? ` — ${stringerName}` : ""}`,
         contact_method: channel,
         stringer_name: stringerName ?? "unknown",
-        transport_type: "beacon",
       });
     }
   };
