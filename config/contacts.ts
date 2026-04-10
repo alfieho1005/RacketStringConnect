@@ -43,7 +43,7 @@ export const contactDefinitions: Record<ContactChannel, ContactDefinition> = {
     icon: MessageSquare,
     buildLink: (value) => {
       const digits = sanitizeNumber(value);
-      return `https://wa.me/${digits}?text=${encodeURIComponent("Hi, I found you on RacketStringConnect and would like to enquire about stringing.")}`;
+      return `https://wa.me/${digits}`;
     },
   },
   instagram: {

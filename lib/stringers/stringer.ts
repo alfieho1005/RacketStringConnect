@@ -1068,6 +1068,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     sortId: 940,
     contact: {
       instagram: "yama.pickleball",
+      whatsapp: "Via WhatsApp (website)",
     },
     visibility: "active" as const,
   },
@@ -1085,6 +1086,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     sortId: 941,
     contact: {
       instagram: "baypickle",
+      whatsapp: "Via WhatsApp",
     },
     visibility: "active" as const,
   },
@@ -1553,6 +1555,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     sortId: 967,
     contact: {
       instagram: "baypickle",
+      whatsapp: "Via WhatsApp",
     },
     visibility: "active" as const,
   },
