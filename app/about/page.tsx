@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,6 +14,18 @@ const stringlabInstagram = "racketstringconnect";
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 space-y-10">
+
+      {/* Hero image */}
+      <div className="overflow-hidden rounded-3xl">
+        <Image
+          src="/images/generated/about-stringer.webp"
+          alt="Racket stringer at work in a Hong Kong sports shop"
+          width={1024}
+          height={576}
+          className="w-full object-cover"
+          priority
+        />
+      </div>
 
       {/* Top positioning statement */}
       <section className="space-y-4 rounded-3xl border border-white/60 bg-white/70 p-6 shadow-xl shadow-slate-900/5 backdrop-blur">
