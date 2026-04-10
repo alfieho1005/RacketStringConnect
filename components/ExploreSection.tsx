@@ -57,8 +57,8 @@ export default function ExploreSection({ stringers }: Props) {
 
           {/* Background image */}
           <Image
-            src="/images/generated/hero-stringing.webp"
-            alt="Close-up of hands stringing a badminton racket in a Hong Kong sports shop"
+            src="/images/racketstringconnect.jpg"
+            alt="Stringer's hands restringing a tennis racket on a stringing machine"
             fill
             className="object-cover object-center"
             priority
@@ -80,12 +80,6 @@ export default function ExploreSection({ stringers }: Props) {
                     squash: "壁球",
                     pickleball: "匹克球",
                   };
-                  const sportImages: Record<string, string> = {
-                    badminton: "/images/generated/sport-badminton.webp",
-                    tennis: "/images/generated/sport-tennis.webp",
-                    squash: "/images/generated/sport-squash.webp",
-                    pickleball: "/images/generated/sport-pickleball.webp",
-                  };
                   return (
                     <button
                       key={sport.id}
@@ -94,15 +88,6 @@ export default function ExploreSection({ stringers }: Props) {
                         selectedSport === sport.id ? "opacity-100" : "opacity-40 hover:opacity-70"
                       }`}
                     >
-                      <Image
-                        src={sportImages[sport.id]}
-                        alt={sport.label}
-                        width={48}
-                        height={48}
-                        className={`mx-auto mb-1.5 h-10 w-10 rounded-full object-cover sm:h-12 sm:w-12 ring-2 ${
-                          selectedSport === sport.id ? "ring-yellow-400" : "ring-white/30"
-                        }`}
-                      />
                       <span className={`block text-2xl font-black leading-none sm:text-3xl ${
                         selectedSport === sport.id ? "text-yellow-400" : "text-white"
                       }`}>
