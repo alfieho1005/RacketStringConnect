@@ -294,6 +294,7 @@ const baseStringers: ReadonlyArray<SeedStringer> = [
     sortId: 916,
     contact: {
       whatsapp: "+85253611232",
+      website: "https://www.luxissport.com",
     },
     visibility: "active" as const,
   },
