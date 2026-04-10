@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { fetchActiveStringers } from "@/features/stringers/service";
+import { districtOptions } from "@/config/district";
+import { sportDefinitions } from "@/config/sports";
 
 const BASE_URL = "https://racketstringconnect.com";
 
@@ -61,6 +63,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     },
     ...localizedEntries,
+    // District landing pages
+    ...districtOptions.map((d) => ({
+      url: `${BASE_URL}/district/${d.id}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
+    // Sport landing pages
+    ...sportDefinitions.map((s) => ({
+      url: `${BASE_URL}/sport/${s.id}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    })),
     ...stringerEntries,
   ];
 }

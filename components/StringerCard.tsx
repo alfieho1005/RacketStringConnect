@@ -80,7 +80,7 @@ export default function StringerCard({ stringer }: Props) {
         </div>
 
         {/* Contact — full width on mobile for easy tapping */}
-        <ContactButtons contact={stringer.contact} />
+        <ContactButtons contact={stringer.contact} stringerName={stringer.name} />
       </div>
     </article>
   );

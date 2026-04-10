@@ -2,6 +2,7 @@ import Link from "next/link";
 import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,9 +12,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "RacketStringConnect · 香港球拍穿線師目錄",
+  title: "RacketStringConnect · 香港球拍穿線師目錄 | WhatsApp 直接搵師傅",
   description:
-    "香港羽毛球、網球、壁球穿線師目錄。按地區篩選，直接聯絡穿線師，毋需中間人。Free directory of racket stringing professionals in Hong Kong — filter by district, contact directly.",
+    "香港羽毛球、網球、壁球穿線師目錄。WhatsApp 直接聯絡師傅，覆蓋全港 18 區，毋需中間人。Find badminton, tennis & squash stringers in Hong Kong. Direct WhatsApp contact, no middleman, all 18 districts.",
+  alternates: {
+    languages: {
+      "zh-HK": "https://racketstringconnect.com",
+      "en-HK": "https://racketstringconnect.com",
+    },
+  },
 };
 
 export const viewport = {
@@ -32,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh-HK">
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XP6ELMXJLN"
@@ -107,6 +114,9 @@ export default function RootLayout({
 
           {/* Page content */}
           <div className="flex-1">{children}</div>
+
+          {/* Floating WhatsApp enquiry button */}
+          <FloatingWhatsApp />
 
           {/* Footer */}
           <footer className="border-t border-gray-200 bg-white mt-16">

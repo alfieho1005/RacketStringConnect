@@ -323,6 +323,23 @@ export default function StringerJoinForm({
         />
       </label>
 
+      {/* Photo prompt */}
+      <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-5 py-4 text-sm text-slate-600">
+        <p className="font-semibold text-slate-900">想加相片？</p>
+        <p className="mt-1">
+          影低你嘅穿線 setup 或者店面，WhatsApp 傳俾我哋就得（選填）。
+          真相片令球手更加信任你嘅服務。
+        </p>
+        <a
+          href="https://wa.me/85295338389?text=Hi%2C%20%E6%88%91%E6%83%B3%E5%82%B3%E7%A9%BF%E7%B7%9A%E5%B8%AB%E7%9B%B8%E7%89%87"
+          target="_blank"
+          rel="noopener"
+          className="mt-2 inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#1ebe5d]"
+        >
+          WhatsApp 傳相片
+        </a>
+      </div>
+
       <div className="flex justify-end">
         <button
           type="submit"

@@ -110,8 +110,8 @@ export default function ExploreSection({ stringers }: Props) {
             {/* Headline + CTA pinned to bottom */}
             <div className="max-w-lg">
               <h1 className="text-4xl font-black leading-[1.05] text-white sm:text-5xl md:text-6xl">
-                香港穿線師目錄<br /><span className="relative inline-block">
-                  <span className="relative z-10">Find your stringer.</span>
+                搵穿線？<br /><span className="relative inline-block">
+                  <span className="relative z-10">WhatsApp 直接搵師傅。</span>
                   <span
                     aria-hidden
                     className="absolute bottom-1 left-0 right-0 h-3 -skew-x-2 bg-yellow-400 sm:h-4"
@@ -121,17 +121,17 @@ export default function ExploreSection({ stringers }: Props) {
               </h1>
 
               <p className="mt-4 text-base text-white/75 sm:text-lg">
-                羽毛球 · 網球 · 壁球穿線師，覆蓋全港各區。直接聯絡，毋需中間人。
+                羽毛球、網球、壁球 — 全港 18 區穿線師任你揀。WhatsApp 直傾，唔使經中間人。
               </p>
 
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[11px] font-semibold uppercase tracking-widest text-white/40">
-                <span>實名穿線師</span>
+                <span>真人師傅</span>
                 <span>·</span>
-                <span>直接聯絡</span>
+                <span>WhatsApp 直聯</span>
                 <span>·</span>
                 <span>免費登記</span>
                 <span>·</span>
-                <span>香港專屬</span>
+                <span>香港人做嘅</span>
               </div>
 
               <div className="mt-5 flex flex-wrap items-center gap-3">
@@ -206,6 +206,46 @@ export default function ExploreSection({ stringers }: Props) {
           </div>
         )}
       </div>
+
+      {/* FAQ section — targets featured snippet queries */}
+      <section className="border-t border-gray-200 pb-16 pt-10">
+        <h2 className="mb-6 text-lg font-bold text-slate-900">常見問題 FAQ</h2>
+        <div className="space-y-3">
+          {[
+            {
+              q: "點樣搵香港嘅穿線師？How do I find a racket stringer in Hong Kong?",
+              a: "用 RacketStringConnect 按地區或運動篩選，揀啱你嘅穿線師，WhatsApp 直接傾。覆蓋全港 18 區，毋需中間人。Use RacketStringConnect to filter by district or sport, then contact your stringer directly via WhatsApp — all 18 districts covered, no middleman.",
+            },
+            {
+              q: "可以直接 WhatsApp 穿線師嗎？Can I contact stringers directly?",
+              a: "可以！每位穿線師嘅卡片都有 WhatsApp 按鈕，撳一下就直接傳訊息，唔使登記、唔使畀中介費。Yes — every stringer card has a WhatsApp button. Tap it to message them directly. No sign-up or fees required.",
+            },
+            {
+              q: "穿線收幾錢？How much does racket stringing cost in Hong Kong?",
+              a: "一般羽毛球穿線 HK$60–$200，視乎線材同師傅經驗。網球穿線大約 HK$100–$300。每位穿線師嘅卡片都有參考價錢。Badminton stringing typically costs HK$60–$200 depending on string and experience. Tennis is around HK$100–$300. Pricing is shown on each stringer card.",
+            },
+            {
+              q: "穿線師登記要收費嗎？Is it free to list as a stringer?",
+              a: "完全免費，永久免費，毋需抽佣。填一次表，我哋審核後就上架。Completely free, forever. No commission. Submit once and we publish after review.",
+            },
+            {
+              q: "你哋有匹克球穿線師嗎？Do you have pickleball stringers?",
+              a: "有！我哋有匹克球場地同穿線師登記。匹克球喺香港愈來愈受歡迎，歡迎瀏覽匹克球專頁。Yes — we list pickleball venues and stringers. Pickleball is growing fast in HK.",
+            },
+          ].map((faq) => (
+            <details
+              key={faq.q}
+              className="group rounded-xl border border-gray-200 bg-white shadow-sm"
+            >
+              <summary className="flex cursor-pointer items-center justify-between gap-3 px-5 py-4 text-sm font-semibold text-slate-900 marker:hidden list-none">
+                {faq.q}
+                <span className="flex-shrink-0 text-yellow-500 transition group-open:rotate-45">+</span>
+              </summary>
+              <p className="px-5 pb-4 text-sm leading-relaxed text-slate-600">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
