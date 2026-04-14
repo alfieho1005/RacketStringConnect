@@ -80,6 +80,35 @@ export const posts: BlogPost[] = [
     ],
     readingTime: 6,
   },
+  {
+    slug: "tennis-string-types-explained",
+    title: "網球拍線材大解構：由製作過程睇清每種線嘅本質",
+    titleEn: "Tennis String Types Explained — Materials, Construction & How to Choose",
+    description:
+      "天然腸線、尼龍線、聚酯線、克維拉同混合穿法，由製作原理到物理特性，穿線師角度逐樣拆解，幫你揀到最適合嘅線材。",
+    descriptionEn:
+      "Natural gut, nylon, polyester, Kevlar, and hybrid setups — understand how each string is made and which suits your game.",
+    excerpt:
+      "天然腸線、聚酯線、尼龍線、克維拉⋯⋯每種線材都有唔同製作方式同物理特性，揀錯線隨時影響表現同舒適度。",
+    excerptEn:
+      "Natural gut, polyester, nylon, Kevlar — each string type is made differently and plays differently. Pick the right one.",
+    date: "2026-04-14",
+    tag: "穿線知識",
+    keywords: [
+      "tennis string types",
+      "natural gut string",
+      "polyester tennis string",
+      "nylon synthetic gut",
+      "kevlar tennis string",
+      "hybrid stringing",
+      "網球線材種類",
+      "天然腸線",
+      "聚酯線",
+      "穿線師推薦",
+      "racket stringing hong kong",
+    ],
+    readingTime: 8,
+  },
   // ──────────────────────────────────────────────────────
   // TEMPLATE — copy this block to create a new post:
   // ──────────────────────────────────────────────────────
