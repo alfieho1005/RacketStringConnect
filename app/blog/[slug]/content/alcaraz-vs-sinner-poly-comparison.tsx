@@ -43,6 +43,20 @@ export default function AlcarazVsSinnerPolyComparison() {
         磅相對低啲，打法更「放大招」。
       </p>
 
+      {/* Uploaded photo */}
+      <figure className="my-8">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/blog/Sporting-Scene-Alcaraz-Sinner.jpg.webp"
+          alt="Carlos Alcaraz and Jannik Sinner facing off on court"
+          className="w-full rounded-2xl"
+          loading="lazy"
+        />
+        <figcaption className="mt-2 text-center text-xs text-slate-400">
+          Photograph by Clive Brunskill / Getty
+        </figcaption>
+      </figure>
+
       {/* ── Play style comparison ── */}
       <h2>打法風格對比</h2>
 
