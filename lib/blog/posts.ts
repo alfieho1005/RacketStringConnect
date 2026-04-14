@@ -2,7 +2,7 @@
  * Centralized blog post registry.
  *
  * To publish a new article:
- *   1. Add a BlogPost entry to `posts` (newest first).
+ *   1. Add a BlogPost entry to `_posts` (any order — sorted at runtime).
  *   2. Create `/app/blog/[slug]/content/<slug>.tsx` with the article body.
  *   3. The sitemap, index page, and [slug] route pick it up automatically.
  *
@@ -47,68 +47,33 @@ export type BlogPost = {
   author?: string;
 };
 
-/**
- * All published posts, newest first.
- * The [slug] page, index page, and sitemap all read from this array.
- */
-export const posts: BlogPost[] = [
+const _posts: BlogPost[] = [
   {
-    slug: "how-to-choose-racket-string-and-tension",
-    title: "如何為你的球拍選擇合適的線材與磅數",
-    titleEn: "How to Choose the Right Racket String & Tension",
+    slug: "carlos-alcaraz-why-full-poly",
+    title: "Carlos Alcaraz 點解堅持用全聚酯線？打法、戰術與穿線拆解",
+    titleEn: "Why Carlos Alcaraz Uses Full Polyester — Play Style, Tactics & String Setup",
     description:
-      "唔同嘅線材同磅數會直接影響你嘅力量、控制同手感。呢篇指南由淺入深幫你揀到最適合自己打法嘅穿線設定。",
+      "Alcaraz 用 Babolat RPM Blast 全 poly 而唔用 hybrid，背後原因同佢嘅重炮底線、高旋轉打法同身體條件直接相關。",
     descriptionEn:
-      "Different strings and tensions affect power, control, and feel. This guide helps you find the perfect stringing setup for your play style.",
+      "Why Alcaraz chooses full polyester over hybrid — how his aggressive baseline game, heavy topspin, and physical conditioning drive his string choice.",
     excerpt:
-      "唔同嘅穿線設定，會直接影響你嘅力量、控制、舒適度同整體手感。了解自己適合咩 setup，可以幫你打得更穩定。",
+      "Alcaraz 堅持全 poly 而唔用 hybrid，背後原因同佢嘅重炮底線、旋轉打法同年輕身體條件直接相關。",
     excerptEn:
-      "String choice and tension directly affect power, control, and comfort. Learn which setup suits your play style.",
-    date: "2026-04-14",
+      "Full poly over hybrid — how Alcaraz's power, topspin, and conditioning dictate his string choice.",
+    date: "2026-04-13",
     tag: "穿線知識",
-    coverImage: "/images/blog/how-to-choose-racket-string-and-tension.webp",
-    coverAlt: "Professional stringer adjusting string tension on a racket stringing machine",
+    coverImage: "/images/blog/wp14213812-carlos-alcaraz-wimbledon-2024-champion-wallpapers.jpg",
+    coverAlt: "Carlos Alcaraz celebrating at Wimbledon 2024 with his racket",
     keywords: [
-      "racket stringing",
-      "tennis string tension",
-      "best tennis strings",
-      "racket string setup",
-      "how to choose tennis strings",
-      "how often to restring a racket",
-      "穿線磅數",
-      "球拍線材",
-      "羽毛球穿線",
-      "網球穿線香港",
-    ],
-    readingTime: 6,
-  },
-  {
-    slug: "tennis-string-types-explained",
-    title: "網球拍線材大解構：由製作過程睇清每種線嘅本質",
-    titleEn: "Tennis String Types Explained — Materials, Construction & How to Choose",
-    description:
-      "天然腸線、尼龍線、聚酯線、克維拉同混合穿法，由製作原理到物理特性，穿線師角度逐樣拆解，幫你揀到最適合嘅線材。",
-    descriptionEn:
-      "Natural gut, nylon, polyester, Kevlar, and hybrid setups — understand how each string is made and which suits your game.",
-    excerpt:
-      "天然腸線、聚酯線、尼龍線、克維拉⋯⋯每種線材都有唔同製作方式同物理特性，揀錯線隨時影響表現同舒適度。",
-    excerptEn:
-      "Natural gut, polyester, nylon, Kevlar — each string type is made differently and plays differently. Pick the right one.",
-    date: "2026-04-14",
-    tag: "穿線知識",
-    coverImage: "/images/blog/tennis-string-types-explained.webp",
-    coverAlt: "Macro comparison of different tennis string types — natural gut, polyester, nylon, and kevlar side by side",
-    keywords: [
-      "tennis string types",
-      "natural gut string",
-      "polyester tennis string",
-      "nylon synthetic gut",
-      "kevlar tennis string",
-      "hybrid stringing",
-      "網球線材種類",
-      "天然腸線",
+      "Carlos Alcaraz strings",
+      "Alcaraz racket setup",
+      "Babolat RPM Blast",
+      "why use full polyester",
+      "poly vs hybrid tennis",
+      "Alcaraz打法",
+      "阿爾卡拉斯穿線",
       "聚酯線",
-      "穿線師推薦",
+      "網球穿線香港",
       "racket stringing hong kong",
     ],
     readingTime: 8,
@@ -125,7 +90,7 @@ export const posts: BlogPost[] = [
       "Djokovic 用天然腸線 hybrid、Nadal 全用 poly、Federer 追求手感⋯⋯逐位拆解職業球員嘅穿線設定。",
     excerptEn:
       "Djokovic's gut hybrid, Nadal's full poly, Federer's classic setup — pro string choices explained.",
-    date: "2026-04-14",
+    date: "2026-04-11",
     tag: "穿線知識",
     coverImage: "/images/blog/what-strings-do-pro-tennis-players-use.webp",
     coverAlt: "Professional tennis player mid-swing on a hard court with dramatic stadium lighting",
@@ -145,34 +110,65 @@ export const posts: BlogPost[] = [
     readingTime: 10,
   },
   {
-    slug: "carlos-alcaraz-why-full-poly",
-    title: "Carlos Alcaraz 點解堅持用全聚酯線？打法、戰術與穿線拆解",
-    titleEn: "Why Carlos Alcaraz Uses Full Polyester — Play Style, Tactics & String Setup",
+    slug: "tennis-string-types-explained",
+    title: "網球拍線材大解構：由製作過程睇清每種線嘅本質",
+    titleEn: "Tennis String Types Explained — Materials, Construction & How to Choose",
     description:
-      "Alcaraz 用 Babolat RPM Blast 全 poly 而唔用 hybrid，背後原因同佢嘅重炮底線、高旋轉打法同身體條件直接相關。",
+      "天然腸線、尼龍線、聚酯線、克維拉同混合穿法，由製作原理到物理特性，穿線師角度逐樣拆解，幫你揀到最適合嘅線材。",
     descriptionEn:
-      "Why Alcaraz chooses full polyester over hybrid — how his aggressive baseline game, heavy topspin, and physical conditioning drive his string choice.",
+      "Natural gut, nylon, polyester, Kevlar, and hybrid setups — understand how each string is made and which suits your game.",
     excerpt:
-      "Alcaraz 堅持全 poly 而唔用 hybrid，背後原因同佢嘅重炮底線、旋轉打法同年輕身體條件直接相關。",
+      "天然腸線、聚酯線、尼龍線、克維拉⋯⋯每種線材都有唔同製作方式同物理特性，揀錯線隨時影響表現同舒適度。",
     excerptEn:
-      "Full poly over hybrid — how Alcaraz's power, topspin, and conditioning dictate his string choice.",
-    date: "2026-04-14",
+      "Natural gut, polyester, nylon, Kevlar — each string type is made differently and plays differently. Pick the right one.",
+    date: "2026-04-09",
     tag: "穿線知識",
-    coverImage: "/images/blog/wp14213812-carlos-alcaraz-wimbledon-2024-champion-wallpapers.jpg",
-    coverAlt: "Carlos Alcaraz celebrating at Wimbledon 2024 with his racket",
+    coverImage: "/images/blog/tennis-string-types-explained.webp",
+    coverAlt: "Macro comparison of different tennis string types — natural gut, polyester, nylon, and kevlar side by side",
     keywords: [
-      "Carlos Alcaraz strings",
-      "Alcaraz racket setup",
-      "Babolat RPM Blast",
-      "why use full polyester",
-      "poly vs hybrid tennis",
-      "Alcaraz打法",
-      "阿爾卡拉斯穿線",
+      "tennis string types",
+      "natural gut string",
+      "polyester tennis string",
+      "nylon synthetic gut",
+      "kevlar tennis string",
+      "hybrid stringing",
+      "網球線材種類",
+      "天然腸線",
       "聚酯線",
-      "網球穿線香港",
+      "穿線師推薦",
       "racket stringing hong kong",
     ],
     readingTime: 8,
+  },
+  {
+    slug: "how-to-choose-racket-string-and-tension",
+    title: "如何為你的球拍選擇合適的線材與磅數",
+    titleEn: "How to Choose the Right Racket String & Tension",
+    description:
+      "唔同嘅線材同磅數會直接影響你嘅力量、控制同手感。呢篇指南由淺入深幫你揀到最適合自己打法嘅穿線設定。",
+    descriptionEn:
+      "Different strings and tensions affect power, control, and feel. This guide helps you find the perfect stringing setup for your play style.",
+    excerpt:
+      "唔同嘅穿線設定，會直接影響你嘅力量、控制、舒適度同整體手感。了解自己適合咩 setup，可以幫你打得更穩定。",
+    excerptEn:
+      "String choice and tension directly affect power, control, and comfort. Learn which setup suits your play style.",
+    date: "2026-04-07",
+    tag: "穿線知識",
+    coverImage: "/images/blog/how-to-choose-racket-string-and-tension.webp",
+    coverAlt: "Professional stringer adjusting string tension on a racket stringing machine",
+    keywords: [
+      "racket stringing",
+      "tennis string tension",
+      "best tennis strings",
+      "racket string setup",
+      "how to choose tennis strings",
+      "how often to restring a racket",
+      "穿線磅數",
+      "球拍線材",
+      "羽毛球穿線",
+      "網球穿線香港",
+    ],
+    readingTime: 6,
   },
   // ──────────────────────────────────────────────────────
   // TEMPLATE — copy this block to create a new post:
@@ -191,6 +187,11 @@ export const posts: BlogPost[] = [
   //   readingTime: 5,
   // },
 ];
+
+/** All published posts, sorted newest-first by date (descending) */
+export const posts: BlogPost[] = _posts.sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 
 /** Look up a single post by slug */
 export function getPostBySlug(slug: string): BlogPost | undefined {
