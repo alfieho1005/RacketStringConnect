@@ -53,7 +53,7 @@ export default function ExploreSection({ stringers }: Props) {
     <div className="mx-auto max-w-5xl px-4">
       {/* Hero — full-bleed image with text overlay */}
       <section className="pb-10 pt-8 sm:pt-12">
-        <div className="relative mb-8 overflow-hidden rounded-2xl" style={{ minHeight: "420px" }}>
+        <div className="relative mb-8 overflow-hidden rounded-2xl min-h-[320px] sm:min-h-[420px]">
 
           {/* Background image */}
           <Image
@@ -68,11 +68,11 @@ export default function ExploreSection({ stringers }: Props) {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/60 to-slate-900/20" />
 
           {/* Content on top */}
-          <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-10" style={{ minHeight: "420px" }}>
+          <div className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-10 min-h-[320px] sm:min-h-[420px]">
 
             {/* Sport count strip */}
             {sportCounts.some((s) => s.count > 0) ? (
-              <div className="flex gap-5">
+              <div className="flex gap-3 sm:gap-5">
                 {sportCounts.map((sport) => {
                   const chineseLabels: Record<string, string> = {
                     badminton: "羽毛球",
@@ -109,7 +109,7 @@ export default function ExploreSection({ stringers }: Props) {
 
             {/* Headline + CTA pinned to bottom */}
             <div className="max-w-lg">
-              <h1 className="text-4xl font-black leading-[1.05] text-white sm:text-5xl md:text-6xl">
+              <h1 className="text-3xl font-black leading-[1.05] text-white sm:text-5xl md:text-6xl">
                 香港穿線師目錄<br /><span className="relative inline-block">
                   <span className="relative z-10">Find your stringer.</span>
                   <span

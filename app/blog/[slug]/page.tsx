@@ -227,6 +227,31 @@ export default async function BlogPostPage({
           )}
         </article>
 
+        {/* AI disclosure */}
+        <div className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="mt-0.5 shrink-0 text-slate-400"
+            aria-hidden
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+          <p>
+            <span className="font-semibold text-slate-600">AI-Generated Content</span>{" "}
+            — This article was generated with the assistance of AI and reviewed by humans for accuracy.
+            本文由 AI 輔助撰寫，經人工審閱校對。
+          </p>
+        </div>
+
         {/* Internal link — CTA back to directory */}
         <section className="rounded-2xl border border-yellow-200 bg-yellow-50 p-5 sm:p-6">
           <p className="text-base font-semibold text-slate-900">

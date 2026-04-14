@@ -62,7 +62,7 @@ export default function Filters({
               type="button"
               aria-pressed={isActive}
               onClick={() => onSportChange(isActive ? undefined : sport.id)}
-              className={`flex shrink-0 items-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+              className={`flex shrink-0 items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold transition ${
                 isActive ? activeClass : inactiveClass
               }`}
             >
@@ -82,7 +82,7 @@ export default function Filters({
               type="button"
               aria-pressed={isActive}
               onClick={() => onDistrictChange(isActive ? undefined : district.id)}
-              className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+              className={`shrink-0 rounded-lg border px-4 py-2.5 text-sm font-semibold transition ${
                 isActive ? activeClass : inactiveClass
               }`}
             >
@@ -102,7 +102,7 @@ export default function Filters({
                 aria-pressed={isActive}
                 onClick={() => onAreaChange(isActive ? undefined : area.id)}
                 key={area.id}
-                className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+                className={`shrink-0 rounded-lg border px-4 py-2.5 text-sm font-semibold transition ${
                   isActive ? activeClass : inactiveClass
                 }`}
               >
@@ -117,7 +117,7 @@ export default function Filters({
         <button
           type="button"
           onClick={onReset}
-          className="rounded-lg border border-gray-200 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-gray-400 hover:text-slate-700"
+          className="rounded-lg border border-gray-200 px-4 py-2.5 text-sm font-semibold uppercase tracking-widest text-slate-400 transition hover:border-gray-400 hover:text-slate-700"
         >
           清除篩選 Clear
         </button>

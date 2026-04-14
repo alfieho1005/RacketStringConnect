@@ -178,7 +178,7 @@ export default function StringerJoinForm({
   };
 
   return (
-    <form className="space-y-6 rounded-[32px] border border-white/70 bg-white/80 p-8 shadow-xl shadow-slate-900/5" onSubmit={handleSubmit}>
+    <form className="space-y-6 rounded-[32px] border border-white/70 bg-white/80 p-5 sm:p-8 shadow-xl shadow-slate-900/5" onSubmit={handleSubmit}>
       <div className="space-y-2">
         <h2 className="text-base font-semibold uppercase tracking-[0.5em] text-slate-400">
           登記成為穿線師
@@ -327,7 +327,7 @@ export default function StringerJoinForm({
         <button
           type="submit"
           disabled={status === "working"}
-          className="rounded-full border border-slate-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-slate-900 transition hover:bg-slate-900 hover:text-white disabled:opacity-50"
+          className="rounded-full border border-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 transition hover:bg-slate-900 hover:text-white disabled:opacity-50"
         >
           {status === "working" ? "Submitting..." : buttonLabel}
         </button>
