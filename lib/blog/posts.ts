@@ -66,6 +66,8 @@ export const posts: BlogPost[] = [
       "String choice and tension directly affect power, control, and comfort. Learn which setup suits your play style.",
     date: "2026-04-14",
     tag: "穿線知識",
+    coverImage: "/images/blog/how-to-choose-racket-string-and-tension.webp",
+    coverAlt: "Professional stringer adjusting string tension on a racket stringing machine",
     keywords: [
       "racket stringing",
       "tennis string tension",
@@ -94,6 +96,8 @@ export const posts: BlogPost[] = [
       "Natural gut, polyester, nylon, Kevlar — each string type is made differently and plays differently. Pick the right one.",
     date: "2026-04-14",
     tag: "穿線知識",
+    coverImage: "/images/blog/tennis-string-types-explained.webp",
+    coverAlt: "Macro comparison of different tennis string types — natural gut, polyester, nylon, and kevlar side by side",
     keywords: [
       "tennis string types",
       "natural gut string",
@@ -123,6 +127,8 @@ export const posts: BlogPost[] = [
       "Djokovic's gut hybrid, Nadal's full poly, Federer's classic setup — pro string choices explained.",
     date: "2026-04-14",
     tag: "穿線知識",
+    coverImage: "/images/blog/what-strings-do-pro-tennis-players-use.webp",
+    coverAlt: "Professional tennis player mid-swing on a hard court with dramatic stadium lighting",
     keywords: [
       "pro tennis strings",
       "what strings does Djokovic use",

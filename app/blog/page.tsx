@@ -98,6 +98,15 @@ export default function BlogIndexPage() {
           </ol>
         </nav>
 
+        {/* Hero image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/blog/blog-index-hero.webp"
+          alt="Racket sports equipment — tennis and badminton rackets with colorful strings on a wooden surface"
+          className="w-full rounded-3xl shadow-xl shadow-slate-900/5"
+          loading="eager"
+        />
+
         {/* Hero */}
         <section className="space-y-3 rounded-3xl border border-white/60 bg-white/70 p-6 shadow-xl shadow-slate-900/5 backdrop-blur">
           <p className="text-sm font-semibold uppercase tracking-[0.4em] text-slate-400">
