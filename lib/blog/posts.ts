@@ -144,6 +144,36 @@ export const posts: BlogPost[] = [
     ],
     readingTime: 10,
   },
+  {
+    slug: "carlos-alcaraz-why-full-poly",
+    title: "Carlos Alcaraz 點解堅持用全聚酯線？打法、戰術與穿線拆解",
+    titleEn: "Why Carlos Alcaraz Uses Full Polyester — Play Style, Tactics & String Setup",
+    description:
+      "Alcaraz 用 Babolat RPM Blast 全 poly 而唔用 hybrid，背後原因同佢嘅重炮底線、高旋轉打法同身體條件直接相關。",
+    descriptionEn:
+      "Why Alcaraz chooses full polyester over hybrid — how his aggressive baseline game, heavy topspin, and physical conditioning drive his string choice.",
+    excerpt:
+      "Alcaraz 堅持全 poly 而唔用 hybrid，背後原因同佢嘅重炮底線、旋轉打法同年輕身體條件直接相關。",
+    excerptEn:
+      "Full poly over hybrid — how Alcaraz's power, topspin, and conditioning dictate his string choice.",
+    date: "2026-04-14",
+    tag: "穿線知識",
+    coverImage: "/images/blog/wp14213812-carlos-alcaraz-wimbledon-2024-champion-wallpapers.jpg",
+    coverAlt: "Carlos Alcaraz celebrating at Wimbledon 2024 with his racket",
+    keywords: [
+      "Carlos Alcaraz strings",
+      "Alcaraz racket setup",
+      "Babolat RPM Blast",
+      "why use full polyester",
+      "poly vs hybrid tennis",
+      "Alcaraz打法",
+      "阿爾卡拉斯穿線",
+      "聚酯線",
+      "網球穿線香港",
+      "racket stringing hong kong",
+    ],
+    readingTime: 8,
+  },
   // ──────────────────────────────────────────────────────
   // TEMPLATE — copy this block to create a new post:
   // ──────────────────────────────────────────────────────
