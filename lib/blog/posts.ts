@@ -49,6 +49,36 @@ export type BlogPost = {
 
 const _posts: BlogPost[] = [
   {
+    slug: "alcaraz-vs-sinner-poly-comparison",
+    title: "Alcaraz vs Sinner：同係全 Poly，點解打法同設定完全唔同？",
+    titleEn: "Alcaraz vs Sinner — Same Full Poly, Completely Different Setups",
+    description:
+      "Alcaraz 同 Sinner 都用全聚酯線，但一個係「華麗攻擊創意人」，一個係「精準壓迫機器」。由打法到磅數逐樣拆解兩人嘅分別。",
+    descriptionEn:
+      "Both use full polyester, but Alcaraz and Sinner play completely differently. Compare their setups, tensions, and why each choice fits their game.",
+    excerpt:
+      "同係全 Poly，Alcaraz 用嚟「控制自己嘅 craziness」，Sinner 用嚟「最大化穩定壓迫」。兩種風格，兩種設定。",
+    excerptEn:
+      "Both full poly — but Alcaraz tames his power while Sinner maximises precision. Two styles, two setups.",
+    date: "2026-04-14",
+    tag: "穿線知識",
+    coverImage: "/images/blog/alcaraz-vs-sinner.webp",
+    coverAlt: "Split-screen comparison of two tennis players with contrasting aggressive and controlled play styles",
+    keywords: [
+      "Alcaraz vs Sinner",
+      "Alcaraz string setup",
+      "Sinner string setup",
+      "Babolat RPM Blast vs Head Hawk Touch",
+      "full poly tennis",
+      "poly string comparison",
+      "阿爾卡拉斯 vs 辛納",
+      "聚酯線對比",
+      "網球穿線香港",
+      "racket stringing hong kong",
+    ],
+    readingTime: 9,
+  },
+  {
     slug: "carlos-alcaraz-why-full-poly",
     title: "Carlos Alcaraz 點解堅持用全聚酯線？打法、戰術與穿線拆解",
     titleEn: "Why Carlos Alcaraz Uses Full Polyester — Play Style, Tactics & String Setup",
