@@ -109,6 +109,35 @@ export const posts: BlogPost[] = [
     ],
     readingTime: 8,
   },
+  {
+    slug: "what-strings-do-pro-tennis-players-use",
+    title: "ATP 同 WTA 球星用咩線？職業球員穿線大公開",
+    titleEn: "What Strings Do Pro Tennis Players Use? ATP & WTA Setups Revealed",
+    description:
+      "Djokovic、Nadal、Alcaraz、Świątek、Sabalenka⋯⋯逐位拆解佢哋用咩線材、點解揀呢個 setup，同埋對業餘球員嘅啟示。",
+    descriptionEn:
+      "From Djokovic's gut/poly hybrid to Nadal's full polyester — see what the top ATP & WTA players string and why it matters for your game.",
+    excerpt:
+      "Djokovic 用天然腸線 hybrid、Nadal 全用 poly、Federer 追求手感⋯⋯逐位拆解職業球員嘅穿線設定。",
+    excerptEn:
+      "Djokovic's gut hybrid, Nadal's full poly, Federer's classic setup — pro string choices explained.",
+    date: "2026-04-14",
+    tag: "穿線知識",
+    keywords: [
+      "pro tennis strings",
+      "what strings does Djokovic use",
+      "Nadal string setup",
+      "ATP player strings",
+      "WTA player strings",
+      "Babolat RPM Blast",
+      "Luxilon Alu Power",
+      "natural gut hybrid",
+      "職業球員穿線",
+      "網球線材推薦",
+      "racket stringing hong kong",
+    ],
+    readingTime: 10,
+  },
   // ──────────────────────────────────────────────────────
   // TEMPLATE — copy this block to create a new post:
   // ──────────────────────────────────────────────────────
