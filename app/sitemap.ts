@@ -21,12 +21,15 @@ const localizedPages = [
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const stringers = await fetchActiveStringers();
 
-  const stringerEntries: MetadataRoute.Sitemap = stringers.map((stringer) => ({
-    url: `${BASE_URL}/stringers/${stringer.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
+  // Exclude legacy "-pb-court" slugs that no longer resolve (GSC 404s)
+  const stringerEntries: MetadataRoute.Sitemap = stringers
+    .filter((s) => !s.slug.endsWith("-pb-court"))
+    .map((stringer) => ({
+      url: `${BASE_URL}/stringers/${stringer.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    }));
 
   const localizedEntries: MetadataRoute.Sitemap = localizedPages.map(({ path, priority }) => ({
     url: `${BASE_URL}${path}`,
