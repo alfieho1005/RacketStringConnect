@@ -30,6 +30,7 @@ export const viewport = {
 const navLinks = [
   { href: "/", label: "Find a Stringer" },
   { href: "/about", label: "How It Works" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function RootLayout({
