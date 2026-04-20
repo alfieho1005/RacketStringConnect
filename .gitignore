@@ -42,3 +42,4 @@ next-env.d.ts
 logs/
 scripts/dist/
 scripts/node_modules/
+.backups/

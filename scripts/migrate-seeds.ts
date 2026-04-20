@@ -19,8 +19,15 @@ if (!DATABASE_URL) {
 
 const DRY_RUN = process.argv.includes("--dry-run");
 
+// RDS presents a cert chain pg cannot verify without the RDS CA bundle.
+// Skip verification for RDS hosts (encryption still on, chain not verified).
+const needsSslWorkaround = /\.rds\.amazonaws\.com/.test(DATABASE_URL);
+
 async function migrate() {
-  const pool = new Pool({ connectionString: DATABASE_URL });
+  const pool = new Pool({
+    connectionString: DATABASE_URL,
+    ssl: needsSslWorkaround ? { rejectUnauthorized: false } : undefined,
+  });
 
   console.log(`Loaded ${seedStringers.length} seed stringers`);
   if (DRY_RUN) console.log("DRY RUN — no writes will happen");
