@@ -26,8 +26,9 @@ export async function POST(req: Request) {
   const adminNotes = additionalNotes?.trim() ? `Submitter notes: ${additionalNotes.trim()}` : null;
 
   try {
-    const { Pool } = await import("pg");
-    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const { getPool } = await import("@/lib/db/pool");
+    const pool = await getPool();
+    if (!pool) return NextResponse.json({ error: "Database not configured" }, { status: 500 });
     await pool.query(
       `INSERT INTO submissions
          (slug, name, description, pricing, country_id, area_id, sports,
@@ -45,7 +46,6 @@ export async function POST(req: Request) {
         adminNotes,
       ]
     );
-    await pool.end();
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[join] DB error:", err);

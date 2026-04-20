@@ -38,8 +38,9 @@ interface Court {
 
 async function getCourts(): Promise<Court[]> {
   try {
-    const { Pool } = await import("pg");
-    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const { getPool } = await import("@/lib/db/pool");
+    const pool = await getPool();
+    if (!pool) return [];
     const { rows } = await pool.query(
       `SELECT id, name, description, description_zh, area_id, contact,
               admin_notes
@@ -49,7 +50,6 @@ async function getCourts(): Promise<Court[]> {
          AND admin_notes LIKE '%Pickleball court%'
        ORDER BY name ASC`
     );
-    await pool.end();
     return rows.map((r) => ({
       id: r.id,
       name: r.name,

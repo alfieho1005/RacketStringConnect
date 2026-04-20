@@ -1,17 +1,6 @@
 import { stringerRepository } from "@/lib/stringers/memoryRepository";
 import type { Stringer } from "@/lib/stringers/types";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let pgPool: any = null;
-
-async function getPool() {
-  if (!process.env.DATABASE_URL) return null;
-  if (!pgPool) {
-    const { Pool } = await import("pg");
-    pgPool = new Pool({ connectionString: process.env.DATABASE_URL });
-  }
-  return pgPool;
-}
+import { getPool } from "@/lib/db/pool";
 
 const SELECT_COLUMNS = `id, slug, name, description, pricing, country_id, area_id,
               sports, contact, visibility, sort_id, has_certified_stringers`;

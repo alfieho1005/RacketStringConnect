@@ -16,13 +16,13 @@ export async function PATCH(
   }
 
   try {
-    const { Pool } = await import("pg");
-    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const { getPool } = await import("@/lib/db/pool");
+    const pool = await getPool();
+    if (!pool) return NextResponse.json({ error: "Database not configured" }, { status: 500 });
     await pool.query(
       `UPDATE submissions SET status = $1, updated_at = now() WHERE id = $2`,
       [action, id]
     );
-    await pool.end();
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[admin submissions] DB error:", err);

@@ -6,8 +6,9 @@ import LogoutButton from "./LogoutButton";
 
 async function getPendingSubmissions() {
   try {
-    const { Pool } = await import("pg");
-    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const { getPool } = await import("@/lib/db/pool");
+    const pool = await getPool();
+    if (!pool) return [];
     const { rows } = await pool.query(
       `SELECT id, slug, name, description, country_id, area_id, sports,
               contact, pricing, admin_notes, created_at
@@ -15,7 +16,6 @@ async function getPendingSubmissions() {
        WHERE status = 'pending'
        ORDER BY created_at DESC`
     );
-    await pool.end();
     return rows;
   } catch {
     return [];
@@ -24,8 +24,9 @@ async function getPendingSubmissions() {
 
 async function getCounts() {
   try {
-    const { Pool } = await import("pg");
-    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const { getPool } = await import("@/lib/db/pool");
+    const pool = await getPool();
+    if (!pool) return { approved: 0, pending: 0, rejected: 0, discovery_pending: 0 };
     const { rows } = await pool.query(
       `SELECT
          COUNT(*) FILTER (WHERE status = 'approved') AS approved,
@@ -36,7 +37,6 @@ async function getCounts() {
     const { rows: dqRows } = await pool.query(
       `SELECT COUNT(*) FILTER (WHERE status = 'pending') AS discovery_pending FROM discovery_queue`
     );
-    await pool.end();
     return { ...rows[0], ...dqRows[0] };
   } catch {
     return { approved: 0, pending: 0, rejected: 0, discovery_pending: 0 };

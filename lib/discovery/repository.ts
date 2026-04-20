@@ -1,18 +1,14 @@
 import type { DiscoveryQueueRow, DiscoveryRunRow, DiscoveryStatus } from "./types";
+import { getPool } from "@/lib/db/pool";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let pool: any = null;
-
-async function getPool() {
-  if (!pool) {
-    const { Pool } = await import("pg");
-    pool = new Pool({ connectionString: process.env.DATABASE_URL });
-  }
+async function requirePool() {
+  const pool = await getPool();
+  if (!pool) throw new Error("DATABASE_URL is not set");
   return pool;
 }
 
 export async function listPendingCandidates(): Promise<DiscoveryQueueRow[]> {
-  const db = await getPool();
+  const db = await requirePool();
   const { rows } = await db.query(
     `SELECT * FROM discovery_queue
      WHERE status = 'pending'
@@ -22,7 +18,7 @@ export async function listPendingCandidates(): Promise<DiscoveryQueueRow[]> {
 }
 
 export async function listRuns(): Promise<DiscoveryRunRow[]> {
-  const db = await getPool();
+  const db = await requirePool();
   const { rows } = await db.query(
     `SELECT * FROM discovery_runs ORDER BY started_at DESC LIMIT 50`
   );
@@ -30,7 +26,7 @@ export async function listRuns(): Promise<DiscoveryRunRow[]> {
 }
 
 export async function getCandidate(id: string): Promise<DiscoveryQueueRow | null> {
-  const db = await getPool();
+  const db = await requirePool();
   const { rows } = await db.query(
     `SELECT * FROM discovery_queue WHERE id = $1`,
     [id]
@@ -44,7 +40,7 @@ export async function reviewCandidate(
   areaId?: string,
   adminNotes?: string
 ): Promise<void> {
-  const db = await getPool();
+  const db = await requirePool();
   await db.query(
     `UPDATE discovery_queue
      SET status = $1, area_id = COALESCE($2, area_id),
@@ -61,7 +57,7 @@ export async function promoteToSubmissions(row: DiscoveryQueueRow): Promise<void
     .replace(/^-|-$/g, "")
     .slice(0, 80);
 
-  const db = await getPool();
+  const db = await requirePool();
   await db.query(
     `INSERT INTO submissions
        (slug, name, description, pricing, country_id, area_id, sports, contact, visibility, status)
